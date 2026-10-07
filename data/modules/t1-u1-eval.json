@@ -1,0 +1,194 @@
+{
+  "id": "t1-u1-eval",
+  "titulo": "Evaluación Formativa: Números Reales, Álgebra y Productos Notables",
+  "unidadId": "unidad-1",
+  "unidadTitulo": "Unidad 1: Propiedades de los números reales y medidas de tendencia central y dispersión",
+  "trimestre": 1,
+  "paginasLibro": "18-19",
+  "secciones": [
+    {
+      "id": "sec-1",
+      "numero": 1,
+      "enunciado": "Aproximaciones decimales con calculadora (4 y 8 cifras decimales)",
+      "ejercicios": [
+        {
+          "literal": "a",
+          "expresion": "x = \\sqrt{571}",
+          "cuatroDecimales": "23.8956",
+          "ochoDecimales": "23.89560629",
+          "explicacion": "Valor exacto en punto flotante: 23.8956062908... Se evalúa la cifra siguiente para redondear."
+        },
+        {
+          "literal": "b",
+          "expresion": "x = -800\\sqrt{4}",
+          "cuatroDecimales": "-1600.0000",
+          "ochoDecimales": "-1600.00000000",
+          "explicacion": "Como $\\sqrt{4} = 2$, tenemos $-800 \\times 2 = -1600$ (número entero exacto)."
+        },
+        {
+          "literal": "c",
+          "expresion": "a = -800\\sqrt{45}",
+          "cuatroDecimales": "-5366.5631",
+          "ochoDecimales": "-5366.56314599",
+          "explicacion": "$\\sqrt{45} = 3\\sqrt{5} \\approx 6.708203932...$; al multiplicar por $-800$ resulta $-5366.56314599$."
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "numero": 2,
+      "enunciado": "Operaciones con aproximaciones conocidas",
+      "datos": "$\\sqrt{5} \\approx 2.236067977$, $\\sqrt[3]{5} \\approx 1.709975947$, $\\sqrt[4]{5} \\approx 1.495348781$",
+      "ejercicios": [
+        {
+          "literal": "a",
+          "expresion": "x = 15.41 - 2.37\\sqrt[3]{5}",
+          "resultado": "11.35735701",
+          "pasos": [
+            "1. Multiplicar: $2.37 \\times 1.709975947 = 4.052642994$",
+            "2. Restar: $15.41 - 4.052642994 = 11.35735701$"
+          ]
+        },
+        {
+          "literal": "b",
+          "expresion": "y = \\frac{1 + \\sqrt[4]{5}}{1 - \\sqrt[3]{5}}",
+          "resultado": "-3.5147048",
+          "pasos": [
+            "1. Numerador: $1 + 1.495348781 = 2.495348781$",
+            "2. Denominador: $1 - 1.709975947 = -0.709975947$",
+            "3. Cociente: $\\frac{2.495348781}{-0.709975947} \\approx -3.5147048$"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sec-3",
+      "numero": 3,
+      "enunciado": "Tabla comparativa: Truncamiento vs. Redondeo",
+      "filas": [
+        {
+          "numero": "2.276567",
+          "truncadoCent": "2.27",
+          "redondeadoCent": "2.28",
+          "truncadoMil": "2.276",
+          "redondeadoMil": "2.277"
+        },
+        {
+          "numero": "3.14567",
+          "truncadoCent": "3.14",
+          "redondeadoCent": "3.15",
+          "truncadoMil": "3.145",
+          "redondeadoMil": "3.146"
+        },
+        {
+          "numero": "8.43496",
+          "truncadoCent": "8.43",
+          "redondeadoCent": "8.43",
+          "truncadoMil": "8.434",
+          "redondeadoMil": "8.435"
+        }
+      ]
+    },
+    {
+      "id": "sec-5",
+      "numero": 5,
+      "enunciado": "Cálculo del opuesto aditivo $-x$ para cada expresión real",
+      "ejercicios": [
+        {
+          "literal": "a",
+          "expresion": "x = 2a + 1",
+          "opuesto": "-x = -(2a + 1) = -2a - 1"
+        },
+        {
+          "literal": "b",
+          "expresion": "x = 3a - b",
+          "opuesto": "-x = -(3a - b) = -3a + b"
+        },
+        {
+          "literal": "c",
+          "expresion": "x = -\\frac{a}{4} + \\frac{2}{3}b",
+          "opuesto": "-x = \\frac{a}{4} - \\frac{2}{3}b"
+        },
+        {
+          "literal": "d",
+          "expresion": "x = a - \\sqrt{2}b",
+          "opuesto": "-x = -a + \\sqrt{2}b"
+        },
+        {
+          "literal": "e",
+          "expresion": "a = x - y - 2 \\implies x = a + y + 2",
+          "opuesto": "-x = -a - y - 2"
+        },
+        {
+          "literal": "f",
+          "expresion": "a = 6x^2 - m^3x",
+          "opuesto": "$-x$: Para $x$ despejado o la expresión opuesta $-a = -6x^2 + m^3x$"
+        },
+        {
+          "literal": "g",
+          "expresion": "a = \\frac{1}{2}x - \\frac{3}{4}y",
+          "opuesto": "-x = -2a - \\frac{3}{2}y"
+        },
+        {
+          "literal": "h",
+          "expresion": "0 = -5\\sqrt{3}x + 7\\sqrt{13}y",
+          "opuesto": "Como $x = \\frac{7\\sqrt{13}y}{5\\sqrt{3}}$, su opuesto es $-x = -\\frac{7\\sqrt{13}y}{5\\sqrt{3}}$"
+        }
+      ]
+    },
+    {
+      "id": "sec-6",
+      "numero": 6,
+      "enunciado": "Determinación del inverso multiplicativo (recíproco $x^{-1} = 1/x$)",
+      "ejercicios": [
+        {
+          "literal": "a",
+          "expresion": "x = 3a",
+          "inverso": "x^{-1} = \\frac{1}{3a} \\quad (a \\neq 0)"
+        },
+        {
+          "literal": "b",
+          "expresion": "x = -\\frac{a}{3b}",
+          "inverso": "x^{-1} = -\\frac{3b}{a} \\quad (a, b \\neq 0)"
+        },
+        {
+          "literal": "c",
+          "expresion": "x = 10ab",
+          "inverso": "x^{-1} = \\frac{1}{10ab} \\quad (a, b \\neq 0)"
+        },
+        {
+          "literal": "d",
+          "expresion": "x = -3xy",
+          "inverso": "\\text{Opuesto multiplicativo de } -3xy \\text{ es } -\\frac{1}{3xy}"
+        }
+      ]
+    },
+    {
+      "id": "sec-9",
+      "numero": 9,
+      "enunciado": "Pruebas y demostraciones algebraicas formales",
+      "ejercicios": [
+        {
+          "literal": "a",
+          "expresion": "(a + b + c)^2 = a^2 + b^2 + c^2 + 2ab + 2ac + 2bc",
+          "demostracion": [
+            "Agrupar los primeros dos términos: $[(a + b) + c]^2$",
+            "Aplicar binomio al cuadrado: $(a + b)^2 + 2(a + b)c + c^2$",
+            "Desarrollar: $a^2 + 2ab + b^2 + 2ac + 2bc + c^2$",
+            "Reordenar términos cuadráticos y dobles productos: $a^2 + b^2 + c^2 + 2ab + 2ac + 2bc$."
+          ]
+        },
+        {
+          "literal": "b",
+          "expresion": "(a - b + c)^2 = a^2 + b^2 + c^2 - 2ab + 2ac - 2bc",
+          "demostracion": [
+            "Escribir como suma de signos: $[a + (-b) + c]^2$",
+            "Aplicar la fórmula del trinomio al cuadrado:",
+            "$a^2 + (-b)^2 + c^2 + 2a(-b) + 2ac + 2(-b)c$",
+            "Simplificar signos: $a^2 + b^2 + c^2 - 2ab + 2ac - 2bc$."
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "curso": "Matemáticas 1.º BGU",
+  "periodo": "2026-2027",
+  "textoReferencia": "Texto oficial MINEDUC (Año 2025-2026)",
+  "ministerio": "Ministerio de Educación del Ecuador",
+  "trimestres": [
+    {
+      "id": "trimestre-1",
+      "numero": 1,
+      "nombre": "Primer Trimestre",
+      "descripcion": "Estructuras algebraicas de los números reales, productos notables, ecuaciones y medidas estadísticas de dispersión.",
+      "activo": true,
+      "unidades": [
+        {
+          "id": "unidad-1",
+          "numero": 1,
+          "titulo": "Propiedades de los números reales y medidas de tendencia central y dispersión",
+          "paginas": "10-35",
+          "objetivos": [
+            "O.G.M.1: Proponer soluciones creativas a situaciones concretas de la realidad nacional y mundial mediante la aplicación de las operaciones básicas de los diferentes conjuntos numéricos.",
+            "O.G.M.2: Producir, comunicar y generalizar información de manera escrita, verbal, simbólica, gráfica y/o tecnológica mediante la aplicación de conocimientos matemáticos.",
+            "O.G.M.6: Desarrollar la curiosidad y la creatividad a través del uso de herramientas matemáticas al momento de enfrentar y solucionar problemas de la realidad."
+          ],
+          "temas": [
+            {
+              "id": "t1-u1-tema1",
+              "numero": "1.1",
+              "titulo": "Números reales: comprender antes de memorizar",
+              "paginas": "12-15",
+              "archivo": "data/modules/t1-u1-tema1.json",
+              "descripcion": "Diagnóstico, refuerzo de operaciones y fracciones, conjuntos numéricos, raíces, orden, propiedades, opuestos, inversos y distributiva."
+            },
+            {
+              "id": "t1-u1-tema2",
+              "numero": "1.2",
+              "titulo": "Productos notables y factorización con interpretación geométrica",
+              "paginas": "16-17",
+              "archivo": "data/modules/t1-u1-tema2.json",
+              "descripcion": "Desarrollo algebraico y demostración visual mediante áreas y volúmenes: binomio al cuadrado, diferencia de cuadrados y cubo de un binomio."
+            },
+            {
+              "id": "t1-u1-eval1",
+              "numero": "1.3",
+              "titulo": "Evaluación Formativa: Números Reales y Álgebra",
+              "paginas": "18-19",
+              "archivo": "data/modules/t1-u1-eval.json",
+              "tipo": "evaluacion",
+              "descripcion": "Ejercicios prácticos del libro oficial: aproximaciones numéricas (redondeo y truncamiento), simplificación de radicales, inversos multiplicativos y demostraciones algebraicas."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trimestre-2",
+      "numero": 2,
+      "nombre": "Segundo Trimestre",
+      "descripcion": "Funciones reales, funciones lineales y cuadráticas, modelado matemático y sistemas de ecuaciones lineales.",
+      "activo": false,
+      "unidades": [
+        {
+          "id": "unidad-2",
+          "numero": 2,
+          "titulo": "Funciones reales, modelos lineales y cuadráticos",
+          "paginas": "36-70",
+          "enConstruccion": true,
+          "temas": []
+        }
+      ]
+    },
+    {
+      "id": "trimestre-3",
+      "numero": 3,
+      "nombre": "Tercer Trimestre",
+      "descripcion": "Vectores en el plano R², geometría analítica, trigonometría y probabilidad.",
+      "activo": false,
+      "unidades": [
+        {
+          "id": "unidad-3",
+          "numero": 3,
+          "titulo": "Geometría analítica, vectores y probabilidad",
+          "paginas": "71-110",
+          "enConstruccion": true,
+          "temas": []
+        }
+      ]
+    }
+  ]
+}

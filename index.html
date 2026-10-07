@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matemáticas 1.º BGU · Aprender paso a paso</title>
+
+  <link rel="icon" href="data:,">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+
+  <!-- Estilos del Proyecto -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/math-theme.css">
+  <link rel="stylesheet" href="css/learning-path.css">
+</head>
+<body>
+
+  <!-- Encabezado Superior -->
+  <header class="header-top">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">∑</div>
+        <div class="brand-info">
+          <h1>Matemáticas 1.º BGU</h1>
+          <p>Aprender, practicar y comprender • 2026-2027</p>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <div class="search-box">
+          <svg class="search-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" id="search-input" class="search-input" placeholder="Buscar tema o fórmula...">
+        </div>
+        <button id="theme-toggle" class="theme-btn" title="Alternar tema claro/oscuro">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Selector de Trimestres -->
+  <nav class="trimester-nav">
+    <div class="trimester-container" id="trimester-tabs">
+      <!-- Inyectado por js/app.js -->
+    </div>
+  </nav>
+
+  <!-- Cuerpo Principal -->
+  <div class="main-wrapper">
+    <!-- Barra Lateral de Temas y Navegación de Unidades -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Contenido Curricular</div>
+        <ul class="topics-list" id="topics-list">
+          <!-- Inyectado dinámicamente -->
+        </ul>
+      </div>
+
+      <div class="sidebar-card" style="background: var(--bg-subtle);">
+        <h4 style="font-size: 0.85rem; color: var(--primary); margin-bottom: 0.35rem;">🌱 Aprende a tu ritmo</h4>
+        <p style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.4;">
+          Comprueba tus bases, refuerza lo que necesites y construye cada idea paso a paso. El texto escolar es una referencia para seleccionar contenidos.
+        </p>
+      </div>
+    </aside>
+
+    <!-- Contenedor Dinámico de Temas y Evaluaciones -->
+    <main class="content-area" id="main-content">
+      <!-- El contenido se inyecta dinámicamente según el tema seleccionado -->
+    </main>
+  </div>
+
+  <!-- Pie de Página Institucional -->
+  <footer class="footer">
+    <p><strong>Matemáticas 1.º BGU • Bachillerato General Unificado</strong></p>
+    <p style="margin-top: 0.35rem;">
+      Plataforma educativa modular de acceso libre y colaborativo • Período Lectivo 2026-2027
+    </p>
+  </footer>
+
+  <!-- Librerías de KaTeX -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+  <!-- Datos y Scripts del Proyecto -->
+  <script src="js/data-store.js"></script>
+  <script src="js/math-render.js"></script>
+  <script src="js/interactive-geometry.js"></script>
+  <script src="js/quiz-engine.js"></script>
+  <script src="js/learning-path.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
