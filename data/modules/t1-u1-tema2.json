@@ -37,19 +37,19 @@
       ],
       "preguntas": [
         {
-          "pregunta": "Si $x=3$, ¿cuánto vale $2x$?",
+          "pregunta": "La letra $x$ representa un número. Si ese número es 3, ¿cuánto es $2\\times x$ (dos veces ese número)?",
           "opciones": [
             "$5$",
             "$6$",
             "$9$"
           ],
           "correcta": 1,
-          "pista": "La escritura 2x significa 2 multiplicado por x.",
-          "explicacion": "$2\times3=6$.",
+          "pista": "Reemplaza la letra por 3: tienes dos grupos de 3. El símbolo × indica multiplicación.",
+          "explicacion": "Como $x=3$, reemplazamos la letra por 3: $2\\times x=2\\times3=6$. Se lee «dos por tres es igual a seis». En álgebra, $2x$ es otra manera de escribir $2\\times x$: significa multiplicar, no sumar.",
           "errores": [
-            "Sumaste 2 y 3; aquí hay un producto.",
+            "Sumaste 2 y 3. Aquí se pide multiplicar: dos grupos de tres.",
             "",
-            "Calculaste x² en lugar de 2x."
+            "Multiplicaste 3 por sí mismo. Aquí debes multiplicar 2 por el valor de la letra, que es 3."
           ]
         },
         {
@@ -861,19 +861,19 @@
   ],
   "diagnostico": [
     {
-      "pregunta": "Si $x=3$, ¿cuánto vale $2x$?",
+      "pregunta": "La letra $x$ representa un número. Si ese número es 3, ¿cuánto es $2\\times x$ (dos veces ese número)?",
       "opciones": [
         "$5$",
         "$6$",
         "$9$"
       ],
       "correcta": 1,
-      "pista": "La escritura 2x significa 2 multiplicado por x.",
-      "explicacion": "$2\times3=6$.",
+      "pista": "Reemplaza la letra por 3: tienes dos grupos de 3. El símbolo × indica multiplicación.",
+      "explicacion": "Como $x=3$, reemplazamos la letra por 3: $2\\times x=2\\times3=6$. Se lee «dos por tres es igual a seis». En álgebra, $2x$ es otra manera de escribir $2\\times x$: significa multiplicar, no sumar.",
       "errores": [
-        "Sumaste 2 y 3; aquí hay un producto.",
+        "Sumaste 2 y 3. Aquí se pide multiplicar: dos grupos de tres.",
         "",
-        "Calculaste x² en lugar de 2x."
+        "Multiplicaste 3 por sí mismo. Aquí debes multiplicar 2 por el valor de la letra, que es 3."
       ],
       "leccion": "lenguaje"
     },
