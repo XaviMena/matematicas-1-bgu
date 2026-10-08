@@ -7,7 +7,7 @@ Los dos primeros temas se organizan como rutas de aprendizaje:
 - Números reales: ocho lecciones, ocho preguntas de diagnóstico, 24 de práctica y seis de cierre.
 - Productos notables y factorización: diez lecciones, seis preguntas de diagnóstico, 30 de práctica y ocho de cierre, con ejemplos numéricos y desarrollo con la distributiva.
 
-El progreso se conserva por separado al cambiar de tema durante la sesión. Cada lección enlaza los refuerzos concretos que necesita e incluye ejemplos explicados. Las notas del docente se conservan en `docs/metodologia-docente.md` y no se cargan en la página estudiantil. La evaluación conjunta conserva su contenido preliminar.
+El progreso se conserva por separado al cambiar de tema durante la sesión. Cada lección enlaza los refuerzos concretos que necesita e incluye ejemplos explicados. Las notas del docente se conservan en `docs/metodologia-docente.md` y no se cargan en la página estudiantil. El tema 1.3 reúne seis bloques de práctica, seis preguntas de diagnóstico y ocho ejercicios de cierre. Sus enlaces de repaso abren la lección correspondiente de los temas 1.1 y 1.2; las respuestas se conservan al volver durante la sesión.
 
 ## Vista local
 

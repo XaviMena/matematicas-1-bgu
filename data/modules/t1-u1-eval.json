@@ -1,194 +1,768 @@
 {
-  "id": "t1-u1-eval",
-  "titulo": "Evaluación Formativa: Números Reales, Álgebra y Productos Notables",
+  "id": "t1-u1-eval1",
+  "titulo": "Evaluación formativa: comprueba y refuerza",
+  "temaNumero": "1.3",
   "unidadId": "unidad-1",
-  "unidadTitulo": "Unidad 1: Propiedades de los números reales y medidas de tendencia central y dispersión",
+  "unidadTitulo": "Tema 1.3 · Usa lo que has aprendido",
   "trimestre": 1,
   "paginasLibro": "18-19",
-  "secciones": [
+  "version": 3,
+  "introduccion": "Practica una habilidad a la vez. Intenta resolver, comprueba tu respuesta y vuelve al repaso cuando lo necesites.",
+  "objetivo": "Comprobar operaciones con números reales, productos notables y factorización de los temas 1.1 y 1.2. Esta práctica no introduce fórmulas nuevas ni asigna una nota.",
+  "lecciones": [
     {
-      "id": "sec-1",
-      "numero": 1,
-      "enunciado": "Aproximaciones decimales con calculadora (4 y 8 cifras decimales)",
-      "ejercicios": [
+      "id": "operaciones",
+      "titulo": "1. Operaciones y signos",
+      "tituloRuta": "1. Operaciones y signos",
+      "descripcionRuta": "Resolver operaciones respetando signos y paréntesis.",
+      "fase": "PRACTICA POR HABILIDADES",
+      "bases": [
+        "Suma, resta, multiplicación y orden de las operaciones."
+      ],
+      "refuerzos": [],
+      "repasos": [
         {
-          "literal": "a",
-          "expresion": "x = \\sqrt{571}",
-          "cuatroDecimales": "23.8956",
-          "ochoDecimales": "23.89560629",
-          "explicacion": "Valor exacto en punto flotante: 23.8956062908... Se evalúa la cifra siguiente para redondear."
-        },
-        {
-          "literal": "b",
-          "expresion": "x = -800\\sqrt{4}",
-          "cuatroDecimales": "-1600.0000",
-          "ochoDecimales": "-1600.00000000",
-          "explicacion": "Como $\\sqrt{4} = 2$, tenemos $-800 \\times 2 = -1600$ (número entero exacto)."
-        },
-        {
-          "literal": "c",
-          "expresion": "a = -800\\sqrt{45}",
-          "cuatroDecimales": "-5366.5631",
-          "ochoDecimales": "-5366.56314599",
-          "explicacion": "$\\sqrt{45} = 3\\sqrt{5} \\approx 6.708203932...$; al multiplicar por $-800$ resulta $-5366.56314599$."
+          "tema": "t1-u1-tema1",
+          "leccion": "operaciones",
+          "titulo": "Operar con sentido"
         }
-      ]
-    },
-    {
-      "id": "sec-2",
-      "numero": 2,
-      "enunciado": "Operaciones con aproximaciones conocidas",
-      "datos": "$\\sqrt{5} \\approx 2.236067977$, $\\sqrt[3]{5} \\approx 1.709975947$, $\\sqrt[4]{5} \\approx 1.495348781$",
-      "ejercicios": [
+      ],
+      "meta": "Resolver operaciones respetando signos y paréntesis.",
+      "paraQue": "Para comprobar tu procedimiento y reconocer qué necesitas reforzar.",
+      "explicacion": [
+        "Resuelve primero los ejercicios en tu cuaderno. Si necesitas recordar el procedimiento, lee este ejemplo o abre el repaso. Consultar ayuda también cuenta como práctica, pero no como respuesta sin apoyo."
+      ],
+      "ejemplo": "Calcula $-3+2(5-1)$.",
+      "pasos": [
+        "Resuelve el paréntesis: $5-1=4$.",
+        "Multiplica: $2\\times4=8$.",
+        "Suma: $-3+8=5$."
+      ],
+      "preguntas": [
         {
-          "literal": "a",
-          "expresion": "x = 15.41 - 2.37\\sqrt[3]{5}",
-          "resultado": "11.35735701",
-          "pasos": [
-            "1. Multiplicar: $2.37 \\times 1.709975947 = 4.052642994$",
-            "2. Restar: $15.41 - 4.052642994 = 11.35735701$"
+          "pregunta": "Calcula $-4+3\\times2$.",
+          "opciones": [
+            "$-2$",
+            "$2$",
+            "$-14$"
+          ],
+          "correcta": 1,
+          "pista": "Multiplica antes de sumar.",
+          "explicacion": "3 × 2 = 6; luego −4 + 6 = 2.",
+          "errores": [
+            "Sumaste −4 y 3 antes de multiplicar.",
+            "",
+            "La multiplicación es positiva; después se suma a −4."
           ]
         },
         {
-          "literal": "b",
-          "expresion": "y = \\frac{1 + \\sqrt[4]{5}}{1 - \\sqrt[3]{5}}",
-          "resultado": "-3.5147048",
-          "pasos": [
-            "1. Numerador: $1 + 1.495348781 = 2.495348781$",
-            "2. Denominador: $1 - 1.709975947 = -0.709975947$",
-            "3. Cociente: $\\frac{2.495348781}{-0.709975947} \\approx -3.5147048$"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "sec-3",
-      "numero": 3,
-      "enunciado": "Tabla comparativa: Truncamiento vs. Redondeo",
-      "filas": [
-        {
-          "numero": "2.276567",
-          "truncadoCent": "2.27",
-          "redondeadoCent": "2.28",
-          "truncadoMil": "2.276",
-          "redondeadoMil": "2.277"
-        },
-        {
-          "numero": "3.14567",
-          "truncadoCent": "3.14",
-          "redondeadoCent": "3.15",
-          "truncadoMil": "3.145",
-          "redondeadoMil": "3.146"
-        },
-        {
-          "numero": "8.43496",
-          "truncadoCent": "8.43",
-          "redondeadoCent": "8.43",
-          "truncadoMil": "8.434",
-          "redondeadoMil": "8.435"
-        }
-      ]
-    },
-    {
-      "id": "sec-5",
-      "numero": 5,
-      "enunciado": "Cálculo del opuesto aditivo $-x$ para cada expresión real",
-      "ejercicios": [
-        {
-          "literal": "a",
-          "expresion": "x = 2a + 1",
-          "opuesto": "-x = -(2a + 1) = -2a - 1"
-        },
-        {
-          "literal": "b",
-          "expresion": "x = 3a - b",
-          "opuesto": "-x = -(3a - b) = -3a + b"
-        },
-        {
-          "literal": "c",
-          "expresion": "x = -\\frac{a}{4} + \\frac{2}{3}b",
-          "opuesto": "-x = \\frac{a}{4} - \\frac{2}{3}b"
-        },
-        {
-          "literal": "d",
-          "expresion": "x = a - \\sqrt{2}b",
-          "opuesto": "-x = -a + \\sqrt{2}b"
-        },
-        {
-          "literal": "e",
-          "expresion": "a = x - y - 2 \\implies x = a + y + 2",
-          "opuesto": "-x = -a - y - 2"
-        },
-        {
-          "literal": "f",
-          "expresion": "a = 6x^2 - m^3x",
-          "opuesto": "$-x$: Para $x$ despejado o la expresión opuesta $-a = -6x^2 + m^3x$"
-        },
-        {
-          "literal": "g",
-          "expresion": "a = \\frac{1}{2}x - \\frac{3}{4}y",
-          "opuesto": "-x = -2a - \\frac{3}{2}y"
-        },
-        {
-          "literal": "h",
-          "expresion": "0 = -5\\sqrt{3}x + 7\\sqrt{13}y",
-          "opuesto": "Como $x = \\frac{7\\sqrt{13}y}{5\\sqrt{3}}$, su opuesto es $-x = -\\frac{7\\sqrt{13}y}{5\\sqrt{3}}$"
-        }
-      ]
-    },
-    {
-      "id": "sec-6",
-      "numero": 6,
-      "enunciado": "Determinación del inverso multiplicativo (recíproco $x^{-1} = 1/x$)",
-      "ejercicios": [
-        {
-          "literal": "a",
-          "expresion": "x = 3a",
-          "inverso": "x^{-1} = \\frac{1}{3a} \\quad (a \\neq 0)"
-        },
-        {
-          "literal": "b",
-          "expresion": "x = -\\frac{a}{3b}",
-          "inverso": "x^{-1} = -\\frac{3b}{a} \\quad (a, b \\neq 0)"
-        },
-        {
-          "literal": "c",
-          "expresion": "x = 10ab",
-          "inverso": "x^{-1} = \\frac{1}{10ab} \\quad (a, b \\neq 0)"
-        },
-        {
-          "literal": "d",
-          "expresion": "x = -3xy",
-          "inverso": "\\text{Opuesto multiplicativo de } -3xy \\text{ es } -\\frac{1}{3xy}"
-        }
-      ]
-    },
-    {
-      "id": "sec-9",
-      "numero": 9,
-      "enunciado": "Pruebas y demostraciones algebraicas formales",
-      "ejercicios": [
-        {
-          "literal": "a",
-          "expresion": "(a + b + c)^2 = a^2 + b^2 + c^2 + 2ab + 2ac + 2bc",
-          "demostracion": [
-            "Agrupar los primeros dos términos: $[(a + b) + c]^2$",
-            "Aplicar binomio al cuadrado: $(a + b)^2 + 2(a + b)c + c^2$",
-            "Desarrollar: $a^2 + 2ab + b^2 + 2ac + 2bc + c^2$",
-            "Reordenar términos cuadráticos y dobles productos: $a^2 + b^2 + c^2 + 2ab + 2ac + 2bc$."
+          "pregunta": "Calcula $(-3)(-2)-5$.",
+          "opciones": [
+            "$-11$",
+            "$11$",
+            "$1$"
+          ],
+          "correcta": 2,
+          "pista": "Dos negativos multiplicados dan un positivo.",
+          "explicacion": "(−3)(−2) = 6; luego 6 − 5 = 1.",
+          "errores": [
+            "El producto de dos negativos es positivo.",
+            "Se resta 5; no se suma.",
+            ""
           ]
         },
         {
-          "literal": "b",
-          "expresion": "(a - b + c)^2 = a^2 + b^2 + c^2 - 2ab + 2ac - 2bc",
-          "demostracion": [
-            "Escribir como suma de signos: $[a + (-b) + c]^2$",
-            "Aplicar la fórmula del trinomio al cuadrado:",
-            "$a^2 + (-b)^2 + c^2 + 2a(-b) + 2ac + 2(-b)c$",
-            "Simplificar signos: $a^2 + b^2 + c^2 - 2ab + 2ac - 2bc$."
+          "pregunta": "Calcula $18\\div(3+3)$.",
+          "opciones": [
+            "$3$",
+            "$9$",
+            "$6$"
+          ],
+          "correcta": 0,
+          "pista": "Resuelve el paréntesis completo.",
+          "explicacion": "3 + 3 = 6; luego 18 ÷ 6 = 3.",
+          "errores": [
+            "",
+            "Dividiste antes de terminar el paréntesis.",
+            "6 es el valor del paréntesis; falta dividir."
           ]
         }
+      ],
+      "ejemplosExtra": []
+    },
+    {
+      "id": "reales",
+      "titulo": "2. Fracciones y números reales",
+      "tituloRuta": "2. Fracciones y números reales",
+      "descripcionRuta": "Reconocer cantidades equivalentes y distinguir valores exactos de aproximaciones.",
+      "fase": "PRACTICA POR HABILIDADES",
+      "bases": [
+        "Fracciones, decimales, raíces cuadradas y comparación."
+      ],
+      "refuerzos": [],
+      "repasos": [
+        {
+          "tema": "t1-u1-tema1",
+          "leccion": "fracciones",
+          "titulo": "Fracciones y decimales"
+        },
+        {
+          "tema": "t1-u1-tema1",
+          "leccion": "raices",
+          "titulo": "Raíces y números reales"
+        }
+      ],
+      "meta": "Reconocer cantidades equivalentes y distinguir valores exactos de aproximaciones.",
+      "paraQue": "Para comprobar tu procedimiento y reconocer qué necesitas reforzar.",
+      "explicacion": [
+        "Resuelve primero los ejercicios en tu cuaderno. Si necesitas recordar el procedimiento, lee este ejemplo o abre el repaso. Consultar ayuda también cuenta como práctica, pero no como respuesta sin apoyo."
+      ],
+      "ejemplo": "Compara $\\frac{3}{4}$ y $0.8$.",
+      "pasos": [
+        "Convierte la fracción: $3\\div4=0.75$.",
+        "Compara: $0.75<0.80$.",
+        "Por tanto, $\\frac{3}{4}<0.8$."
+      ],
+      "preguntas": [
+        {
+          "pregunta": "¿Qué número es igual a $\\frac{2}{5}$?",
+          "opciones": [
+            "$0.25$",
+            "$0.4$",
+            "$2.5$"
+          ],
+          "correcta": 1,
+          "pista": "Divide el numerador entre el denominador.",
+          "explicacion": "2 ÷ 5 = 0.4.",
+          "errores": [
+            "0.25 equivale a un cuarto.",
+            "",
+            "Invertiste el orden de la división."
+          ]
+        },
+        {
+          "pregunta": "¿Cuál afirmación sobre $\\sqrt{2}$ es correcta?",
+          "opciones": [
+            "Es exactamente 1.41.",
+            "Es racional porque se puede aproximar.",
+            "Es irracional y está entre 1 y 2."
+          ],
+          "correcta": 2,
+          "pista": "Compara los cuadrados de 1 y 2.",
+          "explicacion": "1² < 2 < 2², así que la raíz está entre 1 y 2. Su decimal es infinito y no periódico; 1.41 es solo una aproximación.",
+          "errores": [
+            "1.41 es una aproximación, no el valor exacto.",
+            "Una aproximación decimal no convierte la raíz en racional.",
+            ""
+          ]
+        },
+        {
+          "pregunta": "¿Cuál es el orden de menor a mayor?",
+          "opciones": [
+            "−0.5, 0, 0.25",
+            "0, −0.5, 0.25",
+            "0.25, 0, −0.5"
+          ],
+          "correcta": 0,
+          "pista": "Un negativo es menor que cero; un positivo es mayor.",
+          "explicacion": "−0.5 < 0 < 0.25.",
+          "errores": [
+            "",
+            "−0.5 es menor que cero.",
+            "Ese orden va de mayor a menor."
+          ]
+        }
+      ],
+      "ejemplosExtra": []
+    },
+    {
+      "id": "opuestos",
+      "titulo": "3. Opuesto e inverso",
+      "tituloRuta": "3. Opuesto e inverso",
+      "descripcionRuta": "Distinguir el número que lleva una suma a cero del que lleva un producto a uno.",
+      "fase": "PRACTICA POR HABILIDADES",
+      "bases": [
+        "Suma con signos y multiplicación de fracciones."
+      ],
+      "refuerzos": [],
+      "repasos": [
+        {
+          "tema": "t1-u1-tema1",
+          "leccion": "inversos",
+          "titulo": "Opuesto e inverso"
+        }
+      ],
+      "meta": "Distinguir el número que lleva una suma a cero del que lleva un producto a uno.",
+      "paraQue": "Para comprobar tu procedimiento y reconocer qué necesitas reforzar.",
+      "explicacion": [
+        "Resuelve primero los ejercicios en tu cuaderno. Si necesitas recordar el procedimiento, lee este ejemplo o abre el repaso. Consultar ayuda también cuenta como práctica, pero no como respuesta sin apoyo."
+      ],
+      "ejemplo": "Encuentra el opuesto y el inverso de $-4$.",
+      "pasos": [
+        "Para el opuesto, busca una suma igual a cero: $-4+4=0$. El opuesto es 4.",
+        "Para el inverso, busca un producto igual a uno: $(-4)(-\\frac{1}{4})=1$.",
+        "El inverso es $-\\frac{1}{4}$. Son dos operaciones diferentes."
+      ],
+      "preguntas": [
+        {
+          "pregunta": "¿Cuál es el opuesto de −7?",
+          "opciones": [
+            "−1/7",
+            "−7",
+            "7"
+          ],
+          "correcta": 2,
+          "pista": "Busca qué sumar para obtener cero.",
+          "explicacion": "−7 + 7 = 0; el opuesto es 7.",
+          "errores": [
+            "Confundiste el inverso con el opuesto.",
+            "−7 + (−7) no da cero.",
+            ""
+          ]
+        },
+        {
+          "pregunta": "¿Cuál es el inverso de $\\frac{2}{3}$?",
+          "opciones": [
+            "$\\frac{3}{2}$",
+            "$-\\frac{2}{3}$",
+            "$0$"
+          ],
+          "correcta": 0,
+          "pista": "Busca una fracción cuyo producto dé 1.",
+          "explicacion": "(2/3) × (3/2) = 6/6 = 1.",
+          "errores": [
+            "",
+            "Ese es el opuesto aditivo.",
+            "Multiplicar por cero da cero."
+          ]
+        },
+        {
+          "pregunta": "¿Tiene cero inverso multiplicativo?",
+          "opciones": [
+            "Sí, es cero.",
+            "No, ningún número multiplicado por cero da uno.",
+            "Sí, es uno."
+          ],
+          "correcta": 1,
+          "pista": "Comprueba qué ocurre al multiplicar por cero.",
+          "explicacion": "0 × cualquier número = 0, nunca 1. Por eso cero no tiene inverso multiplicativo.",
+          "errores": [
+            "0 × 0 = 0.",
+            "",
+            "0 × 1 = 0."
+          ]
+        }
+      ],
+      "ejemplosExtra": []
+    },
+    {
+      "id": "productos",
+      "titulo": "4. Productos notables",
+      "tituloRuta": "4. Productos notables",
+      "descripcionRuta": "Desarrollar binomios sin omitir productos y cuidar los signos.",
+      "fase": "PRACTICA POR HABILIDADES",
+      "bases": [
+        "Distributiva y cuadrados de suma y diferencia."
+      ],
+      "refuerzos": [],
+      "repasos": [
+        {
+          "tema": "t1-u1-tema2",
+          "leccion": "cuadrado-suma",
+          "titulo": "Cuadrado de una suma"
+        },
+        {
+          "tema": "t1-u1-tema2",
+          "leccion": "cuadrado-resta",
+          "titulo": "Cuadrado de una diferencia"
+        },
+        {
+          "tema": "t1-u1-tema2",
+          "leccion": "conjugados",
+          "titulo": "Suma por diferencia"
+        }
+      ],
+      "meta": "Desarrollar binomios sin omitir productos y cuidar los signos.",
+      "paraQue": "Para comprobar tu procedimiento y reconocer qué necesitas reforzar.",
+      "explicacion": [
+        "Resuelve primero los ejercicios en tu cuaderno. Si necesitas recordar el procedimiento, lee este ejemplo o abre el repaso. Consultar ayuda también cuenta como práctica, pero no como respuesta sin apoyo."
+      ],
+      "ejemplo": "Desarrolla $(x+2)^2$.",
+      "pasos": [
+        "Escribe dos factores: $(x+2)(x+2)$.",
+        "Distribuye: $x^2+2x+2x+4$.",
+        "Reúne términos semejantes: $x^2+4x+4$."
+      ],
+      "preguntas": [
+        {
+          "pregunta": "Desarrolla $(x+4)^2$.",
+          "opciones": [
+            "$x^2+16$",
+            "$x^2+8x+16$",
+            "$x^2+4x+16$"
+          ],
+          "correcta": 1,
+          "pista": "Multiplica (x+4)(x+4).",
+          "explicacion": "x² + 4x + 4x + 16 = x² + 8x + 16.",
+          "errores": [
+            "Faltan los dos productos cruzados.",
+            "",
+            "Falta uno de los dos productos de 4x."
+          ]
+        },
+        {
+          "pregunta": "Desarrolla $(x-3)^2$.",
+          "opciones": [
+            "$x^2-6x+9$",
+            "$x^2-9$",
+            "$x^2-6x-9$"
+          ],
+          "correcta": 0,
+          "pista": "El producto (−3)(−3) es positivo.",
+          "explicacion": "(x−3)(x−3) = x² − 3x − 3x + 9 = x² − 6x + 9.",
+          "errores": [
+            "",
+            "Eso corresponde a (x+3)(x−3).",
+            "Dos negativos multiplicados dan +9."
+          ]
+        },
+        {
+          "pregunta": "Calcula $(x+5)(x-5)$.",
+          "opciones": [
+            "$x^2-10x+25$",
+            "$x^2+25$",
+            "$x^2-25$"
+          ],
+          "correcta": 2,
+          "pista": "Los productos centrales son −5x y +5x.",
+          "explicacion": "x² − 5x + 5x − 25 = x² − 25.",
+          "errores": [
+            "Confundiste los conjugados con un cuadrado de diferencia.",
+            "El último producto es 5 × (−5) = −25.",
+            ""
+          ]
+        }
+      ],
+      "ejemplosExtra": []
+    },
+    {
+      "id": "factorizar",
+      "titulo": "5. Factorización",
+      "tituloRuta": "5. Factorización",
+      "descripcionRuta": "Elegir un procedimiento según los términos de la expresión.",
+      "fase": "PRACTICA POR HABILIDADES",
+      "bases": [
+        "Factor común, trinomio cuadrado perfecto y diferencia de cuadrados."
+      ],
+      "refuerzos": [],
+      "repasos": [
+        {
+          "tema": "t1-u1-tema2",
+          "leccion": "factor-cuadrados",
+          "titulo": "Factorizar cuadrados: un caso a la vez"
+        },
+        {
+          "tema": "t1-u1-tema2",
+          "leccion": "factor-comun",
+          "titulo": "Factor común"
+        }
+      ],
+      "meta": "Elegir un procedimiento según los términos de la expresión.",
+      "paraQue": "Para comprobar tu procedimiento y reconocer qué necesitas reforzar.",
+      "explicacion": [
+        "Resuelve primero los ejercicios en tu cuaderno. Si necesitas recordar el procedimiento, lee este ejemplo o abre el repaso. Consultar ayuda también cuenta como práctica, pero no como respuesta sin apoyo."
+      ],
+      "ejemplo": "Factoriza $x^2-16$.",
+      "pasos": [
+        "Hay dos términos separados por una resta.",
+        "Ambos son cuadrados: $x^2$ y $4^2$.",
+        "Escribe una suma y una resta: $(x+4)(x-4)$.",
+        "Comprueba multiplicando: $x^2-4x+4x-16=x^2-16$."
+      ],
+      "preguntas": [
+        {
+          "pregunta": "Extrae el factor común de $6x+9$.",
+          "opciones": [
+            "$6(x+9)$",
+            "$3(2x+3)$",
+            "$3(2x+9)$"
+          ],
+          "correcta": 1,
+          "pista": "¿Qué número divide tanto a 6 como a 9?",
+          "explicacion": "6x = 3(2x) y 9 = 3(3), así que 6x + 9 = 3(2x+3).",
+          "errores": [
+            "Al desarrollar obtienes 6x+54.",
+            "",
+            "Al desarrollar obtienes 6x+27."
+          ]
+        },
+        {
+          "pregunta": "Factoriza $x^2+8x+16$.",
+          "opciones": [
+            "$(x+4)^2$",
+            "$(x+8)^2$",
+            "$(x+4)(x-4)$"
+          ],
+          "correcta": 0,
+          "pista": "16 = 4². Comprueba si el central es 2 × x × 4.",
+          "explicacion": "2 × x × 4 = 8x; por eso x² + 8x + 16 = (x+4)².",
+          "errores": [
+            "",
+            "Ese cuadrado da x²+16x+64.",
+            "Los conjugados dan x²−16."
+          ]
+        },
+        {
+          "pregunta": "Factoriza $x^2-49$.",
+          "opciones": [
+            "$(x-7)^2$",
+            "$(x+49)(x-49)$",
+            "$(x+7)(x-7)$"
+          ],
+          "correcta": 2,
+          "pista": "49 = 7². Son dos cuadrados separados por resta.",
+          "explicacion": "(x+7)(x−7) = x² − 7x + 7x − 49 = x² − 49.",
+          "errores": [
+            "Ese cuadrado introduce un término −14x.",
+            "La base del cuadrado 49 es 7.",
+            ""
+          ]
+        }
+      ],
+      "ejemplosExtra": []
+    },
+    {
+      "id": "cubos",
+      "titulo": "6. Cubos: distinguir las expresiones",
+      "tituloRuta": "6. Cubos: distinguir las expresiones",
+      "descripcionRuta": "Diferenciar un cubo de binomio de una suma o diferencia de cubos.",
+      "fase": "PRACTICA POR HABILIDADES",
+      "bases": [
+        "Potencias cúbicas, distributiva y factorización de cubos."
+      ],
+      "refuerzos": [],
+      "repasos": [
+        {
+          "tema": "t1-u1-tema2",
+          "leccion": "factor-cubos",
+          "titulo": "Sumas y diferencias de cubos"
+        },
+        {
+          "tema": "t1-u1-tema2",
+          "leccion": "cubos",
+          "titulo": "Cubo de un binomio"
+        }
+      ],
+      "meta": "Diferenciar un cubo de binomio de una suma o diferencia de cubos.",
+      "paraQue": "Para comprobar tu procedimiento y reconocer qué necesitas reforzar.",
+      "explicacion": [
+        "Resuelve primero los ejercicios en tu cuaderno. Si necesitas recordar el procedimiento, lee este ejemplo o abre el repaso. Consultar ayuda también cuenta como práctica, pero no como respuesta sin apoyo."
+      ],
+      "ejemplo": "Compara $(x+2)^3$ y $x^3+8$ usando $x=1$.",
+      "pasos": [
+        "En el primero, el paréntesis completo es la base: $(1+2)^3=3^3=27$.",
+        "En el segundo, cada término es un cubo: $1^3+2^3=1+8=9$.",
+        "27 y 9 son diferentes. Este ejemplo demuestra que las dos expresiones no son iguales para todos los valores de x."
+      ],
+      "preguntas": [
+        {
+          "pregunta": "¿Qué significa $(x+1)^3$?",
+          "opciones": [
+            "$x^3+1$",
+            "$(x+1)(x+1)(x+1)$",
+            "$(x+1)(x+1)$"
+          ],
+          "correcta": 1,
+          "pista": "Al cubo significa multiplicar la base tres veces.",
+          "explicacion": "La base completa es x+1; hay tres factores iguales.",
+          "errores": [
+            "Elevar una suma al cubo no es elevar cada sumando por separado.",
+            "",
+            "Dos factores corresponden al cuadrado."
+          ]
+        },
+        {
+          "pregunta": "Factoriza $x^3-8$.",
+          "opciones": [
+            "$(x-2)^3$",
+            "$(x-2)(x^2-2x+4)$",
+            "$(x-2)(x^2+2x+4)$"
+          ],
+          "correcta": 2,
+          "pista": "8 = 2³. Usa diferencia de cubos.",
+          "explicacion": "(x−2)(x²+2x+4) = x³+2x²+4x−2x²−4x−8 = x³−8.",
+          "errores": [
+            "El cubo de diferencia incluye términos intermedios.",
+            "En diferencia de cubos, el central del segundo factor lleva suma.",
+            ""
+          ]
+        },
+        {
+          "pregunta": "Desarrolla $(x+1)^3$.",
+          "opciones": [
+            "$x^3+3x^2+3x+1$",
+            "$x^3+1$",
+            "$x^3+2x^2+x+1$"
+          ],
+          "correcta": 0,
+          "pista": "Multiplica (x²+2x+1) por (x+1).",
+          "explicacion": "x³ + x² + 2x² + 2x + x + 1 = x³ + 3x² + 3x + 1.",
+          "errores": [
+            "",
+            "Faltan los productos intermedios.",
+            "Al reunir, los coeficientes centrales son 3 y 3."
+          ]
+        }
+      ],
+      "ejemplosExtra": []
+    }
+  ],
+  "diagnostico": [
+    {
+      "leccion": "operaciones",
+      "pregunta": "Calcula −5 + 8.",
+      "opciones": [
+        "−13",
+        "3",
+        "13"
+      ],
+      "correcta": 1,
+      "pista": "Desde −5, suma ocho unidades.",
+      "explicacion": "−5 + 8 = 3.",
+      "errores": [
+        "Sumaste los valores sin respetar los signos.",
+        "",
+        "Cuando los signos son distintos, resta los valores absolutos."
+      ]
+    },
+    {
+      "leccion": "reales",
+      "pregunta": "¿Qué decimal equivale a $\\frac{1}{2}$?",
+      "opciones": [
+        "0.2",
+        "0.5",
+        "2"
+      ],
+      "correcta": 1,
+      "pista": "Divide 1 entre 2.",
+      "explicacion": "1 ÷ 2 = 0.5.",
+      "errores": [
+        "El denominador no indica una cifra decimal.",
+        "",
+        "Invertiste la división."
+      ]
+    },
+    {
+      "leccion": "opuestos",
+      "pregunta": "¿Qué número sumado a −3 da cero?",
+      "opciones": [
+        "−3",
+        "1/3",
+        "3"
+      ],
+      "correcta": 2,
+      "pista": "Se busca el opuesto aditivo.",
+      "explicacion": "−3 + 3 = 0.",
+      "errores": [
+        "−3 + (−3) = −6.",
+        "1/3 no lleva la suma a cero.",
+        ""
+      ]
+    },
+    {
+      "leccion": "productos",
+      "pregunta": "¿Cuál es el desarrollo de $(x+1)^2$?",
+      "opciones": [
+        "$x^2+2x+1$",
+        "$x^2+1$",
+        "$x^2+x+1$"
+      ],
+      "correcta": 0,
+      "pista": "Escribe (x+1)(x+1).",
+      "explicacion": "x² + x + x + 1 = x² + 2x + 1.",
+      "errores": [
+        "",
+        "Faltan los productos cruzados.",
+        "Solo contaste uno de los dos términos x."
+      ]
+    },
+    {
+      "leccion": "factorizar",
+      "pregunta": "¿Qué factorización equivale a $2x+4$?",
+      "opciones": [
+        "$2(x+4)$",
+        "$4(x+2)$",
+        "$2(x+2)$"
+      ],
+      "correcta": 2,
+      "pista": "Extrae el factor 2 y comprueba distribuyendo.",
+      "explicacion": "2(x+2) = 2x+4.",
+      "errores": [
+        "Ese producto da 2x+8.",
+        "Ese producto da 4x+8.",
+        ""
+      ]
+    },
+    {
+      "leccion": "cubos",
+      "pregunta": "¿Qué significa $x^3$?",
+      "opciones": [
+        "$3x$",
+        "$x\\times x\\times x$",
+        "$x+x+x$"
+      ],
+      "correcta": 1,
+      "pista": "El exponente cuenta factores iguales.",
+      "explicacion": "x³ significa x multiplicado por sí mismo tres veces.",
+      "errores": [
+        "3x es tres veces x, no su cubo.",
+        "",
+        "Sumar tres veces x da 3x."
       ]
     }
+  ],
+  "cierre": [
+    {
+      "pregunta": "Calcula −2 + 4 × (3−1).",
+      "opciones": [
+        "2",
+        "6",
+        "−12"
+      ],
+      "correcta": 1,
+      "pista": "Primero paréntesis, después multiplicación y al final suma.",
+      "explicacion": "3−1 = 2; 4×2 = 8; −2+8 = 6.",
+      "errores": [
+        "Sumaste antes de multiplicar.",
+        "",
+        "Revisa el signo del producto positivo."
+      ],
+      "leccion": "operaciones"
+    },
+    {
+      "pregunta": "¿Qué número es mayor: $\\frac{3}{5}$ o $0.7$?",
+      "opciones": [
+        "3/5",
+        "Son iguales.",
+        "0.7"
+      ],
+      "correcta": 2,
+      "pista": "Convierte la fracción a decimal.",
+      "explicacion": "3/5 = 0.6; como 0.6 < 0.7, el mayor es 0.7.",
+      "errores": [
+        "3/5 equivale a 0.6.",
+        "0.6 y 0.7 son diferentes.",
+        ""
+      ],
+      "leccion": "reales"
+    },
+    {
+      "pregunta": "¿Cuál es el inverso multiplicativo de −5?",
+      "opciones": [
+        "−1/5",
+        "5",
+        "1/5"
+      ],
+      "correcta": 0,
+      "pista": "El producto debe dar uno.",
+      "explicacion": "(−5)(−1/5) = 1.",
+      "errores": [
+        "",
+        "5 es el opuesto; su suma con −5 da cero.",
+        "(−5)(1/5) = −1."
+      ],
+      "leccion": "opuestos"
+    },
+    {
+      "pregunta": "Desarrolla $(x+6)^2$.",
+      "opciones": [
+        "$x^2+36$",
+        "$x^2+12x+36$",
+        "$x^2+6x+36$"
+      ],
+      "correcta": 1,
+      "pista": "Escribe (x+6)(x+6) y distribuye.",
+      "explicacion": "x²+6x+6x+36 = x²+12x+36.",
+      "errores": [
+        "Faltan los productos cruzados.",
+        "",
+        "Falta un producto de 6x."
+      ],
+      "leccion": "productos"
+    },
+    {
+      "pregunta": "Factoriza $x^2-36$.",
+      "opciones": [
+        "$(x-6)^2$",
+        "$(x+36)(x-36)$",
+        "$(x+6)(x-6)$"
+      ],
+      "correcta": 2,
+      "pista": "36 = 6². Identifica el caso de dos términos con resta.",
+      "explicacion": "(x+6)(x−6) = x²−36.",
+      "errores": [
+        "Ese cuadrado introduce −12x.",
+        "La base es 6, no 36.",
+        ""
+      ],
+      "leccion": "factorizar"
+    },
+    {
+      "pregunta": "Factoriza $4x^2-16$.",
+      "opciones": [
+        "$4(x+2)(x-2)$",
+        "$4(x-4)^2$",
+        "$4(x+4)(x-4)$"
+      ],
+      "correcta": 0,
+      "pista": "Primero extrae 4. Luego factoriza x²−4.",
+      "explicacion": "4x²−16 = 4(x²−4) = 4(x+2)(x−2).",
+      "errores": [
+        "",
+        "Al desarrollar aparece un término central.",
+        "4(x²−16) da 4x²−64."
+      ],
+      "leccion": "factorizar"
+    },
+    {
+      "pregunta": "Factoriza $x^3+27$.",
+      "opciones": [
+        "$(x+3)^3$",
+        "$(x+3)(x^2-3x+9)$",
+        "$(x+3)(x^2+3x+9)$"
+      ],
+      "correcta": 1,
+      "pista": "27 = 3³. Es suma de cubos.",
+      "explicacion": "(x+3)(x²−3x+9) = x³−3x²+9x+3x²−9x+27 = x³+27.",
+      "errores": [
+        "Un cubo de binomio tiene términos intermedios.",
+        "",
+        "En suma de cubos, el central del segundo factor lleva resta."
+      ],
+      "leccion": "cubos"
+    },
+    {
+      "pregunta": "¿Es $x^2+7x+9$ un trinomio cuadrado perfecto?",
+      "opciones": [
+        "Sí, porque tiene tres términos.",
+        "Sí, porque 9 = 3².",
+        "No: el central debería ser 6x."
+      ],
+      "correcta": 2,
+      "pista": "Comprueba 2 × x × 3.",
+      "explicacion": "Los extremos sugieren x y 3, pero el doble producto es 6x y no 7x.",
+      "errores": [
+        "Tres términos no bastan.",
+        "También debe coincidir el término central.",
+        ""
+      ],
+      "leccion": "factorizar"
+    }
+  ],
+  "cierreIntroduccion": "Ahora combina las habilidades anteriores. Anota tu procedimiento antes de comprobar cada respuesta. Si consultas una explicación, vuelve al bloque recomendado y prueba otro ejemplo.",
+  "retosCierre": [
+    "Explica por qué (x−3)² y x²−9 son distintos. Desarrolla ambos o usa x=4.",
+    "Inventa una expresión con factor común y comprueba tu factorización usando la distributiva.",
+    "Explica con un ejemplo la diferencia entre opuesto e inverso multiplicativo."
   ]
 }

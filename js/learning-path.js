@@ -27,6 +27,11 @@ const LearningPath = {
       this.show(b.leccion);
       this.main.querySelector('#lesson-content').scrollIntoView({behavior:'smooth',block:'start'});
     });
+    this.main.querySelectorAll('[data-review-topic]').forEach(b=>b.addEventListener('click',async()=>{
+      await loadTopic(b.dataset.reviewTopic);
+      this.show(b.dataset.reviewLesson);
+      this.main.querySelector('#lesson-content').scrollIntoView({behavior:'smooth',block:'start'});
+    }));
     this.bindQuestions();
     if (window.MathRenderer) MathRenderer.render(this.main);
     if (id==='inicio') this.diagnosticSummary();
@@ -54,7 +59,7 @@ const LearningPath = {
   },
   lesson(container,l) {
     const i=this.data.lecciones.indexOf(l);
-    container.innerHTML = `<section class="edu-card"><div class="lesson-kicker">Lección ${i+1} de ${this.data.lecciones.length}</div><h3>${l.titulo}</h3><p><strong>Aprenderás a:</strong> ${l.meta}</p><p><strong>Te sirve para:</strong> ${l.paraQue}</p><div class="prerequisite"><strong>Antes necesitas:</strong><p>${l.bases.join(' ')}</p>${l.refuerzos.length?l.refuerzos.map(id=>`<button class="btn btn-outline" data-go="${id}">Repasar: ${this.data.lecciones.find(base=>base.id===id).titulo}</button>`).join(' '):'<p>Si una base todavía te cuesta, revisa la explicación y prueba los ejemplos de esta lección antes de avanzar.</p>'}</div>
+    container.innerHTML = `<section class="edu-card"><div class="lesson-kicker">Lección ${i+1} de ${this.data.lecciones.length}</div><h3>${l.titulo}</h3><p><strong>Aprenderás a:</strong> ${l.meta}</p><p><strong>Te sirve para:</strong> ${l.paraQue}</p><div class="prerequisite"><strong>Antes necesitas:</strong><p>${l.bases.join(' ')}</p>${(l.repasos || []).map(r=>`<button class="btn btn-outline" data-review-topic="${r.tema}" data-review-lesson="${r.leccion}">Repasar: ${r.titulo}</button>`).join(' ')}${l.refuerzos.length?l.refuerzos.map(id=>`<button class="btn btn-outline" data-go="${id}">Repasar: ${this.data.lecciones.find(base=>base.id===id).titulo}</button>`).join(' '):l.repasos?.length?'':'<p>Si una base todavía te cuesta, revisa la explicación y prueba los ejemplos de esta lección antes de avanzar.</p>'}</div>
       <h4>Vamos paso a paso</h4>${l.explicacion.map(p=>`<p>${p}</p>`).join('')}
       ${(l.bloques || []).map(b=>`<section class="learning-block"><h4>${b.titulo}</h4><p>${b.descripcion}</p><div class="worked-example"><p><strong>${b.problema}</strong></p><ol>${b.pasos.map(p=>`<li>${p}</li>`).join('')}</ol><p class="block-conclusion">${b.conclusion}</p></div></section>`).join('')}
       ${l.visual==='recta'?this.numberLine():''}${l.visual==='area'?this.area():''}

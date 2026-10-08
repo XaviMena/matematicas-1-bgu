@@ -41,11 +41,11 @@
             {
               "id": "t1-u1-eval1",
               "numero": "1.3",
-              "titulo": "Evaluación Formativa: Números Reales y Álgebra",
+              "titulo": "Evaluación formativa: comprueba y refuerza",
               "paginas": "18-19",
               "archivo": "data/modules/t1-u1-eval.json",
               "tipo": "evaluacion",
-              "descripcion": "Ejercicios prácticos del libro oficial: aproximaciones numéricas (redondeo y truncamiento), simplificación de radicales, inversos multiplicativos y demostraciones algebraicas."
+              "descripcion": "Práctica por habilidades de los temas 1.1 y 1.2, con seis bloques, repaso dirigido, explicaciones y ocho ejercicios integradores."
             }
           ]
         }
