@@ -33,10 +33,10 @@
             {
               "id": "t1-u1-tema2",
               "numero": "1.2",
-              "titulo": "Productos notables y factorización con interpretación geométrica",
+              "titulo": "Productos notables y factorización paso a paso",
               "paginas": "16-17",
               "archivo": "data/modules/t1-u1-tema2.json",
-              "descripcion": "Ruta de aprendizaje con diagnóstico, distributiva, modelos de áreas y volúmenes, productos notables, factor común y factorización de cuadrados, trinomios y cubos."
+              "descripcion": "Diagnóstico y explicación paso a paso con ejemplos numéricos, distributiva, productos notables, factor común y factorización de cuadrados, trinomios y cubos."
             },
             {
               "id": "t1-u1-eval1",

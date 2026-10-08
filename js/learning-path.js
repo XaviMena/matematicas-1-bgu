@@ -56,7 +56,7 @@ const LearningPath = {
     const i=this.data.lecciones.indexOf(l);
     container.innerHTML = `<section class="edu-card"><div class="lesson-kicker">Lección ${i+1} de ${this.data.lecciones.length}</div><h3>${l.titulo}</h3><p><strong>Aprenderás a:</strong> ${l.meta}</p><p><strong>Te sirve para:</strong> ${l.paraQue}</p><div class="prerequisite"><strong>Antes necesitas:</strong><p>${l.bases.join(' ')}</p>${l.refuerzos.length?l.refuerzos.map(id=>`<button class="btn btn-outline" data-go="${id}">Repasar: ${this.data.lecciones.find(base=>base.id===id).titulo}</button>`).join(' '):'<p>Si una base todavía te cuesta, revisa la explicación y prueba los ejemplos de esta lección antes de avanzar.</p>'}</div>
       <h4>Vamos paso a paso</h4>${l.explicacion.map(p=>`<p>${p}</p>`).join('')}
-      ${l.visual==='recta'?this.numberLine():''}${l.visual==='area'?this.area():''}${l.visual?.startsWith('binom-')||l.visual==='factor-area'?ProductGeometry.render(l.visual):''}
+      ${l.visual==='recta'?this.numberLine():''}${l.visual==='area'?this.area():''}
       ${l.id==='raices'?this.proof():''}
       <div class="worked-example"><h4>Un ejemplo acompañado</h4><p>${l.ejemplo}</p><ol>${l.pasos.map(p=>`<li>${p}</li>`).join('')}</ol></div>
       ${(l.ejemplosExtra || []).map(e=>`<div class="worked-example"><h4>Otro ejemplo, un paso más</h4><p>${e.problema}</p><ol>${e.pasos.map(p=>`<li>${p}</li>`).join('')}</ol></div>`).join('')}
@@ -67,7 +67,6 @@ const LearningPath = {
     const slider=container.querySelector('#number-point');
     if(slider) slider.addEventListener('input',()=>this.updateLine());
     container.querySelectorAll('[data-area]').forEach(el=>el.addEventListener('input',()=>this.updateArea()));
-    if (window.ProductGeometry) ProductGeometry.bind(container);
   },
   question(q,scope,i) {
     const key=`${scope}-${i}`, a=this.answers[key], selected=this.selections[key] ?? a?.selection;

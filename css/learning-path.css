@@ -76,9 +76,3 @@
 [data-theme=dark] .practice-question[data-result=correct] .answer-options label:has(input:checked) { background:#143329; color:#bbf7d0; border-color:#286348; }
 [data-theme=dark] .practice-question[data-result=incorrect] .answer-feedback,
 [data-theme=dark] .practice-question[data-result=incorrect] .answer-options label:has(input:checked) { background:#38232b; color:#fecdd3; border-color:#78404e; }
-
-.product-controls { display:flex; flex-wrap:wrap; gap:.75rem; }
-.product-controls label { flex:1 1 110px; min-width:0; font-weight:600; font-size:.85rem; }
-.product-controls output { font-variant-numeric:tabular-nums; }
-.product-lab svg { max-width:500px; }
-#product-result { font-size:.9rem; padding:.75rem; background:var(--bg-card); border-radius:8px; }
