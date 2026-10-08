@@ -41,6 +41,12 @@ async function loadCurriculum() {
       const res = await fetch('data/curriculum.json');
       curriculumData = await res.json();
     }
+    const requested=location.hash.slice(1);
+    for (const trimester of curriculumData.trimestres) {
+      if (trimester.unidades.some(u=>u.temas.some(t=>t.id===requested))) {
+        currentTrimesterId=trimester.id; currentTopicId=requested; break;
+      }
+    }
     renderTrimesterTabs();
     renderSidebarTopics();
     loadTopic(currentTopicId);

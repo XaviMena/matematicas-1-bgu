@@ -1,7 +1,10 @@
-// Ruta del primer tema. Los resultados viven solo durante esta sesión de estudio.
+// Rutas de aprendizaje. Los resultados viven solo durante esta sesión de estudio.
 const LearningPath = {
-  data: null, main: null, current: 'inicio', answers: {}, selections: {}, revealed: new Set(),
+  data: null, main: null, current: 'inicio', answers: {}, selections: {}, revealed: new Set(), sessions: {},
   render(data, main) {
+    if (this.data) this.sessions[this.data.id] = {current:this.current, answers:this.answers, selections:this.selections, revealed:this.revealed};
+    const state=this.sessions[data.id] || {current:'inicio',answers:{},selections:{},revealed:new Set()};
+    Object.assign(this,state);
     this.data = data; this.main = main;
     this.show(this.current);
   },
@@ -9,7 +12,7 @@ const LearningPath = {
     this.current = id;
     const data = this.data;
     const done = data.lecciones.filter(l => this.mastered(l.id)).length;
-    this.main.innerHTML = `<div class="unit-banner"><span class="unit-tag">Tema 1 · Aprende a tu ritmo</span><h2 class="unit-title">${data.titulo}</h2><p>${data.introduccion}</p></div>
+    this.main.innerHTML = `<div class="unit-banner"><span class="unit-tag">Tema ${data.temaNumero || 1} · Aprende a tu ritmo</span><h2 class="unit-title">${data.titulo}</h2><p>${data.introduccion}</p></div>
       ${this.route(id, done)}
       <div id="lesson-content"></div>`;
     const container = this.main.querySelector('#lesson-content');
@@ -17,6 +20,13 @@ const LearningPath = {
     else if (id === 'cierre') this.final(container);
     else this.lesson(container, data.lecciones.find(l=>l.id===id) || data.lecciones[0]);
     this.main.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>{this.show(b.dataset.go);this.main.querySelector('#lesson-content').scrollIntoView({behavior:'smooth',block:'start'});}));
+    const bridge=this.main.querySelector('[data-bridge]');
+    if(bridge)bridge.addEventListener('click',async()=>{
+      const b=this.data.puenteAnterior;
+      await loadTopic(b.tema);
+      this.show(b.leccion);
+      this.main.querySelector('#lesson-content').scrollIntoView({behavior:'smooth',block:'start'});
+    });
     this.bindQuestions();
     if (window.MathRenderer) MathRenderer.render(this.main);
     if (id==='inicio') this.diagnosticSummary();
@@ -30,20 +40,26 @@ const LearningPath = {
       <nav class="path-nav" aria-label="Lecciones">
         <button class="route-bookend route-start" data-go="inicio" ${id==='inicio'?'aria-current="step"':''}><span class="bookend-icon" aria-hidden="true">◎</span><span><strong>Empieza aquí</strong><small>Descubre qué necesitas repasar</small></span><span class="route-arrow" aria-hidden="true">→</span></button>
         <div class="lesson-grid">${this.data.lecciones.map((l,i)=>`<button class="lesson-tile ${this.mastered(l.id)?'is-complete':''}" data-go="${l.id}" aria-label="${i+1}. ${l.titulo}" ${id===l.id?'aria-current="step"':''}>
-          <span class="tile-number" aria-hidden="true">${this.mastered(l.id)?'✓':String(i+1).padStart(2,'0')}</span><span class="tile-copy"><span class="tile-phase">${i<2?'01 · PREPARA TUS BASES':i<5?'02 · COMPRENDE LOS NÚMEROS':'03 · APLICA LO APRENDIDO'}</span><strong>${labels[i][0]}</strong><small>${labels[i][1]}</small></span><span class="tile-status">${this.mastered(l.id)?'Practicada':id===l.id?'En esta lección':'Explorar'}</span><span class="tile-arrow" aria-hidden="true">↗</span></button>`).join('')}</div>
-        <button class="route-bookend route-finish" data-go="cierre" ${id==='cierre'?'aria-current="step"':''}><span class="bookend-icon" aria-hidden="true">✓</span><span><strong>Comprueba lo aprendido</strong><small>Une las ideas con seis ejercicios de cierre</small></span><span class="route-arrow" aria-hidden="true">→</span></button>
+          <span class="tile-number" aria-hidden="true">${this.mastered(l.id)?'✓':String(i+1).padStart(2,'0')}</span><span class="tile-copy"><span class="tile-phase">${l.fase || (i<2?'01 · PREPARA TUS BASES':i<5?'02 · COMPRENDE LOS NÚMEROS':'03 · APLICA LO APRENDIDO')}</span><strong>${l.tituloRuta || labels[i]?.[0] || l.titulo}</strong><small>${l.descripcionRuta || labels[i]?.[1] || l.meta}</small></span><span class="tile-status">${this.mastered(l.id)?'Practicada':id===l.id?'En esta lección':'Explorar'}</span><span class="tile-arrow" aria-hidden="true">↗</span></button>`).join('')}</div>
+        <button class="route-bookend route-finish" data-go="cierre" ${id==='cierre'?'aria-current="step"':''}><span class="bookend-icon" aria-hidden="true">✓</span><span><strong>Comprueba lo aprendido</strong><small>Une las ideas con ${this.data.cierre.length} ejercicios de cierre</small></span><span class="route-arrow" aria-hidden="true">→</span></button>
       </nav><details class="route-explainer"><summary>¿Cómo se calcula mi progreso?</summary><p>Una lección cuenta cuando compruebas sus tres ejercicios correctamente sin abrir las soluciones. Practicar con apoyo también ayuda a aprender; después resuelve un ejemplo nuevo por tu cuenta. El progreso se reinicia al recargar la página.</p></details></section>`;
   },
+  bridge() {
+    const b=this.data.puenteAnterior;
+    if(!b)return '';
+    return `<div class="prerequisite"><strong>${b.titulo}</strong><p>${b.descripcion}</p><button class="btn btn-outline" data-bridge>Repasar el tema anterior →</button></div>`;
+  },
   home(container) {
-    container.innerHTML = `<section class="edu-card"><h3>Antes de empezar</h3><p>La meta es clasificar y comparar números reales, explicar las propiedades de las operaciones y usarlas en cálculos sencillos.</p><p>Prueba estas ocho preguntas. No tienen nota ni tiempo límite. Una dificultad indica qué conviene repasar; puedes abrir cualquier lección cuando lo necesites.</p><p class="study-note">Tus respuestas se conservan mientras esta página siga abierta. Al recargar se inicia una sesión nueva. No necesitas registrar tu nombre.</p><div class="question-list">${this.data.diagnostico.map((q,i)=>this.question(q,'diag',i)).join('')}</div><div id="diagnostic-summary" class="route-feedback" aria-live="polite"></div><button class="btn btn-primary" data-go="operaciones">Comenzar la primera lección →</button></section>`;
+    container.innerHTML = `<section class="edu-card"><h3>Antes de empezar</h3><p>${this.data.objetivo || 'La meta es clasificar y comparar números reales, explicar las propiedades de las operaciones y usarlas en cálculos sencillos.'}</p><p>Prueba estas ${this.data.diagnostico.length} preguntas. No tienen nota ni tiempo límite. Una dificultad indica qué conviene repasar; puedes abrir cualquier lección cuando lo necesites.</p><p class="study-note">Tus respuestas se conservan mientras esta página siga abierta. Al recargar se inicia una sesión nueva. No necesitas registrar tu nombre.</p>${this.bridge()}<div class="question-list">${this.data.diagnostico.map((q,i)=>this.question(q,'diag',i)).join('')}</div><div id="diagnostic-summary" class="route-feedback" aria-live="polite"></div><button class="btn btn-primary" data-go="${this.data.lecciones[0].id}">Comenzar la primera lección →</button></section>`;
   },
   lesson(container,l) {
     const i=this.data.lecciones.indexOf(l);
-    container.innerHTML = `<section class="edu-card"><div class="lesson-kicker">Lección ${i+1} de ${this.data.lecciones.length}</div><h3>${l.titulo}</h3><p><strong>Aprenderás a:</strong> ${l.meta}</p><p><strong>Te sirve para:</strong> ${l.paraQue}</p><div class="prerequisite"><strong>Antes necesitas:</strong><p>${l.bases.join(' ')}</p>${l.refuerzos.length?l.refuerzos.map(id=>`<button class="btn btn-outline" data-go="${id}">Repasar: ${this.data.lecciones.find(base=>base.id===id).titulo}</button>`).join(' '):'<p>Si una operación cuesta, usa los grupos y la recta de esta lección antes de avanzar.</p>'}</div>
+    container.innerHTML = `<section class="edu-card"><div class="lesson-kicker">Lección ${i+1} de ${this.data.lecciones.length}</div><h3>${l.titulo}</h3><p><strong>Aprenderás a:</strong> ${l.meta}</p><p><strong>Te sirve para:</strong> ${l.paraQue}</p><div class="prerequisite"><strong>Antes necesitas:</strong><p>${l.bases.join(' ')}</p>${l.refuerzos.length?l.refuerzos.map(id=>`<button class="btn btn-outline" data-go="${id}">Repasar: ${this.data.lecciones.find(base=>base.id===id).titulo}</button>`).join(' '):'<p>Si una base todavía te cuesta, revisa la explicación y prueba los ejemplos de esta lección antes de avanzar.</p>'}</div>
       <h4>Vamos paso a paso</h4>${l.explicacion.map(p=>`<p>${p}</p>`).join('')}
-      ${l.visual==='recta'?this.numberLine():''}${l.visual==='area'?this.area():''}
+      ${l.visual==='recta'?this.numberLine():''}${l.visual==='area'?this.area():''}${l.visual?.startsWith('binom-')||l.visual==='factor-area'?ProductGeometry.render(l.visual):''}
       ${l.id==='raices'?this.proof():''}
       <div class="worked-example"><h4>Un ejemplo acompañado</h4><p>${l.ejemplo}</p><ol>${l.pasos.map(p=>`<li>${p}</li>`).join('')}</ol></div>
+      ${(l.ejemplosExtra || []).map(e=>`<div class="worked-example"><h4>Otro ejemplo, un paso más</h4><p>${e.problema}</p><ol>${e.pasos.map(p=>`<li>${p}</li>`).join('')}</ol></div>`).join('')}
       <h4>Ahora te toca</h4><p>Elige una respuesta y compruébala. Si necesitas ayuda, abre la pista; puedes volver a intentarlo.</p><div class="question-list">${l.preguntas.map((q,j)=>this.question(q,l.id,j)).join('')}</div><div class="route-feedback" id="lesson-summary" aria-live="polite"></div>
 
       <div class="lesson-actions"><button class="btn btn-outline" data-go="${i===0?'inicio':this.data.lecciones[i-1].id}">← Volver</button><button class="btn btn-primary" data-go="${i===this.data.lecciones.length-1?'cierre':this.data.lecciones[i+1].id}">Continuar →</button></div></section>`;
@@ -51,6 +67,7 @@ const LearningPath = {
     const slider=container.querySelector('#number-point');
     if(slider) slider.addEventListener('input',()=>this.updateLine());
     container.querySelectorAll('[data-area]').forEach(el=>el.addEventListener('input',()=>this.updateArea()));
+    if (window.ProductGeometry) ProductGeometry.bind(container);
   },
   question(q,scope,i) {
     const key=`${scope}-${i}`, a=this.answers[key], selected=this.selections[key] ?? a?.selection;
@@ -121,10 +138,10 @@ const LearningPath = {
     const el=this.main.querySelector('#lesson-summary');if(!el)return;
     const l=this.data.lecciones.find(l=>l.id===this.current);if(!l)return;
     const correct=l.preguntas.filter((_,i)=>this.answers[`${l.id}-${i}`]?.correct).length;
-    el.textContent=this.mastered(l.id)?'Has comprobado los tres ejercicios sin consultar sus respuestas. Explica con tus palabras cómo los resolviste antes de continuar.':`${correct} de 3 ejercicios con respuesta correcta. Puedes repasar y volver a intentarlo. Las respuestas consultadas cuentan como práctica con apoyo.`;
+    el.textContent=this.mastered(l.id)?'Has comprobado los ejercicios sin consultar sus respuestas. Explica con tus palabras cómo los resolviste antes de continuar.':`${correct} de ${l.preguntas.length} ejercicios con respuesta correcta. Puedes repasar y volver a intentarlo. Las respuestas consultadas cuentan como práctica con apoyo.`;
   },
   final(container){
-    container.innerHTML=`<section class="edu-card"><h3>Comprueba lo aprendido</h3><p>Estos seis ejercicios combinan las ideas del primer tema. No necesitas productos notables ni modelos de ingeniería. Resuélvelos antes de abrir las explicaciones.</p><div class="question-list">${this.data.cierre.map((q,i)=>this.question(q,'final',i)).join('')}</div><div id="final-summary" class="route-feedback" aria-live="polite"></div><div class="worked-example"><h4>Explica tu razonamiento</h4><p>1. Escribe un número que sea entero, racional y real; explica cada pertenencia.</p><p>2. Inventa una suma y un producto donde convenga cambiar el orden. Explica por qué no puedes hacerlo libremente con una resta.</p><p>3. Dibuja un rectángulo dividido y escribe la distributiva que representa. Comprueba la igualdad con números.</p></div><button class="btn btn-outline" data-go="inicio">Volver al diagnóstico</button></section>`;
+    container.innerHTML=`<section class="edu-card"><h3>Comprueba lo aprendido</h3><p>${this.data.cierreIntroduccion || 'Estos seis ejercicios combinan las ideas del primer tema. Resuélvelos antes de abrir las explicaciones.'}</p><div class="question-list">${this.data.cierre.map((q,i)=>this.question(q,'final',i)).join('')}</div><div id="final-summary" class="route-feedback" aria-live="polite"></div><div class="worked-example"><h4>Explica tu razonamiento</h4>${(this.data.retosCierre || ['Escribe un número que sea entero, racional y real; explica cada pertenencia.','Inventa una suma y un producto donde convenga cambiar el orden. Explica por qué no puedes hacerlo libremente con una resta.','Dibuja un rectángulo dividido y escribe la distributiva que representa. Comprueba la igualdad con números.']).map((p,i)=>`<p>${i+1}. ${p}</p>`).join('')}</div><button class="btn btn-outline" data-go="inicio">Volver al diagnóstico</button></section>`;
   },
   finalSummary(){
     const el=this.main.querySelector('#final-summary');if(!el)return;

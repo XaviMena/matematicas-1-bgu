@@ -37,7 +37,7 @@ window.CURRICULUM_DATA = {
               "titulo": "Productos notables y factorización con interpretación geométrica",
               "paginas": "16-17",
               "archivo": "data/modules/t1-u1-tema2.json",
-              "descripcion": "Desarrollo algebraico y demostración visual mediante áreas y volúmenes: binomio al cuadrado, diferencia de cuadrados y cubo de un binomio."
+              "descripcion": "Ruta de aprendizaje con diagnóstico, distributiva, modelos de áreas y volúmenes, productos notables, factor común y factorización de cuadrados, trinomios y cubos."
             },
             {
               "id": "t1-u1-eval1",
@@ -1155,78 +1155,1104 @@ window.MODULES_DATA = {
   "data/modules/t1-u1-tema2.json": {
     "id": "t1-u1-tema2",
     "titulo": "Productos notables y factorización con interpretación geométrica",
+    "temaNumero": 2,
     "unidadId": "unidad-1",
-    "unidadTitulo": "Unidad 1: Propiedades de los números reales y medidas de tendencia central y dispersión",
+    "unidadTitulo": "Tema 2 · De las áreas a los productos",
     "trimestre": 1,
     "paginasLibro": "16-17",
-    "apertura": {
-      "saberesPrevios": "¿Cómo se calcula el área de un cuadrado de lado $x$? ¿Y el volumen de un cubo de arista $a$?",
-      "desequilibrioCognitivo": "Si un cuadrado tiene lado $(a+b)$, ¿su área es simplemente $a^2 + b^2$? ¿Por qué faltan áreas intermedias al cometer ese error común?",
-      "contextoVidaReal": "Los productos notables se utilizan en la optimización de algoritmos de inteligencia artificial, procesamiento de gráficos computacionales 3D y en el cálculo estructural de componentes arquitectónicos."
-    },
-    "productosNotables": [
+    "version": 2,
+    "introduccion": "Primero entiende las piezas. Después reconoce el patrón y aprende a recorrerlo en ambos sentidos: desarrollar y factorizar.",
+    "objetivo": "Desarrollar productos notables, interpretar áreas y volúmenes y factorizar expresiones reconociendo su estructura.",
+    "lecciones": [
       {
-        "nombre": "Cuadrado de la suma de un binomio",
-        "formula": "(a + b)^2 = a^2 + 2ab + b^2",
-        "demostracionAlgebraica": "(a + b)(a + b) = a(a + b) + b(a + b) = a^2 + ab + ba + b^2 = a^2 + 2ab + b^2",
-        "interpretacionGeometrica": "Un cuadrado de lado $(a+b)$ se descompone exactamente en 4 regiones: un cuadrado grande de área $a^2$, un cuadrado pequeño de área $b^2$, y dos rectángulos simétricos de área $ab$. Por tanto, el área total es $a^2 + 2ab + b^2$.",
-        "tipoVisual": "cuadrado-binomio"
+        "id": "lenguaje",
+        "titulo": "Leer expresiones y potencias",
+        "tituloRuta": "Letras y potencias",
+        "descripcionRuta": "Entender qué significa cada símbolo",
+        "fase": "01 · PREPARA TUS BASES",
+        "bases": [
+          "Multiplicación, signos y significado de un cuadrado."
+        ],
+        "refuerzos": [],
+        "meta": "Leer términos algebraicos, calcular potencias y reunir términos semejantes.",
+        "paraQue": "Para entender las fórmulas antes de intentar memorizarlas.",
+        "explicacion": [
+          "Una letra representa un número. Si $x=3$, entonces $2x=2\\times3=6$. Escribir $ab$ significa multiplicar $a$ por $b$.",
+          "$x^2=x\\times x$ y $x^3=x\\times x\\times x$. El exponente indica cuántas veces se usa la base como factor: $3^2=9$, no $6$. Al multiplicar potencias de igual base se suman exponentes: $x^2x^3=x^5$.",
+          "Un término es una parte separada por suma o resta. En $3x+2$, los términos son $3x$ y $2$; 3 es el coeficiente de $x$. Un binomio tiene dos términos, como $x+2$.",
+          "Solo reunimos términos con la misma parte literal: $3x+2x=5x$, pero $x^2+x$ no se convierte en $2x^2$. Piensa en tres grupos de $x$ más dos grupos de $x$.",
+          "Los paréntesis indican la base completa: $(2x)^2=(2x)(2x)=4x^2$. En cambio, $2x^2$ significa $2(x\\times x)$. También $(-3)^2=9$, mientras que $-3^2=-(3^2)=-9$."
+        ],
+        "ejemplo": "Calcula $(2x)^2+3x$ cuando $x=2$.",
+        "pasos": [
+          "Sustituye la letra: $(2\\times2)^2+3\\times2$.",
+          "El paréntesis vale 4; su cuadrado es $4^2=16$.",
+          "El último producto vale 6. Suma: $16+6=22$."
+        ],
+        "preguntas": [
+          {
+            "pregunta": "Si $x=3$, ¿cuánto vale $2x$?",
+            "opciones": [
+              "$5$",
+              "$6$",
+              "$9$"
+            ],
+            "correcta": 1,
+            "pista": "La escritura 2x significa 2 multiplicado por x.",
+            "explicacion": "$2\times3=6$.",
+            "errores": [
+              "Sumaste 2 y 3; aquí hay un producto.",
+              "",
+              "Calculaste x² en lugar de 2x."
+            ]
+          },
+          {
+            "pregunta": "¿Cuál equivale a $(2x)^2$?",
+            "opciones": [
+              "$4x^2$",
+              "$2x^2$",
+              "$4x$"
+            ],
+            "correcta": 0,
+            "pista": "Eleva al cuadrado tanto el coeficiente como la letra.",
+            "explicacion": "$(2x)(2x)=2\\times2\\times x\\times x=4x^2$.",
+            "errores": [
+              "",
+              "El 2 también está dentro de la base que se eleva al cuadrado.",
+              "Falta el segundo factor x."
+            ]
+          },
+          {
+            "pregunta": "Reúne los términos $3x+2x$.",
+            "opciones": [
+              "$5x^2$",
+              "$6x$",
+              "$5x$"
+            ],
+            "correcta": 2,
+            "pista": "Hay tres grupos de x más dos grupos de x.",
+            "explicacion": "$(3+2)x=5x$; la suma no multiplica las letras.",
+            "errores": [
+              "Sumar términos no eleva x al cuadrado.",
+              "Multiplicaste los coeficientes en lugar de sumarlos.",
+              ""
+            ]
+          }
+        ],
+        "visual": null,
+        "ejemplosExtra": []
       },
       {
-        "nombre": "Cuadrado de la diferencia de un binomio",
-        "formula": "(a - b)^2 = a^2 - 2ab + b^2",
-        "demostracionAlgebraica": "(a - b)(a - b) = a(a - b) - b(a - b) = a^2 - ab - ba + b^2 = a^2 - 2ab + b^2",
-        "interpretacionGeometrica": "A partir de un cuadrado de lado $a$ con área $a^2$, se restan dos tiras rectangulares de dimensiones $a \\times b$. Al restar ambas tiras, la esquina $b \\times b$ se sustrae dos veces, por lo que debe sumarse $b^2$ para compensar.",
-        "tipoVisual": "cuadrado-diferencia"
+        "id": "multiplicar",
+        "titulo": "Multiplicar binomios con la distributiva",
+        "tituloRuta": "Multiplicar binomios",
+        "descripcionRuta": "Cada término llega a cada término",
+        "fase": "01 · PREPARA TUS BASES",
+        "bases": [
+          "Leer términos y potencias; multiplicar con signos."
+        ],
+        "refuerzos": [
+          "lenguaje"
+        ],
+        "meta": "Desarrollar un producto de binomios y reunir sus términos semejantes.",
+        "paraQue": "Para descubrir de dónde salen los productos notables.",
+        "explicacion": [
+          "Multiplicar $(x+2)(x+3)$ es multiplicar todo el primer paréntesis por todo el segundo. Reparte cada término: $x(x+3)+2(x+3)$.",
+          "Al distribuir otra vez obtienes cuatro productos: $x^2+3x+2x+6$. Los términos semejantes $3x$ y $2x$ se reúnen: $x^2+5x+6$.",
+          "Un rectángulo de lados $x+2$ y $x+3$ se divide en cuatro áreas: $x^2$, $3x$, $2x$ y $6$. Las partes juntas cubren exactamente el rectángulo.",
+          "Los signos pertenecen a los términos: $(x-2)(x+3)=x^2+3x-2x-6=x^2+x-6$. Un producto positivo por negativo es negativo.",
+          "Desarrollar convierte un producto en una suma de términos. Para comprobar, puedes volver a distribuir y sustituir un valor de x. Una comprobación numérica ayuda a detectar errores; por sí sola no demuestra una identidad para todos los valores."
+        ],
+        "ejemplo": "Desarrolla $(x+4)(x+2)$.",
+        "pasos": [
+          "$x(x+2)+4(x+2)$.",
+          "$x^2+2x+4x+8$.",
+          "Reúne $2x+4x$: queda $x^2+6x+8$.",
+          "Con $x=1$: $(1+4)(1+2)=15$ y $1+6+8=15$."
+        ],
+        "preguntas": [
+          {
+            "pregunta": "¿Cuántos productos aparecen antes de simplificar $(x+2)(x+3)$?",
+            "opciones": [
+              "Dos.",
+              "Cuatro.",
+              "Tres."
+            ],
+            "correcta": 1,
+            "pista": "Cada uno de los dos términos multiplica a los dos del otro paréntesis.",
+            "explicacion": "Hay 2×2=4 productos: x², 3x, 2x y 6.",
+            "errores": [
+              "Faltan los dos productos cruzados.",
+              "",
+              "Antes de reunir los términos semejantes hay cuatro productos."
+            ]
+          },
+          {
+            "pregunta": "Desarrolla $(x+1)(x+2)$.",
+            "opciones": [
+              "$x^2+2$",
+              "$x^2+2x+2$",
+              "$x^2+3x+2$"
+            ],
+            "correcta": 2,
+            "pista": "Distribuye y suma x+2x.",
+            "explicacion": "$x^2+2x+x+2=x^2+3x+2$.",
+            "errores": [
+              "Faltan los productos cruzados.",
+              "Falta el término x que sale de 1×x.",
+              ""
+            ]
+          },
+          {
+            "pregunta": "Desarrolla $(x-2)(x+3)$.",
+            "opciones": [
+              "$x^2+x-6$",
+              "$x^2+5x-6$",
+              "$x^2+x+6$"
+            ],
+            "correcta": 0,
+            "pista": "El término −2 también multiplica a x y a 3.",
+            "explicacion": "$x^2+3x-2x-6=x^2+x-6$.",
+            "errores": [
+              "",
+              "3x−2x=x, no 5x.",
+              "El producto (−2)×3 es −6."
+            ]
+          }
+        ],
+        "visual": "binom-rectangle",
+        "ejemplosExtra": []
       },
       {
-        "nombre": "Producto de la suma por la diferencia (Diferencia de cuadrados)",
-        "formula": "(a + b)(a - b) = a^2 - b^2",
-        "demostracionAlgebraica": "(a + b)(a - b) = a^2 - ab + ba - b^2 = a^2 - b^2",
-        "interpretacionGeometrica": "A un cuadrado de lado $a$ y área $a^2$ se le extirpa una esquina cuadrada de lado $b$ (área $b^2$). La figura resultante en forma de 'L' de área $a^2 - b^2$ puede cortarse y reordenarse como un solo rectángulo de base $(a+b)$ y altura $(a-b)$.",
-        "tipoVisual": "diferencia-cuadrados"
+        "id": "cuadrado-suma",
+        "titulo": "El cuadrado de una suma",
+        "tituloRuta": "Cuadrado de una suma",
+        "descripcionRuta": "Las cuatro partes de un cuadrado",
+        "fase": "02 · COMPRENDE LOS PRODUCTOS",
+        "bases": [
+          "Multiplicar binomios; calcular cuadrados."
+        ],
+        "refuerzos": [
+          "lenguaje",
+          "multiplicar"
+        ],
+        "meta": "Explicar y desarrollar el cuadrado de un binomio con suma.",
+        "paraQue": "Para calcular áreas y reconocer el término que suele olvidarse.",
+        "explicacion": [
+          "Elevar $a+b$ al cuadrado significa $(a+b)(a+b)$. No significa elevar cada sumando por separado.",
+          "Distribuye: $a^2+ab+ba+b^2$. Como $ab=ba$, hay dos rectángulos de área $ab$: $a^2+2ab+b^2$.",
+          "La identidad es $(a+b)^2=a^2+2ab+b^2$. Se lee: cuadrado del primero, más dos veces el producto de ambos, más cuadrado del segundo.",
+          "En el dibujo, a y b son longitudes positivas. La identidad algebraica vale para todos los números reales a y b. Un dibujo de longitudes positivas no representa valores negativos.",
+          "En $(2x+3)^2$, el primer término completo es $2x$: su cuadrado es $4x^2$ y el producto doble es $2(2x)(3)=12x$."
+        ],
+        "ejemplo": "Desarrolla $(x+3)^2$.",
+        "pasos": [
+          "Identifica $a=x$ y $b=3$.",
+          "Cuadrados: $a^2=x^2$ y $b^2=9$.",
+          "Producto doble: $2ab=2\\times x\\times3=6x$.",
+          "Resultado: $x^2+6x+9$. Con $x=2$, ambos lados valen 25."
+        ],
+        "preguntas": [
+          {
+            "pregunta": "¿Por qué $(a+b)^2$ contiene $2ab$?",
+            "opciones": [
+              "Porque aparecen dos áreas de ab.",
+              "Porque se suman los exponentes.",
+              "Porque a+b siempre vale 2."
+            ],
+            "correcta": 0,
+            "pista": "Busca los dos productos cruzados.",
+            "explicacion": "Los productos ab y ba son iguales y su suma es 2ab.",
+            "errores": [
+              "",
+              "El 2 cuenta los productos cruzados; no procede de sumar exponentes.",
+              "a y b pueden tener cualquier valor."
+            ]
+          },
+          {
+            "pregunta": "Desarrolla $(x+4)^2$.",
+            "opciones": [
+              "$x^2+16$",
+              "$x^2+8x+16$",
+              "$x^2+4x+16$"
+            ],
+            "correcta": 1,
+            "pista": "El término central es 2×x×4.",
+            "explicacion": "$x^2+2(x)(4)+4^2=x^2+8x+16$.",
+            "errores": [
+              "Faltan los dos rectángulos de 4x.",
+              "",
+              "Incluiste solo uno de los dos productos cruzados."
+            ]
+          },
+          {
+            "pregunta": "Desarrolla $(2x+1)^2$.",
+            "opciones": [
+              "$2x^2+4x+1$",
+              "$4x^2+2x+1$",
+              "$4x^2+4x+1$"
+            ],
+            "correcta": 2,
+            "pista": "El primer término es 2x, no x.",
+            "explicacion": "$(2x)^2+2(2x)(1)+1^2=4x^2+4x+1$.",
+            "errores": [
+              "El cuadrado del coeficiente 2 es 4.",
+              "El producto doble es 4x.",
+              ""
+            ]
+          }
+        ],
+        "visual": "binom-square",
+        "ejemplosExtra": [
+          {
+            "problema": "Calcula $21^2$ mentalmente.",
+            "pasos": [
+              "$21=20+1$.",
+              "$(20+1)^2=400+40+1=441$."
+            ]
+          }
+        ]
       },
       {
-        "nombre": "Producto de dos binomios con un término común",
-        "formula": "(x + a)(x + b) = x^2 + (a + b)x + ab",
-        "demostracionAlgebraica": "(x + a)(x + b) = x^2 + xb + ax + ab = x^2 + (a + b)x + ab",
-        "interpretacionGeometrica": "Representa el área de un rectángulo con dimensiones $(x+a)$ y $(x+b)$, compuesto por un cuadrado base $x^2$, dos extensiones rectangulares $ax$ y $bx$, y la esquina de cierre $ab$.",
-        "tipoVisual": "termino-comun"
+        "id": "cuadrado-resta",
+        "titulo": "El cuadrado de una diferencia",
+        "tituloRuta": "Cuadrado de una diferencia",
+        "descripcionRuta": "Restar tiras y recuperar la esquina",
+        "fase": "02 · COMPRENDE LOS PRODUCTOS",
+        "bases": [
+          "Cuadrado de una suma y multiplicación con signos."
+        ],
+        "refuerzos": [
+          "cuadrado-suma",
+          "multiplicar"
+        ],
+        "meta": "Desarrollar un cuadrado con resta y explicar sus signos.",
+        "paraQue": "Para distinguir el cuadrado de una diferencia de una diferencia de cuadrados.",
+        "explicacion": [
+          "$(a-b)^2=(a-b)(a-b)$. Distribuye: $a^2-ab-ba+b^2$. El último producto es positivo porque $(-b)(-b)=b^2$.",
+          "Así, $(a-b)^2=a^2-2ab+b^2$. Solo el término central lleva signo negativo; el último sigue siendo un cuadrado positivo o cero.",
+          "Para visualizarlo usamos $a>b>0$. Desde un cuadrado de lado a, retira una tira horizontal y una vertical de ancho b. La esquina b×b pertenece a las dos tiras.",
+          "Al restar ambas tiras completas, contaste esa esquina dos veces. Debes recuperarla una vez: $a^2-ab-ab+b^2$. Queda el cuadrado de lado $a-b$.",
+          "$(a-b)^2$ y $a^2-b^2$ son expresiones diferentes. Por ejemplo, $(5-2)^2=9$, mientras que $5^2-2^2=21$."
+        ],
+        "ejemplo": "Desarrolla $(x-5)^2$.",
+        "pasos": [
+          "Los términos son $a=x$ y $b=5$.",
+          "Cuadrado del primero: $x^2$. Producto doble que se resta: $2(x)(5)=10x$.",
+          "Cuadrado del segundo: $25$. Resultado: $x^2-10x+25$.",
+          "Con $x=7$: $(7-5)^2=4$ y $49-70+25=4$."
+        ],
+        "preguntas": [
+          {
+            "pregunta": "Desarrolla $(x-3)^2$.",
+            "opciones": [
+              "$x^2-9$",
+              "$x^2-6x-9$",
+              "$x^2-6x+9$"
+            ],
+            "correcta": 2,
+            "pista": "(−3)×(−3) es positivo.",
+            "explicacion": "$x^2-2(x)(3)+3^2=x^2-6x+9$.",
+            "errores": [
+              "Eso es una diferencia de cuadrados; falta el término central.",
+              "El cuadrado del segundo término es +9.",
+              ""
+            ]
+          },
+          {
+            "pregunta": "¿Por qué se suma la esquina b² después de retirar dos tiras?",
+            "opciones": [
+              "Porque fue restada dos veces.",
+              "Porque toda resta cambia a suma.",
+              "Porque el área total aumenta."
+            ],
+            "correcta": 0,
+            "pista": "La esquina pertenece a las dos tiras retiradas.",
+            "explicacion": "Se recupera una copia para que la esquina se retire solo una vez.",
+            "errores": [
+              "",
+              "Solo corregimos la doble sustracción de la esquina.",
+              "El cuadrado final es menor; sumar b² corrige el conteo."
+            ]
+          },
+          {
+            "pregunta": "Calcula $19^2$ usando $(20-1)^2$.",
+            "opciones": [
+              "$399$",
+              "$361$",
+              "$381$"
+            ],
+            "correcta": 1,
+            "pista": "400−40+1.",
+            "explicacion": "$20^2-2(20)(1)+1^2=400-40+1=361$.",
+            "errores": [
+              "Calculaste 20²−1² en lugar del cuadrado de la diferencia.",
+              "",
+              "El producto doble es 40, no 20."
+            ]
+          }
+        ],
+        "visual": "binom-difference",
+        "ejemplosExtra": []
       },
       {
-        "nombre": "Cubo de un binomio (Suma)",
-        "formula": "(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3",
-        "demostracionAlgebraica": "(a + b)^3 = (a + b)(a + b)^2 = (a + b)(a^2 + 2ab + b^2) = a^3 + 2a^2b + ab^2 + a^2b + 2ab^2 + b^3 = a^3 + 3a^2b + 3ab^2 + b^3",
-        "interpretacionGeometrica": "Un cubo grande tridimensional de arista $(a+b)$ se divide en exactamente 8 cuerpos paralelepípedos: 1 cubo grande $a^3$, 3 paralelepípedos de base cuadrada y altura $b$ ($3a^2b$), 3 paralelepípedos de base $b^2$ y altura $a$ ($3ab^2$), y 1 cubo pequeño $b^3$.",
-        "tipoVisual": "cubo-binomio"
+        "id": "conjugados",
+        "titulo": "Suma por diferencia: cuadrados que se restan",
+        "tituloRuta": "Suma por diferencia",
+        "descripcionRuta": "Los términos cruzados se cancelan",
+        "fase": "02 · COMPRENDE LOS PRODUCTOS",
+        "bases": [
+          "Distribuir productos de binomios y sumar términos opuestos."
+        ],
+        "refuerzos": [
+          "multiplicar",
+          "cuadrado-resta"
+        ],
+        "meta": "Desarrollar binomios conjugados y reconocer una diferencia de cuadrados.",
+        "paraQue": "Para calcular productos y preparar su factorización.",
+        "explicacion": [
+          "Los binomios $a+b$ y $a-b$ tienen los mismos términos y solo cambia el signo entre ellos: se llaman conjugados.",
+          "Distribuye $(a+b)(a-b)=a^2-ab+ba-b^2$. Como $-ab+ba=0$, queda $a^2-b^2$.",
+          "En $(x+4)(x-4)=x^2-16$ no hay término con x: se cancelan $-4x$ y $+4x$.",
+          "Para el modelo geométrico usa $a>b>0$. Quita de un cuadrado a×a una esquina b×b: queda una L de área $a^2-b^2$.",
+          "Divide la L en un rectángulo a×(a−b) y otro b×(a−b). Al girar el segundo y colocarlo junto al primero, forman un rectángulo de lados a+b y a−b."
+        ],
+        "ejemplo": "Calcula $23\\times17$ sin multiplicación larga.",
+        "pasos": [
+          "$23=20+3$ y $17=20-3$.",
+          "Usa los conjugados: $(20+3)(20-3)=20^2-3^2$.",
+          "$400-9=391$."
+        ],
+        "preguntas": [
+          {
+            "pregunta": "Desarrolla $(x+6)(x-6)$.",
+            "opciones": [
+              "$x^2-36$",
+              "$x^2+36$",
+              "$x^2-12x+36$"
+            ],
+            "correcta": 0,
+            "pista": "Los productos cruzados son opuestos.",
+            "explicacion": "$x^2-6x+6x-36=x^2-36$.",
+            "errores": [
+              "",
+              "El producto 6×(−6) es −36.",
+              "Esa expresión corresponde a (x−6)²."
+            ]
+          },
+          {
+            "pregunta": "¿Cuál es el conjugado de $2x+3$?",
+            "opciones": [
+              "$2x-3$",
+              "$-2x-3$",
+              "$3x+2$"
+            ],
+            "correcta": 0,
+            "pista": "Conserva los términos y cambia el signo que los separa.",
+            "explicacion": "2x+3 y 2x−3 producen 4x²−9.",
+            "errores": [
+              "",
+              "Cambiaste también el signo del primer término.",
+              "Cambiaste los términos, no solo el signo."
+            ]
+          },
+          {
+            "pregunta": "¿Cuánto vale $(10+2)(10-2)$?",
+            "opciones": [
+              "$144$",
+              "$96$",
+              "$64$"
+            ],
+            "correcta": 1,
+            "pista": "Resta los cuadrados 10² y 2².",
+            "explicacion": "$100-4=96$; también $12\\times8=96$.",
+            "errores": [
+              "Ese es el cuadrado de 12.",
+              "",
+              "Ese es el cuadrado de 8."
+            ]
+          }
+        ],
+        "visual": "binom-conjugates",
+        "ejemplosExtra": []
       },
       {
-        "nombre": "Cubo de un binomio (Diferencia)",
-        "formula": "(a - b)^3 = a^3 - 3a^2b + 3ab^2 - b^3",
-        "demostracionAlgebraica": "(a - b)^3 = (a - b)(a^2 - 2ab + b^2) = a^3 - 3a^2b + 3ab^2 - b^3",
-        "interpretacionGeometrica": "Reducción volumétrica análoga al cubo de una suma con alternancia de signos debida a los volúmenes sustraídos y compensados.",
-        "tipoVisual": "cubo-diferencia"
+        "id": "factor-comun",
+        "titulo": "Factorizar empieza por lo que se repite",
+        "tituloRuta": "Extraer factor común",
+        "descripcionRuta": "De una suma a un producto",
+        "fase": "03 · APRENDE A FACTORIZAR",
+        "bases": [
+          "Distributiva; divisores y productos de potencias."
+        ],
+        "refuerzos": [
+          "lenguaje",
+          "multiplicar"
+        ],
+        "meta": "Extraer un factor que aparezca en todos los términos y comprobarlo.",
+        "paraQue": "Para expresar una suma como producto y simplificar cálculos.",
+        "explicacion": [
+          "Desarrollar va de producto a suma: $3(x+2)=3x+6$. Factorizar recorre el camino inverso: $3x+6=3(x+2)$.",
+          "Busca qué multiplica a todos los términos. En $6x+9$, ambos coeficientes son múltiplos de 3. Divide cada término entre 3: quedan $2x$ y $3$. Por tanto, $6x+9=3(2x+3)$.",
+          "También puede repetirse una letra: $x^2+3x=x(x+3)$. El menor exponente común se puede extraer. En $6x^2+9x$, el factor común completo es $3x$.",
+          "Comprueba siempre distribuyendo: $3x(2x+3)=6x^2+9x$. Si falta un término o cambia un signo, la factorización no es equivalente.",
+          "En un rectángulo dividido con altura común a, la suma de sus áreas $ab+ac$ se escribe como el producto de altura por base total: $a(b+c)$."
+        ],
+        "ejemplo": "Factoriza $8x^2+12x$.",
+        "pasos": [
+          "8 y 12 comparten el divisor 4; ambos términos contienen x. Extrae $4x$.",
+          "$8x^2=4x(2x)$ y $12x=4x(3)$.",
+          "Resultado: $4x(2x+3)$.",
+          "Comprueba: $4x\\times2x+4x\\times3=8x^2+12x$."
+        ],
+        "preguntas": [
+          {
+            "pregunta": "Factoriza $6x+9$.",
+            "opciones": [
+              "$3(2x+3)$",
+              "$3(2x+9)$",
+              "$6(x+3)$"
+            ],
+            "correcta": 0,
+            "pista": "Divide cada término entre el factor 3.",
+            "explicacion": "$3\\times2x+3\\times3=6x+9$.",
+            "errores": [
+              "",
+              "9/3=3; no dejes el 9 sin dividir.",
+              "6(x+3)=6x+18, no 6x+9."
+            ]
+          },
+          {
+            "pregunta": "¿Cuál es el factor común completo de $6x^2+9x$?",
+            "opciones": [
+              "$3$",
+              "$3x$",
+              "$3x^2$"
+            ],
+            "correcta": 1,
+            "pista": "Busca el mayor divisor de 6 y 9 y la menor potencia de x compartida.",
+            "explicacion": "Ambos términos contienen 3x.",
+            "errores": [
+              "3 es común, pero todavía queda x compartida.",
+              "",
+              "9x no tiene dos factores x."
+            ]
+          },
+          {
+            "pregunta": "Factoriza $5x-10$.",
+            "opciones": [
+              "$5(x-10)$",
+              "$5(x+2)$",
+              "$5(x-2)$"
+            ],
+            "correcta": 2,
+            "pista": "Divide −10 entre 5 conservando el signo.",
+            "explicacion": "$5x-10=5(x-2)$ y al distribuir se recupera la expresión.",
+            "errores": [
+              "Falta dividir el segundo término entre 5.",
+              "El segundo término original es negativo.",
+              ""
+            ]
+          }
+        ],
+        "visual": "factor-area",
+        "ejemplosExtra": []
+      },
+      {
+        "id": "factor-cuadrados",
+        "titulo": "Reconocer cuadrados y diferencias de cuadrados",
+        "tituloRuta": "Reconocer el patrón",
+        "descripcionRuta": "Factorizar cuadrados y conjugados",
+        "fase": "03 · APRENDE A FACTORIZAR",
+        "bases": [
+          "Cuadrados de binomios, conjugados y factor común."
+        ],
+        "refuerzos": [
+          "cuadrado-suma",
+          "cuadrado-resta",
+          "conjugados",
+          "factor-comun"
+        ],
+        "meta": "Factorizar un trinomio cuadrado perfecto y una diferencia de cuadrados.",
+        "paraQue": "Para elegir una identidad por su estructura y comprobarla.",
+        "explicacion": [
+          "Un trinomio cuadrado perfecto tiene tres términos: los extremos son cuadrados y el central es el doble producto de sus bases. $x^2+6x+9$ cumple esto porque $9=3^2$ y $6x=2(x)(3)$.",
+          "Así, $x^2+6x+9=(x+3)^2$. Si el central es negativo, $x^2-6x+9=(x-3)^2$. No basta con que los extremos sean cuadrados.",
+          "En $4x^2+12x+9$, las bases de los cuadrados son $2x$ y 3. Su doble producto es $12x$; por eso se factoriza como $(2x+3)^2$.",
+          "Una diferencia de cuadrados tiene dos términos cuadrados separados por resta: $x^2-25=(x+5)(x-5)$. La identidad $a^2-b^2=(a+b)(a-b)$ se lee ahora al revés.",
+          "Antes de buscar patrones, revisa el factor común: $2x^2-18=2(x^2-9)=2(x+3)(x-3)$. Una suma de cuadrados $x^2+9$ no se factoriza como $(x+3)(x-3)$ en los reales."
+        ],
+        "ejemplo": "Factoriza $x^2-8x+16$.",
+        "pasos": [
+          "Los extremos son $x^2$ y $4^2$.",
+          "El doble producto es $2(x)(4)=8x$, con signo negativo en la expresión.",
+          "Es un cuadrado de diferencia: $(x-4)^2$.",
+          "Comprueba: $(x-4)(x-4)=x^2-8x+16$."
+        ],
+        "preguntas": [
+          {
+            "pregunta": "Factoriza $x^2+10x+25$.",
+            "opciones": [
+              "$(x+5)^2$",
+              "$(x+10)^2$",
+              "$(x+5)(x-5)$"
+            ],
+            "correcta": 0,
+            "pista": "25=5² y 10x=2×x×5.",
+            "explicacion": "$(x+5)^2=x^2+10x+25$.",
+            "errores": [
+              "",
+              "El término central sería 20x y el último 100.",
+              "Los conjugados producen x²−25, sin término central."
+            ]
+          },
+          {
+            "pregunta": "Factoriza $9x^2-16$.",
+            "opciones": [
+              "$(9x+4)(9x-4)$",
+              "$(3x+4)(3x-4)$",
+              "$(3x-4)^2$"
+            ],
+            "correcta": 1,
+            "pista": "Las bases de los cuadrados son 3x y 4.",
+            "explicacion": "$(3x)^2-4^2=(3x+4)(3x-4)$.",
+            "errores": [
+              "El cuadrado de 9x es 81x², no 9x².",
+              "",
+              "El cuadrado de diferencia incluye el término −24x."
+            ]
+          },
+          {
+            "pregunta": "¿Es $x^2+5x+9$ un trinomio cuadrado perfecto?",
+            "opciones": [
+              "Sí, porque tiene tres términos.",
+              "Sí, porque 9 es un cuadrado.",
+              "No: el central debería ser 6x."
+            ],
+            "correcta": 2,
+            "pista": "Comprueba el doble producto de x y 3.",
+            "explicacion": "Los extremos sugieren x y 3, pero 2×x×3=6x, no 5x.",
+            "errores": [
+              "Tres términos no bastan.",
+              "También debe coincidir el término central.",
+              ""
+            ]
+          }
+        ],
+        "visual": null,
+        "ejemplosExtra": []
+      },
+      {
+        "id": "termino-comun",
+        "titulo": "Dos binomios con un término común",
+        "tituloRuta": "Suma y producto",
+        "descripcionRuta": "Desarrollar y factorizar trinomios",
+        "fase": "03 · APRENDE A FACTORIZAR",
+        "bases": [
+          "Distribuir y reunir términos semejantes; multiplicar con signos."
+        ],
+        "refuerzos": [
+          "multiplicar",
+          "factor-comun",
+          "factor-cuadrados"
+        ],
+        "meta": "Relacionar la suma y el producto de dos números con un trinomio sencillo.",
+        "paraQue": "Para factorizar expresiones como x²+5x+6 sin adivinar.",
+        "explicacion": [
+          "Distribuye $(x+a)(x+b)=x^2+bx+ax+ab$. Reúne los términos con x: $x^2+(a+b)x+ab$.",
+          "Los números a y b aparecen de dos maneras: su suma es el coeficiente de x y su producto es el término independiente.",
+          "Para factorizar $x^2+5x+6$, busca dos números cuya suma sea 5 y cuyo producto sea 6: son 2 y 3. Resultado: $(x+2)(x+3)$.",
+          "En $x^2+x-6$, el producto negativo exige signos distintos. 3 y −2 suman 1 y multiplican −6; queda $(x+3)(x-2)$.",
+          "Este procedimiento se aplica aquí a trinomios con coeficiente 1 delante de $x^2$ y parejas enteras fáciles de reconocer. Si ninguna pareja de divisores sirve, no fuerces una respuesta: otros casos requieren herramientas posteriores."
+        ],
+        "ejemplo": "Factoriza $x^2+7x+12$.",
+        "pasos": [
+          "Busca parejas enteras de producto 12: (1,12), (2,6), (3,4).",
+          "Sus sumas son 13, 8 y 7. Sirven 3 y 4.",
+          "Escribe $(x+3)(x+4)$.",
+          "Comprueba distribuyendo: $x^2+4x+3x+12=x^2+7x+12$."
+        ],
+        "preguntas": [
+          {
+            "pregunta": "Desarrolla $(x+2)(x+5)$.",
+            "opciones": [
+              "$x^2+7x+10$",
+              "$x^2+10x+7$",
+              "$x^2+7x+7$"
+            ],
+            "correcta": 0,
+            "pista": "El coeficiente central es la suma; el independiente, el producto.",
+            "explicacion": "$2+5=7$ y $2\\times5=10$.",
+            "errores": [
+              "",
+              "Intercambiaste suma y producto.",
+              "El término independiente es 2×5."
+            ]
+          },
+          {
+            "pregunta": "Factoriza $x^2+6x+8$.",
+            "opciones": [
+              "$(x+1)(x+8)$",
+              "$(x+2)(x+4)$",
+              "$(x+3)^2$"
+            ],
+            "correcta": 1,
+            "pista": "Busca producto 8 y suma 6.",
+            "explicacion": "2×4=8 y 2+4=6; al desarrollar se recupera el trinomio.",
+            "errores": [
+              "1+8=9, no 6.",
+              "",
+              "(x+3)² termina en 9, no 8."
+            ]
+          },
+          {
+            "pregunta": "Factoriza $x^2-x-6$.",
+            "opciones": [
+              "$(x-2)(x+3)$",
+              "$(x-3)(x-2)$",
+              "$(x-3)(x+2)$"
+            ],
+            "correcta": 2,
+            "pista": "Busca producto −6 y suma −1.",
+            "explicacion": "$(-3)+2=-1$ y $(-3)\\times2=-6$.",
+            "errores": [
+              "La suma es +1, no −1.",
+              "El producto es +6 y la suma −5.",
+              ""
+            ]
+          }
+        ],
+        "visual": "binom-rectangle",
+        "ejemplosExtra": []
+      },
+      {
+        "id": "cubos",
+        "titulo": "Del área al volumen: cubos de binomios",
+        "tituloRuta": "Cubos de binomios",
+        "descripcionRuta": "Por qué aparecen dos grupos de tres",
+        "fase": "04 · PROFUNDIZA CON VOLÚMENES",
+        "bases": [
+          "Cuadrados de binomios, distributiva y volumen de un prisma."
+        ],
+        "refuerzos": [
+          "lenguaje",
+          "cuadrado-suma",
+          "cuadrado-resta"
+        ],
+        "meta": "Desarrollar cubos de suma y diferencia y relacionar la suma con ocho volúmenes.",
+        "paraQue": "Para extender lo aprendido de dos dimensiones a tres.",
+        "explicacion": [
+          "El volumen de un prisma rectangular es largo×ancho×alto. En un cubo de arista a, vale $a^3$. Cada uno de los tres factores aporta una longitud.",
+          "$(a+b)^3=(a+b)(a+b)^2$. Usa el cuadrado aprendido y distribuye: $(a+b)(a^2+2ab+b^2)$.",
+          "Aparecen $a^3+2a^2b+ab^2+a^2b+2ab^2+b^3$. Reuniendo términos: $(a+b)^3=a^3+3a^2b+3ab^2+b^3$.",
+          "Si a y b son longitudes positivas, divide cada arista en a y b. Los ocho prismas son: uno de volumen a³, tres de a²b, tres de ab² y uno de b³. Los coeficientes 3 cuentan piezas iguales.",
+          "Para una diferencia sustituye b por −b en la identidad: $(a-b)^3=a^3-3a^2b+3ab^2-b^3$. Los signos alternan porque las potencias impares de −b son negativas y las pares son positivas.",
+          "El cuadrado tiene coeficientes 1,2,1; el cubo tiene 1,3,3,1. No uses la fórmula del cuadrado para un volumen."
+        ],
+        "ejemplo": "Desarrolla $(x+2)^3$.",
+        "pasos": [
+          "Cuadrado previo: $(x+2)^2=x^2+4x+4$.",
+          "Multiplica por x+2: $x^3+4x^2+4x+2x^2+8x+8$.",
+          "Reúne: $x^3+6x^2+12x+8$.",
+          "Con $x=1$: $3^3=27$ y $1+6+12+8=27$."
+        ],
+        "preguntas": [
+          {
+            "pregunta": "Desarrolla $(x+1)^3$.",
+            "opciones": [
+              "$x^3+1$",
+              "$x^3+3x^2+3x+1$",
+              "$x^3+2x+1$"
+            ],
+            "correcta": 1,
+            "pista": "Hay ocho piezas agrupadas en 1,3,3,1.",
+            "explicacion": "$x^3+3(x^2)(1)+3(x)(1^2)+1=x^3+3x^2+3x+1$.",
+            "errores": [
+              "Faltan los seis prismas intermedios.",
+              "",
+              "Usaste una expresión que no corresponde al cubo."
+            ]
+          },
+          {
+            "pregunta": "¿Cuántas piezas de volumen $a^2b$ aparecen en $(a+b)^3$?",
+            "opciones": [
+              "Tres.",
+              "Dos.",
+              "Una."
+            ],
+            "correcta": 0,
+            "pista": "La longitud b puede estar en cualquiera de las tres dimensiones.",
+            "explicacion": "Hay tres posiciones para b: b×a×a, a×b×a y a×a×b.",
+            "errores": [
+              "",
+              "El cubo tiene tres dimensiones, no dos.",
+              "La dimensión b puede ocupar tres posiciones."
+            ]
+          },
+          {
+            "pregunta": "Desarrolla $(x-1)^3$.",
+            "opciones": [
+              "$x^3-1$",
+              "$x^3-3x^2-3x-1$",
+              "$x^3-3x^2+3x-1$"
+            ],
+            "correcta": 2,
+            "pista": "Las potencias de −1 alternan sus signos.",
+            "explicacion": "$x^3-3x^2+3x-1$.",
+            "errores": [
+              "Faltan los términos intermedios.",
+              "El término con (−1)² es positivo.",
+              ""
+            ]
+          }
+        ],
+        "visual": "binom-cube",
+        "ejemplosExtra": [
+          {
+            "problema": "Desarrolla $(2x-1)^3$.",
+            "pasos": [
+              "La base del primer término es $2x$.",
+              "$(2x)^3-3(2x)^2(1)+3(2x)(1)^2-1^3$.",
+              "Resultado: $8x^3-12x^2+6x-1$."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "factor-cubos",
+        "titulo": "Sumas y diferencias de cubos",
+        "tituloRuta": "Factorizar cubos",
+        "descripcionRuta": "Dos términos, no un cubo de binomio",
+        "fase": "04 · PROFUNDIZA CON VOLÚMENES",
+        "bases": [
+          "Productos de binomios, potencias cúbicas y factor común."
+        ],
+        "refuerzos": [
+          "cubos",
+          "multiplicar",
+          "factor-comun"
+        ],
+        "meta": "Distinguir un cubo de binomio de una suma o diferencia de cubos y factorizar estas últimas.",
+        "paraQue": "Para cerrar el tema reconociendo la estructura antes de elegir una identidad.",
+        "explicacion": [
+          "$a^3-b^3$ tiene dos términos; $(a-b)^3$ generalmente desarrolla cuatro. No son lo mismo: $3^3-1^3=26$, pero $(3-1)^3=8$.",
+          "La diferencia de cubos se factoriza como $a^3-b^3=(a-b)(a^2+ab+b^2)$. Comprueba distribuyendo: los términos a²b y ab² se cancelan por pares.",
+          "La suma de cubos es $a^3+b^3=(a+b)(a^2-ab+b^2)$. El signo del primer paréntesis coincide con el original; el término central del segundo lleva el signo contrario y el último siempre es positivo.",
+          "Para $8x^3-27$, las bases cúbicas son 2x y 3. Así: $(2x-3)(4x^2+6x+9)$. Eleva las bases completas, no solo las letras.",
+          "El diagrama de volúmenes de la lección anterior explica un cubo de binomio. Estas dos identidades se justifican aquí con distributiva y cancelación; no son el mismo reparto de ocho piezas."
+        ],
+        "ejemplo": "Factoriza $x^3-8$.",
+        "pasos": [
+          "$8=2^3$; identifica $a=x$ y $b=2$.",
+          "Escribe $(x-2)(x^2+2x+4)$.",
+          "Comprueba: $x^3+2x^2+4x-2x^2-4x-8=x^3-8$."
+        ],
+        "preguntas": [
+          {
+            "pregunta": "Factoriza $x^3-27$.",
+            "opciones": [
+              "$(x-3)(x^2+3x+9)$",
+              "$(x-3)^3$",
+              "$(x-3)(x^2-3x+9)$"
+            ],
+            "correcta": 0,
+            "pista": "27=3³ y el segundo paréntesis tiene dos signos positivos.",
+            "explicacion": "$x^3-3^3=(x-3)(x^2+3x+9)$.",
+            "errores": [
+              "",
+              "(x−3)³ contiene términos intermedios.",
+              "El término central debe ser +3x para cancelar los productos cruzados."
+            ]
+          },
+          {
+            "pregunta": "Factoriza $x^3+8$.",
+            "opciones": [
+              "$(x+2)^3$",
+              "$(x+2)(x^2-2x+4)$",
+              "$(x+2)(x^2+2x+4)$"
+            ],
+            "correcta": 1,
+            "pista": "La suma de cubos usa signo negativo en el término central del trinomio.",
+            "explicacion": "$x^3+2^3=(x+2)(x^2-2x+4)$.",
+            "errores": [
+              "El cubo del binomio agrega 6x² y 12x.",
+              "",
+              "El signo central debe ser negativo para cancelar."
+            ]
+          },
+          {
+            "pregunta": "¿Son iguales $a^3-b^3$ y $(a-b)^3$ para todos los reales?",
+            "opciones": [
+              "Sí, siempre.",
+              "Sí, porque ambas tienen exponente 3.",
+              "No; con a=3 y b=1 dan 26 y 8."
+            ],
+            "correcta": 2,
+            "pista": "Prueba un par de valores sencillos.",
+            "explicacion": "$27-1=26$ y $(3-1)^3=8$.",
+            "errores": [
+              "Un solo contraejemplo basta para descartar la igualdad general.",
+              "Los paréntesis cambian la base que se eleva al cubo.",
+              ""
+            ]
+          }
+        ],
+        "visual": null,
+        "ejemplosExtra": []
       }
     ],
-    "ejemplosLibro": [
+    "puenteAnterior": {
+      "titulo": "¿Necesitas repasar la distributiva o los signos?",
+      "descripcion": "Vuelve a la base del tema 1. Al regresar conservarás las respuestas de esta sesión.",
+      "tema": "t1-u1-tema1",
+      "leccion": "distributiva"
+    },
+    "cierreIntroduccion": "Estos ocho ejercicios combinan productos y factorizaciones de este tema. Reconoce primero la estructura y comprueba después con la distributiva.",
+    "retosCierre": [
+      "Dibuja el cuadrado de lado x+3 y explica por qué su área incluye 6x.",
+      "Elige una diferencia de cuadrados, factorízala y recupera la expresión multiplicando.",
+      "Explica por qué x³−8 y (x−2)³ no son iguales. Da un ejemplo numérico."
+    ],
+    "diagnostico": [
       {
-        "titulo": "Cálculo mental de áreas aplicando $(a+b)^2$",
-        "problema": "Calcular mentalmente $(4.1)^2$ utilizando descomposición de binomios.",
-        "desarrollo": [
-          "1. Descomponer el número: $4.1 = 4 + 0.1$",
-          "2. Aplicar la fórmula: $(4 + 0.1)^2 = 4^2 + 2(4)(0.1) + (0.1)^2$",
-          "3. Calcular cada término: $16 + 0.8 + 0.01 = 16.81$"
-        ]
+        "pregunta": "Si $x=3$, ¿cuánto vale $2x$?",
+        "opciones": [
+          "$5$",
+          "$6$",
+          "$9$"
+        ],
+        "correcta": 1,
+        "pista": "La escritura 2x significa 2 multiplicado por x.",
+        "explicacion": "$2\times3=6$.",
+        "errores": [
+          "Sumaste 2 y 3; aquí hay un producto.",
+          "",
+          "Calculaste x² en lugar de 2x."
+        ],
+        "leccion": "lenguaje"
       },
       {
-        "titulo": "Factorización de diferencia de cubos",
-        "problema": "Demostrar que $(a - b)(a^2 + ab + b^2) = a^3 - b^3$",
-        "desarrollo": [
-          "1. Propiedad distributiva: $a(a^2 + ab + b^2) - b(a^2 + ab + b^2)$",
-          "2. Expandir: $a^3 + a^2b + ab^2 - a^2b - ab^2 - b^3$",
-          "3. Cancelación de términos opuestos: $+a^2b - a^2b = 0$ y $+ab^2 - ab^2 = 0$",
-          "4. Resultado: $a^3 - b^3$"
-        ]
+        "pregunta": "¿Cuál equivale a $(2x)^2$?",
+        "opciones": [
+          "$4x^2$",
+          "$2x^2$",
+          "$4x$"
+        ],
+        "correcta": 0,
+        "pista": "Eleva al cuadrado tanto el coeficiente como la letra.",
+        "explicacion": "$(2x)(2x)=2\\times2\\times x\\times x=4x^2$.",
+        "errores": [
+          "",
+          "El 2 también está dentro de la base que se eleva al cuadrado.",
+          "Falta el segundo factor x."
+        ],
+        "leccion": "lenguaje"
+      },
+      {
+        "pregunta": "Reúne los términos $3x+2x$.",
+        "opciones": [
+          "$5x^2$",
+          "$6x$",
+          "$5x$"
+        ],
+        "correcta": 2,
+        "pista": "Hay tres grupos de x más dos grupos de x.",
+        "explicacion": "$(3+2)x=5x$; la suma no multiplica las letras.",
+        "errores": [
+          "Sumar términos no eleva x al cuadrado.",
+          "Multiplicaste los coeficientes en lugar de sumarlos.",
+          ""
+        ],
+        "leccion": "lenguaje"
+      },
+      {
+        "pregunta": "Distribuye $2(x+3)$.",
+        "opciones": [
+          "$2x+3$",
+          "$2x+6$",
+          "$x+6$"
+        ],
+        "correcta": 1,
+        "pista": "El 2 multiplica ambos términos.",
+        "explicacion": "$2\\times x+2\\times3=2x+6$.",
+        "errores": [
+          "Falta multiplicar 3 por 2.",
+          "",
+          "Falta multiplicar x por 2."
+        ],
+        "leccion": "multiplicar"
+      },
+      {
+        "pregunta": "Un rectángulo de lados 4 y 3 tiene área…",
+        "opciones": [
+          "$7$ unidades cuadradas.",
+          "$12$ unidades cuadradas.",
+          "$14$ unidades cuadradas."
+        ],
+        "correcta": 1,
+        "pista": "El área se obtiene multiplicando base por altura.",
+        "explicacion": "4×3=12 unidades cuadradas.",
+        "errores": [
+          "Sumaste los lados.",
+          "",
+          "Calculaste el perímetro, no el área."
+        ],
+        "leccion": "multiplicar"
+      },
+      {
+        "pregunta": "Calcula $(-2)(-3)$.",
+        "opciones": [
+          "$-6$",
+          "$6$",
+          "$-5$"
+        ],
+        "correcta": 1,
+        "pista": "Un producto de dos negativos es positivo.",
+        "explicacion": "2×3=6 y los dos signos negativos dan positivo.",
+        "errores": [
+          "Signos iguales dan producto positivo.",
+          "",
+          "La operación es un producto, no una suma."
+        ],
+        "leccion": "lenguaje"
+      }
+    ],
+    "cierre": [
+      {
+        "pregunta": "Desarrolla $(x+5)^2$.",
+        "opciones": [
+          "$x^2+10x+25$",
+          "$x^2+25$",
+          "$x^2+5x+25$"
+        ],
+        "correcta": 0,
+        "pista": "Calcula el doble producto.",
+        "explicacion": "$x^2+2(x)(5)+5^2=x^2+10x+25$.",
+        "errores": [
+          "",
+          "Faltan las dos áreas cruzadas.",
+          "Falta uno de los productos cruzados."
+        ],
+        "leccion": "cuadrado-suma"
+      },
+      {
+        "pregunta": "Desarrolla $(2x-3)^2$.",
+        "opciones": [
+          "$4x^2-6x+9$",
+          "$4x^2-12x+9$",
+          "$4x^2-9$"
+        ],
+        "correcta": 1,
+        "pista": "El doble producto es 2×2x×3.",
+        "explicacion": "$(2x)^2-2(2x)(3)+3^2=4x^2-12x+9$.",
+        "errores": [
+          "Solo incluiste un producto cruzado.",
+          "",
+          "Esa es una diferencia de cuadrados, no un cuadrado de diferencia."
+        ],
+        "leccion": "cuadrado-resta"
+      },
+      {
+        "pregunta": "Desarrolla $(3x+2)(3x-2)$.",
+        "opciones": [
+          "$3x^2-4$",
+          "$9x^2+4$",
+          "$9x^2-4$"
+        ],
+        "correcta": 2,
+        "pista": "Eleva 3x al cuadrado y resta 2².",
+        "explicacion": "$(3x)^2-2^2=9x^2-4$.",
+        "errores": [
+          "Falta elevar al cuadrado el coeficiente 3.",
+          "El producto 2×(−2) es negativo.",
+          ""
+        ],
+        "leccion": "conjugados"
+      },
+      {
+        "pregunta": "Factoriza $10x^2-15x$.",
+        "opciones": [
+          "$5x(2x-3)$",
+          "$5(2x-3)$",
+          "$5x(2x+3)$"
+        ],
+        "correcta": 0,
+        "pista": "Ambos términos contienen 5x.",
+        "explicacion": "$10x^2=5x(2x)$ y $-15x=5x(-3)$.",
+        "errores": [
+          "",
+          "Se perdieron los factores x al dividir.",
+          "El segundo término debe seguir siendo negativo."
+        ],
+        "leccion": "factor-comun"
+      },
+      {
+        "pregunta": "Factoriza $x^2-14x+49$.",
+        "opciones": [
+          "$(x-7)(x+7)$",
+          "$(x-7)^2$",
+          "$(x-14)^2$"
+        ],
+        "correcta": 1,
+        "pista": "49=7² y −14x=−2×x×7.",
+        "explicacion": "$(x-7)^2=x^2-14x+49$.",
+        "errores": [
+          "Los conjugados dan x²−49.",
+          "",
+          "El último término sería 196 y el central −28x."
+        ],
+        "leccion": "factor-cuadrados"
+      },
+      {
+        "pregunta": "Factoriza $x^2+9x+20$.",
+        "opciones": [
+          "$(x+2)(x+10)$",
+          "$(x+5)^2$",
+          "$(x+4)(x+5)$"
+        ],
+        "correcta": 2,
+        "pista": "Busca producto 20 y suma 9.",
+        "explicacion": "4×5=20 y 4+5=9.",
+        "errores": [
+          "2+10=12, no 9.",
+          "(x+5)² tiene término central 10x y final 25.",
+          ""
+        ],
+        "leccion": "termino-comun"
+      },
+      {
+        "pregunta": "Desarrolla $(x+3)^3$.",
+        "opciones": [
+          "$x^3+9x^2+27x+27$",
+          "$x^3+27$",
+          "$x^3+6x^2+9$"
+        ],
+        "correcta": 0,
+        "pista": "Usa los coeficientes 1,3,3,1 con b=3.",
+        "explicacion": "$x^3+3(x^2)(3)+3(x)(9)+27=x^3+9x^2+27x+27$.",
+        "errores": [
+          "",
+          "Faltan los volúmenes intermedios.",
+          "Usaste términos que no corresponden al cubo."
+        ],
+        "leccion": "cubos"
+      },
+      {
+        "pregunta": "Factoriza $8x^3+1$.",
+        "opciones": [
+          "$(2x+1)^3$",
+          "$(2x+1)(4x^2-2x+1)$",
+          "$(2x+1)(4x^2+2x+1)$"
+        ],
+        "correcta": 1,
+        "pista": "Las bases cúbicas son 2x y 1.",
+        "explicacion": "$(2x)^3+1^3=(2x+1)((2x)^2-(2x)(1)+1^2)$.",
+        "errores": [
+          "El cubo del binomio agrega términos intermedios.",
+          "",
+          "La suma de cubos necesita el signo central negativo."
+        ],
+        "leccion": "factor-cubos"
       }
     ]
   }
