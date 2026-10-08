@@ -1655,7 +1655,7 @@ window.MODULES_DATA = {
       },
       {
         "id": "factor-cuadrados",
-        "titulo": "Reconocer cuadrados y diferencias de cuadrados",
+        "titulo": "Factorizar cuadrados: un caso a la vez",
         "tituloRuta": "Reconocer el patrón",
         "descripcionRuta": "Factorizar cuadrados y conjugados",
         "fase": "03 · APRENDE A FACTORIZAR",
@@ -1671,18 +1671,7 @@ window.MODULES_DATA = {
         "meta": "Factorizar un trinomio cuadrado perfecto y una diferencia de cuadrados.",
         "paraQue": "Para elegir una identidad por su estructura y comprobarla.",
         "explicacion": [
-          "Un trinomio cuadrado perfecto tiene tres términos: los extremos son cuadrados y el central es el doble producto de sus bases. $x^2+6x+9$ cumple esto porque $9=3^2$ y $6x=2(x)(3)$.",
-          "Así, $x^2+6x+9=(x+3)^2$. Si el central es negativo, $x^2-6x+9=(x-3)^2$. No basta con que los extremos sean cuadrados.",
-          "En $4x^2+12x+9$, las bases de los cuadrados son $2x$ y 3. Su doble producto es $12x$; por eso se factoriza como $(2x+3)^2$.",
-          "Una diferencia de cuadrados tiene dos términos cuadrados separados por resta: $x^2-25=(x+5)(x-5)$. La identidad $a^2-b^2=(a+b)(a-b)$ se lee ahora al revés.",
-          "Antes de buscar patrones, revisa el factor común: $2x^2-18=2(x^2-9)=2(x+3)(x-3)$. Una suma de cuadrados $x^2+9$ no se factoriza como $(x+3)(x-3)$ en los reales."
-        ],
-        "ejemplo": "Factoriza $x^2-8x+16$.",
-        "pasos": [
-          "Los extremos son $x^2$ y $4^2$.",
-          "El doble producto es $2(x)(4)=8x$, con signo negativo en la expresión.",
-          "Es un cuadrado de diferencia: $(x-4)^2$.",
-          "Comprueba: $(x-4)(x-4)=x^2-8x+16$."
+          "Primero cuenta los términos. Con tres términos, comprueba si tienes un trinomio cuadrado perfecto. Con dos términos separados por una resta, comprueba si tienes una diferencia de cuadrados. Estudia cada caso por separado."
         ],
         "preguntas": [
           {
@@ -1734,7 +1723,57 @@ window.MODULES_DATA = {
             ]
           }
         ],
-        "ejemplosExtra": []
+        "ejemplosExtra": [],
+        "bloques": [
+          {
+            "titulo": "1. Tres términos: trinomio cuadrado perfecto con suma",
+            "descripcion": "Buscamos una expresión que provenga de multiplicar un binomio por sí mismo. No basta con tener tres términos: también debe coincidir el término central.",
+            "problema": "Factoriza $x^2+6x+9$.",
+            "pasos": [
+              "Identifica las bases de los extremos: $x^2=x\\times x$ y $9=3\\times3$. Las bases son x y 3.",
+              "Comprueba el término central: $2\\times x\\times3=6x$. Coincide con el que aparece en la expresión.",
+              "Como el término central es positivo, escribe una suma: $(x+3)^2$.",
+              "Comprueba multiplicando: $(x+3)(x+3)=x^2+3x+3x+9=x^2+6x+9$."
+            ],
+            "conclusion": "$x^2+6x+9=(x+3)^2$."
+          },
+          {
+            "titulo": "2. Tres términos: trinomio cuadrado perfecto con resta",
+            "descripcion": "Sigue el mismo procedimiento. El signo negativo del término central indica una resta dentro del binomio.",
+            "problema": "Factoriza $x^2-8x+16$.",
+            "pasos": [
+              "Los extremos son $x^2$ y $4^2$.",
+              "El doble producto es $2(x)(4)=8x$, con signo negativo en la expresión.",
+              "Es un cuadrado de diferencia: $(x-4)^2$.",
+              "Comprueba: $(x-4)(x-4)=x^2-8x+16$."
+            ],
+            "conclusion": "$x^2-8x+16=(x-4)^2$."
+          },
+          {
+            "titulo": "3. Dos términos: diferencia de cuadrados",
+            "descripcion": "Aquí no hay término central. Deben ser dos cuadrados separados por una resta. El resultado lleva dos paréntesis: una suma y una resta.",
+            "problema": "Factoriza $x^2-25$.",
+            "pasos": [
+              "Cuenta los términos: son dos, $x^2$ y $25$, separados por una resta.",
+              "Identifica sus bases: $x^2=x\\times x$ y $25=5\\times5$. Las bases son x y 5.",
+              "Escribe una suma y una resta con esas bases: $(x+5)(x-5)$.",
+              "Comprueba: $(x+5)(x-5)=x^2-5x+5x-25=x^2-25$. Los términos centrales se cancelan."
+            ],
+            "conclusion": "$x^2-25=(x+5)(x-5)$. No es $(x-5)^2$: ese cuadrado produciría un término adicional de −10x."
+          },
+          {
+            "titulo": "4. Después: combinar con factor común",
+            "descripcion": "Cuando ya reconozcas los casos anteriores, puedes combinar dos procedimientos. Si todos los términos tienen un factor común, extráelo primero.",
+            "problema": "Factoriza $2x^2-18$.",
+            "pasos": [
+              "Extrae el factor común 2: $2x^2-18=2(x^2-9)$.",
+              "Trabaja solo con lo que queda dentro: $x^2-9=x^2-3^2$. Es una diferencia de cuadrados.",
+              "Factoriza el interior y conserva el 2: $2(x+3)(x-3)$.",
+              "Comprueba: $2(x+3)(x-3)=2(x^2-9)=2x^2-18$."
+            ],
+            "conclusion": "Primero factor común; después diferencia de cuadrados."
+          }
+        ]
       },
       {
         "id": "termino-comun",

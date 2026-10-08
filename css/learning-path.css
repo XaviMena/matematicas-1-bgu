@@ -76,3 +76,9 @@
 [data-theme=dark] .practice-question[data-result=correct] .answer-options label:has(input:checked) { background:#143329; color:#bbf7d0; border-color:#286348; }
 [data-theme=dark] .practice-question[data-result=incorrect] .answer-feedback,
 [data-theme=dark] .practice-question[data-result=incorrect] .answer-options label:has(input:checked) { background:#38232b; color:#fecdd3; border-color:#78404e; }
+
+.learning-block { margin:2rem 0; padding-top:1.5rem; border-top:2px solid var(--border-color); }
+.learning-block h4 { color:var(--secondary); font-size:1.15rem; }
+.learning-block .worked-example { margin-top:1rem; }
+.learning-block li { padding:.35rem 0; }
+.block-conclusion { padding-top:1rem; border-top:1px solid var(--border-color); font-weight:600; }

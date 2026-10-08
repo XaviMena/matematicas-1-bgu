@@ -56,9 +56,10 @@ const LearningPath = {
     const i=this.data.lecciones.indexOf(l);
     container.innerHTML = `<section class="edu-card"><div class="lesson-kicker">Lección ${i+1} de ${this.data.lecciones.length}</div><h3>${l.titulo}</h3><p><strong>Aprenderás a:</strong> ${l.meta}</p><p><strong>Te sirve para:</strong> ${l.paraQue}</p><div class="prerequisite"><strong>Antes necesitas:</strong><p>${l.bases.join(' ')}</p>${l.refuerzos.length?l.refuerzos.map(id=>`<button class="btn btn-outline" data-go="${id}">Repasar: ${this.data.lecciones.find(base=>base.id===id).titulo}</button>`).join(' '):'<p>Si una base todavía te cuesta, revisa la explicación y prueba los ejemplos de esta lección antes de avanzar.</p>'}</div>
       <h4>Vamos paso a paso</h4>${l.explicacion.map(p=>`<p>${p}</p>`).join('')}
+      ${(l.bloques || []).map(b=>`<section class="learning-block"><h4>${b.titulo}</h4><p>${b.descripcion}</p><div class="worked-example"><p><strong>${b.problema}</strong></p><ol>${b.pasos.map(p=>`<li>${p}</li>`).join('')}</ol><p class="block-conclusion">${b.conclusion}</p></div></section>`).join('')}
       ${l.visual==='recta'?this.numberLine():''}${l.visual==='area'?this.area():''}
       ${l.id==='raices'?this.proof():''}
-      <div class="worked-example"><h4>Un ejemplo acompañado</h4><p>${l.ejemplo}</p><ol>${l.pasos.map(p=>`<li>${p}</li>`).join('')}</ol></div>
+      ${l.ejemplo?`<div class="worked-example"><h4>Un ejemplo acompañado</h4><p>${l.ejemplo}</p><ol>${l.pasos.map(p=>`<li>${p}</li>`).join('')}</ol></div>`:''}
       ${(l.ejemplosExtra || []).map(e=>`<div class="worked-example"><h4>Otro ejemplo, un paso más</h4><p>${e.problema}</p><ol>${e.pasos.map(p=>`<li>${p}</li>`).join('')}</ol></div>`).join('')}
       <h4>Ahora te toca</h4><p>Elige una respuesta y compruébala. Si necesitas ayuda, abre la pista; puedes volver a intentarlo.</p><div class="question-list">${l.preguntas.map((q,j)=>this.question(q,l.id,j)).join('')}</div><div class="route-feedback" id="lesson-summary" aria-live="polite"></div>
 
