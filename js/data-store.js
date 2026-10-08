@@ -1199,7 +1199,7 @@ window.MODULES_DATA = {
             ],
             "correcta": 1,
             "pista": "Reemplaza la letra por 3: tienes dos grupos de 3. El símbolo × indica multiplicación.",
-            "explicacion": "Como $x=3$, reemplazamos la letra por 3: $2\\times x=2\\times3=6$. Se lee «dos por tres es igual a seis». En álgebra, $2x$ es otra manera de escribir $2\\times x$: significa multiplicar, no sumar.",
+            "explicacion": "La letra x vale 3. Multiplicamos 2 por 3: 2 × 3 = 6. El símbolo × significa «multiplicado por». La escritura 2x también significa multiplicar 2 por el valor de x; no significa sumar.",
             "errores": [
               "Sumaste 2 y 3. Aquí se pide multiplicar: dos grupos de tres.",
               "",
@@ -2023,7 +2023,7 @@ window.MODULES_DATA = {
         ],
         "correcta": 1,
         "pista": "Reemplaza la letra por 3: tienes dos grupos de 3. El símbolo × indica multiplicación.",
-        "explicacion": "Como $x=3$, reemplazamos la letra por 3: $2\\times x=2\\times3=6$. Se lee «dos por tres es igual a seis». En álgebra, $2x$ es otra manera de escribir $2\\times x$: significa multiplicar, no sumar.",
+        "explicacion": "La letra x vale 3. Multiplicamos 2 por 3: 2 × 3 = 6. El símbolo × significa «multiplicado por». La escritura 2x también significa multiplicar 2 por el valor de x; no significa sumar.",
         "errores": [
           "Sumaste 2 y 3. Aquí se pide multiplicar: dos grupos de tres.",
           "",
