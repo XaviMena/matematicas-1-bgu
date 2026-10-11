@@ -1,10 +1,11 @@
 // Rutas de aprendizaje. Los resultados viven solo durante esta sesión de estudio.
 const LearningPath = {
-  data: null, main: null, current: 'inicio', answers: {}, selections: {}, revealed: new Set(), sessions: {},
+  data: null, main: null, current: 'inicio', answers: {}, selections: {}, revealed: new Set(), checks: {}, sessions: {},
   render(data, main) {
-    if (this.data) this.sessions[this.data.id] = {current:this.current, answers:this.answers, selections:this.selections, revealed:this.revealed};
-    const state=this.sessions[data.id] || {current:'inicio',answers:{},selections:{},revealed:new Set()};
+    if (this.data) this.sessions[this.data.id] = {current:this.current, answers:this.answers, selections:this.selections, revealed:this.revealed, checks:this.checks};
+    const state=this.sessions[data.id] || {current:'inicio',answers:{},selections:{},revealed:new Set(),checks:{}};
     Object.assign(this,state);
+    this.checks = this.checks || {};
     this.data = data; this.main = main;
     this.show(this.current);
   },
@@ -12,7 +13,7 @@ const LearningPath = {
     this.current = id;
     const data = this.data;
     const done = data.lecciones.filter(l => this.mastered(l.id)).length;
-    this.main.innerHTML = `<div class="unit-banner"><span class="unit-tag">Tema ${data.temaNumero || 1} · Aprende a tu ritmo</span><h2 class="unit-title">${data.titulo}</h2><p>${data.introduccion}</p></div>
+    this.main.innerHTML = `<div class="unit-banner"><span class="unit-tag">Subtema ${data.temaNumero || 1} · Aprende a tu ritmo</span><h2 class="unit-title">${data.titulo}</h2><p>${data.introduccion}</p></div>
       ${this.route(id, done)}
       <div id="lesson-content"></div>`;
     const container = this.main.querySelector('#lesson-content');
@@ -33,6 +34,7 @@ const LearningPath = {
       this.main.querySelector('#lesson-content').scrollIntoView({behavior:'smooth',block:'start'});
     }));
     this.bindQuestions();
+    this.bindBaseChecks();
     if (window.MathRenderer) MathRenderer.render(this.main);
     if (id==='inicio') this.diagnosticSummary();
     if (id==='cierre') this.finalSummary();
@@ -57,19 +59,86 @@ const LearningPath = {
   home(container) {
     container.innerHTML = `<section class="edu-card"><h3>Antes de empezar</h3><p>${this.data.objetivo || 'La meta es clasificar y comparar números reales, explicar las propiedades de las operaciones y usarlas en cálculos sencillos.'}</p><p>Prueba estas ${this.data.diagnostico.length} preguntas. No tienen nota ni tiempo límite. Una dificultad indica qué conviene repasar; puedes abrir cualquier lección cuando lo necesites.</p><p class="study-note">Tus respuestas se conservan mientras esta página siga abierta. Al recargar se inicia una sesión nueva. No necesitas registrar tu nombre.</p>${this.bridge()}<div class="question-list">${this.data.diagnostico.map((q,i)=>this.question(q,'diag',i)).join('')}</div><div id="diagnostic-summary" class="route-feedback" aria-live="polite"></div><button class="btn btn-primary" data-go="${this.data.lecciones[0].id}">Comenzar la primera lección →</button></section>`;
   },
+  baseKey(lessonId, i) { return `base-${lessonId}-${i}`; },
+  baseState(lessonId, i) { return this.checks[this.baseKey(lessonId, i)] || {attempts:0, passed:false}; },
+  baseReady(l) {
+    if (!l?.verificacion) return true;
+    return l.verificacion.preguntas.every((_, i) => this.baseState(l.id, i).passed);
+  },
+  baseCheck(l) {
+    const v=l.verificacion;
+    if (this.baseReady(l)) return `<div class="prerequisite"><strong>Base lista.</strong><p>${v.lista}</p></div>`;
+    return `<div class="base-check"><div class="prerequisite"><strong>${v.titulo}</strong><p>${v.intro}</p></div><div class="question-list">${v.preguntas.map((q,i)=>this.baseQuestion(l,q,i)).join('')}</div><p class="study-note">${v.espera}</p></div>`;
+  },
+  baseQuestion(l, q, i) {
+    const key=this.baseKey(l.id, i), state=this.baseState(l.id, i), selected=this.selections[key];
+    const locked=state.passed || state.attempts>=2;
+    const result=state.passed?'correct':state.attempts?'incorrect':'';
+    return `<fieldset class="practice-question" data-base-index="${i}" ${result?`data-result="${result}"`:''}><legend>${i+1}. ${q.pregunta}</legend><div class="answer-options">${q.opciones.map((o,j)=>`<label><input type="radio" name="${key}" value="${j}" ${selected===j?'checked':''} ${locked?'disabled':''}> <span>${o}</span></label>`).join('')}</div>${state.passed?'<p class="answer-feedback" role="status">Correcto.</p>':''}${!state.passed&&state.attempts?`<p class="answer-feedback" role="status">${q.reparacion}${state.attempts===1?' Inténtalo de nuevo.':''}</p>`:''}${!state.passed&&state.attempts>=2?`<div class="question-actions"><button class="btn btn-outline" data-review-topic="${q.repaso.tema}" data-review-lesson="${q.repaso.leccion}">Repasar: ${q.repaso.titulo}</button><button class="btn btn-outline" data-base-retry="${i}">Intentar de nuevo</button></div>`:''}${locked?'':`<div class="question-actions"><button class="btn btn-primary" data-base-check="${i}">Comprobar</button></div><p class="answer-feedback" data-base-pending></p>`}</fieldset>`;
+  },
+  laterSupport(l) {
+    if (!l.verificacion || !l.apoyo) return '';
+    const used=new Set(l.verificacion.preguntas.map(q=>q.repaso?.leccion).filter(Boolean));
+    const extra=(l.repasos || []).filter(r=>!used.has(r.leccion));
+    if (!extra.length) return '';
+    return `<div class="prerequisite"><p>${l.apoyo}</p>${extra.map(r=>`<button class="btn btn-outline" data-review-topic="${r.tema}" data-review-lesson="${r.leccion}">Repasar: ${r.titulo}</button>`).join(' ')}</div>`;
+  },
+  enteroExtra(l) {
+    const extra=(l.ejemplosExtra || []).find(e=>e.cuando==='entero');
+    if (!extra) return '';
+    const listo=!!this.answers[`${l.id}-0`]?.correct;
+    return `${extra.aviso?`<p id="extra-entero-espera" class="study-note"${listo?' hidden':''}>${extra.aviso}</p>`:''}<div id="extra-entero" class="worked-example"${listo?'':' hidden'}><h4>Otro ejemplo, un paso más</h4><p>${extra.problema}</p><ol>${extra.pasos.map(p=>`<li>${p}</li>`).join('')}</ol></div>`;
+  },
+  bindBaseChecks() {
+    this.main.querySelectorAll('[data-base-check]').forEach(btn=>btn.addEventListener('click',()=>this.submitBase(Number(btn.dataset.baseCheck))));
+    this.main.querySelectorAll('[data-base-retry]').forEach(btn=>btn.addEventListener('click',()=>this.retryBase(Number(btn.dataset.baseRetry))));
+  },
+  submitBase(i) {
+    const l=this.data.lecciones.find(x=>x.id===this.current);
+    const q=l.verificacion.preguntas[i];
+    const key=this.baseKey(l.id, i);
+    const field=this.main.querySelector(`[data-base-index="${i}"]`);
+    const checked=field.querySelector('input:checked');
+    const pending=field.querySelector('[data-base-pending]');
+    if (!checked) { if (pending) pending.textContent='Elige una respuesta antes de comprobar.'; return; }
+    const correct=Number(checked.value)===q.correcta;
+    if (correct) this.selections[key]=Number(checked.value);
+    else delete this.selections[key];
+    const wasReady=this.baseReady(l);
+    const prev=this.baseState(l.id, i);
+    this.checks[key]={attempts:prev.attempts+1, passed:correct};
+    const y=window.scrollY;
+    this.show(l.id);
+    if (this.baseReady(l) && !wasReady) this.main.querySelector('#lesson-body')?.scrollIntoView({behavior:'smooth', block:'start'});
+    else window.scrollTo(0, y);
+  },
+  retryBase(i) {
+    const l=this.data.lecciones.find(x=>x.id===this.current);
+    const key=this.baseKey(l.id, i);
+    delete this.checks[key];
+    delete this.selections[key];
+    const y=window.scrollY;
+    this.show(l.id);
+    window.scrollTo(0, y);
+  },
   lesson(container,l) {
     const i=this.data.lecciones.indexOf(l);
-    container.innerHTML = `<section class="edu-card"><div class="lesson-kicker">Lección ${i+1} de ${this.data.lecciones.length}</div><h3>${l.titulo}</h3><p><strong>Aprenderás a:</strong> ${l.meta}</p><p><strong>Te sirve para:</strong> ${l.paraQue}</p><div class="prerequisite"><strong>Antes necesitas:</strong><p>${l.bases.join(' ')}</p>${(l.repasos || []).map(r=>`<button class="btn btn-outline" data-review-topic="${r.tema}" data-review-lesson="${r.leccion}">Repasar: ${r.titulo}</button>`).join(' ')}${l.refuerzos.length?l.refuerzos.map(id=>`<button class="btn btn-outline" data-go="${id}">Repasar: ${this.data.lecciones.find(base=>base.id===id).titulo}</button>`).join(' '):l.repasos?.length?'':'<p>Si una base todavía te cuesta, revisa la explicación y prueba los ejemplos de esta lección antes de avanzar.</p>'}</div>
-      <h4>Vamos paso a paso</h4>${l.explicacion.map(p=>`<p>${p}</p>`).join('')}
+    const ready=this.baseReady(l);
+    const prereq=l.verificacion?this.baseCheck(l):`<div class="prerequisite"><strong>Antes necesitas:</strong><p>${l.bases.join(' ')}</p>${(l.repasos || []).map(r=>`<button class="btn btn-outline" data-review-topic="${r.tema}" data-review-lesson="${r.leccion}">Repasar: ${r.titulo}</button>`).join(' ')}${l.refuerzos.length?l.refuerzos.map(id=>`<button class="btn btn-outline" data-go="${id}">Repasar: ${this.data.lecciones.find(base=>base.id===id).titulo}</button>`).join(' '):l.repasos?.length?'':'<p>Si una base todavía te cuesta, revisa la explicación y prueba los ejemplos de esta lección antes de avanzar.</p>'}</div>`;
+    const cuerpo=ready?`<div id="lesson-body"><h4>Vamos paso a paso</h4>${l.explicacion.map(p=>`<p>${p}</p>`).join('')}
       ${(l.bloques || []).map(b=>`<section class="learning-block"><h4>${b.titulo}</h4><p>${b.descripcion}</p><div class="worked-example"><p><strong>${b.problema}</strong></p><ol>${b.pasos.map(p=>`<li>${p}</li>`).join('')}</ol><p class="block-conclusion">${b.conclusion}</p></div></section>`).join('')}
-      ${l.visual==='recta'?this.numberLine():''}${l.visual==='area'?this.area():''}
+      ${l.visual==='sistemas'?SystemsExplorer.render():''}${l.visual==='recta'?this.numberLine():''}${l.visual==='area'?this.area():''}
       ${l.id==='raices'?this.proof():''}
       ${l.ejemplo?`<div class="worked-example"><h4>Un ejemplo acompañado</h4><p>${l.ejemplo}</p><ol>${l.pasos.map(p=>`<li>${p}</li>`).join('')}</ol></div>`:''}
-      ${(l.ejemplosExtra || []).map(e=>`<div class="worked-example"><h4>Otro ejemplo, un paso más</h4><p>${e.problema}</p><ol>${e.pasos.map(p=>`<li>${p}</li>`).join('')}</ol></div>`).join('')}
-      <h4>Ahora te toca</h4><p>Elige una respuesta y compruébala. Si necesitas ayuda, abre la pista; puedes volver a intentarlo.</p><div class="question-list">${l.preguntas.map((q,j)=>this.question(q,l.id,j)).join('')}</div><div class="route-feedback" id="lesson-summary" aria-live="polite"></div>
-
-      <div class="lesson-actions"><button class="btn btn-outline" data-go="${i===0?'inicio':this.data.lecciones[i-1].id}">← Volver</button><button class="btn btn-primary" data-go="${i===this.data.lecciones.length-1?'cierre':this.data.lecciones[i+1].id}">Continuar →</button></div></section>`;
+      ${(l.ejemplosExtra || []).filter(e=>e.cuando!=='entero').map(e=>`<div class="worked-example"><h4>Otro ejemplo, un paso más</h4><p>${e.problema}</p><ol>${e.pasos.map(p=>`<li>${p}</li>`).join('')}</ol></div>`).join('')}
+      ${l.actividad?`<div class="worked-example"><h4>Completa un paso en tu cuaderno</h4><p>${l.actividad.consigna}</p><details><summary>Comparar mi procedimiento</summary><p>${l.actividad.solucion}</p></details></div>`:''}
+      ${this.laterSupport(l)}
+      <h4>Ahora te toca</h4><p>Elige una respuesta y compruébala. Si necesitas ayuda, abre la pista; puedes volver a intentarlo.</p>${l.practicaNota?`<p>${l.practicaNota}</p>`:''}<div class="question-list">${l.preguntas.map((q,j)=>this.question(q,l.id,j)).join('')}</div>${this.enteroExtra(l)}<div class="route-feedback" id="lesson-summary" aria-live="polite"></div></div>`:'';
+    container.innerHTML = `<section class="edu-card"><div class="lesson-kicker">Lección ${i+1} de ${this.data.lecciones.length}</div><h3>${l.titulo}</h3><p><strong>Aprenderás a:</strong> ${l.meta}</p><p><strong>Te sirve para:</strong> ${l.paraQue}</p>${prereq}
+      ${cuerpo}
+      <div class="lesson-actions"><button class="btn btn-outline" data-go="${i===0?'inicio':this.data.lecciones[i-1].id}">← Volver</button>${ready?`<button class="btn btn-primary" data-go="${i===this.data.lecciones.length-1?'cierre':this.data.lecciones[i+1].id}">Continuar →</button>`:''}</div></section>`;
     this.lessonSummary();
+    if (window.SystemsExplorer) SystemsExplorer.bind(container);
     const slider=container.querySelector('#number-point');
     if(slider) slider.addEventListener('input',()=>this.updateLine());
     container.querySelectorAll('[data-area]').forEach(el=>el.addEventListener('input',()=>this.updateArea()));
@@ -82,8 +151,10 @@ const LearningPath = {
   feedback(q,a) {return a.correct?`${a.support?'Correcto con apoyo.':'Correcto.'} ${q.explicacion}`:`Revisa este paso: ${q.errores[a.selection]} Inténtalo de nuevo o consulta la pista.`;},
   bindQuestions() {
     this.main.querySelectorAll('.practice-question').forEach(el=>{
+      const check=el.querySelector('[data-check]');
+      if(!check) return;
       const key=el.dataset.key, scope=el.dataset.scope, i=Number(el.dataset.index),q=this.getQuestion(scope,i);
-      el.querySelector('[data-check]').addEventListener('click',()=>{
+      check.addEventListener('click',()=>{
         const checked=el.querySelector('input:checked');
         if(!checked){el.querySelector('.answer-feedback').textContent='Elige una respuesta antes de comprobar.';return;}
         const selection=Number(checked.value);
@@ -144,6 +215,13 @@ const LearningPath = {
     const l=this.data.lecciones.find(l=>l.id===this.current);if(!l)return;
     const correct=l.preguntas.filter((_,i)=>this.answers[`${l.id}-${i}`]?.correct).length;
     el.textContent=this.mastered(l.id)?'Has comprobado los ejercicios sin consultar sus respuestas. Explica con tus palabras cómo los resolviste antes de continuar.':`${correct} de ${l.preguntas.length} ejercicios con respuesta correcta. Puedes repasar y volver a intentarlo. Las respuestas consultadas cuentan como práctica con apoyo.`;
+    const extra=this.main.querySelector('#extra-entero');
+    const wait=this.main.querySelector('#extra-entero-espera');
+    if(extra){
+      const listo=!!this.answers[`${l.id}-0`]?.correct;
+      extra.hidden=!listo;
+      if(wait) wait.hidden=listo;
+    }
   },
   final(container){
     container.innerHTML=`<section class="edu-card"><h3>Comprueba lo aprendido</h3><p>${this.data.cierreIntroduccion || 'Estos seis ejercicios combinan las ideas del primer tema. Resuélvelos antes de abrir las explicaciones.'}</p><div class="question-list">${this.data.cierre.map((q,i)=>this.question(q,'final',i)).join('')}</div><div id="final-summary" class="route-feedback" aria-live="polite"></div><div class="worked-example"><h4>Explica tu razonamiento</h4>${(this.data.retosCierre || ['Escribe un número que sea entero, racional y real; explica cada pertenencia.','Inventa una suma y un producto donde convenga cambiar el orden. Explica por qué no puedes hacerlo libremente con una resta.','Dibuja un rectángulo dividido y escribe la distributiva que representa. Comprueba la igualdad con números.']).map((p,i)=>`<p>${i+1}. ${p}</p>`).join('')}</div><button class="btn btn-outline" data-go="inicio">Volver al diagnóstico</button></section>`;

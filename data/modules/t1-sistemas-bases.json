@@ -1,0 +1,434 @@
+{
+  "id": "t1-sistemas-bases",
+  "titulo": "Antes de resolver: ecuaciones y soluciones",
+  "temaNumero": "2.1",
+  "unidadId": "t1-tema2",
+  "unidadTitulo": "Tema 2 · Sistemas de ecuaciones lineales",
+  "trimestre": 1,
+  "paginasLibro": "20-25",
+  "version": 1,
+  "introduccion": "Empieza con una igualdad, explora pares de números y descubre por qué necesitamos dos condiciones.",
+  "objetivo": "Al terminar podrás: Resolver una ecuación sencilla conservando la igualdad; Leer un par ordenado y comprobar una ecuación con dos incógnitas; Reconocer y verificar la solución de un sistema.",
+  "lecciones": [
+    {
+      "id": "igualdad",
+      "titulo": "Una igualdad que se mantiene",
+      "tituloRuta": "Una igualdad que se mantiene",
+      "descripcionRuta": "Resolver una ecuación sencilla conservando la igualdad.",
+      "fase": "CONSTRUYE Y COMPRUEBA",
+      "meta": "Resolver una ecuación sencilla conservando la igualdad.",
+      "paraQue": "Preparar el despeje sin memorizar cambios de signo.",
+      "bases": [
+        "Deshacer una resta en los dos miembros y dividir entre un número positivo."
+      ],
+      "verificacion": {
+        "titulo": "Comprueba esta base",
+        "intro": "Resuelve estas dos ecuaciones. Son operaciones que ya debes poder hacer. Si salen bien, seguimos con la igualdad y no las volvemos a explicar.",
+        "espera": "La igualdad sigue cuando las dos respuestas estén correctas.",
+        "lista": "Deshacer una resta y dividir entre un positivo quedaron comprobadas. Seguimos con la igualdad.",
+        "preguntas": [
+          {
+            "pregunta": "Resuelve $x-3=5$.",
+            "opciones": [
+              "$x=2$",
+              "$x=8$",
+              "$x=15$"
+            ],
+            "correcta": 1,
+            "reparacion": "Suma 3 en los dos miembros: $x-3+3=5+3$, así $x=8$.",
+            "repaso": {
+              "tema": "t1-u1-tema1",
+              "leccion": "operaciones",
+              "titulo": "Signos y operaciones"
+            }
+          },
+          {
+            "pregunta": "Resuelve $2x=10$.",
+            "opciones": [
+              "$x=5$",
+              "$x=8$",
+              "$x=20$"
+            ],
+            "correcta": 0,
+            "reparacion": "Divide los dos miembros entre 2: de $2x=10$ queda $x=5$.",
+            "repaso": {
+              "tema": "t1-u1-tema1",
+              "leccion": "operaciones",
+              "titulo": "Signos y operaciones"
+            }
+          }
+        ]
+      },
+      "explicacion": [
+        "Una ecuación afirma que dos cantidades son iguales. La letra representa el número que falta.",
+        "La igualdad se conserva cuando haces la misma operación en los dos miembros. Imagina una balanza: si agregas o quitas lo mismo de los dos lados, sigue equilibrada. Un término no «salta» de un lado al otro.",
+        "Despejar es dejar la letra sola. En el ejemplo se usan juntas las dos bases que acabas de comprobar: deshacer una resta y dividir entre un positivo.",
+        "Al final sustituye el valor en la ecuación original. Una igualdad verdadera confirma el resultado."
+      ],
+      "ejemplo": "Resuelve $3x-2=10$.",
+      "pasos": [
+        "Suma 2 a ambos miembros: $3x-2+2=10+2$.",
+        "Queda $3x=12$. Divide ambos miembros entre 3: $x=4$.",
+        "Comprueba en la original: $3(4)-2=12-2=10$."
+      ],
+      "preguntas": [
+        {
+          "pregunta": "Resuelve $x+4=9$.",
+          "opciones": [
+            "$x=13$",
+            "$x=5$",
+            "$x=-5$"
+          ],
+          "correcta": 1,
+          "pista": "Resta 4 a los dos miembros.",
+          "explicacion": "$x=9-4=5$; $5+4=9$.",
+          "errores": [
+            "Sumar 4 no deshace el +4.",
+            "",
+            "9−4 es positivo."
+          ]
+        },
+        {
+          "pregunta": "Resuelve $-2x=6$.",
+          "opciones": [
+            "$x=-3$",
+            "$x=3$",
+            "$x=-4$"
+          ],
+          "correcta": 0,
+          "pista": "Divide ambos miembros entre −2.",
+          "explicacion": "$x=6/(-2)=-3$; $(-2)(-3)=6$.",
+          "errores": [
+            "",
+            "Un positivo dividido por un negativo es negativo.",
+            "Aquí debes dividir, no restar."
+          ]
+        },
+        {
+          "pregunta": "Resuelve $2(x+1)=8$.",
+          "opciones": [
+            "$x=4$",
+            "$x=5$",
+            "$x=3$"
+          ],
+          "correcta": 2,
+          "pista": "Divide ambos miembros entre 2 antes de restar 1.",
+          "explicacion": "$x+1=4$, luego $x=3$; $2(3+1)=8$.",
+          "errores": [
+            "Falta restar 1.",
+            "Debes restar 1, no sumarlo.",
+            ""
+          ]
+        }
+      ],
+      "practicaNota": "La primera ecuación usa números positivos. Después vienen un coeficiente negativo y un paréntesis.",
+      "apoyo": "Si el paréntesis se complica, abre la distributiva.",
+      "ejemplosExtra": [
+        {
+          "cuando": "entero",
+          "aviso": "El ejemplo con fracciones aparece cuando resuelves la ecuación entera de la práctica: $x+4=9$.",
+          "problema": "Resuelve $\\frac{x}{2}+1=\\frac{5}{2}$.",
+          "pasos": [
+            "Resta 1 en ambos miembros: $\\frac{x}{2}=\\frac{5}{2}-\\frac{2}{2}=\\frac{3}{2}$.",
+            "Multiplica ambos miembros por 2: $x=3$.",
+            "Comprueba: $3/2+1=5/2$."
+          ]
+        }
+      ],
+      "refuerzos": [],
+      "repasos": [
+        {
+          "tema": "t1-u1-tema1",
+          "leccion": "operaciones",
+          "titulo": "Signos y operaciones"
+        },
+        {
+          "tema": "t1-u1-tema1",
+          "leccion": "distributiva",
+          "titulo": "La distributiva"
+        }
+      ],
+      "actividad": {
+        "solucion": "Suma 3: $2x=10$; divide entre 2: $x=5$. Comprueba $2(5)-3=7$.",
+        "consigna": "Completa sin saltar pasos: $2x-3=7$. Suma ___ a ambos miembros: $2x=\\_\\_\\_$. Después divide entre ___ y comprueba."
+      }
+    },
+    {
+      "id": "pares",
+      "titulo": "Dos cantidades, una condición",
+      "tituloRuta": "Dos cantidades, una condición",
+      "descripcionRuta": "Leer un par ordenado y comprobar una ecuación con dos incógnitas.",
+      "fase": "CONSTRUYE Y COMPRUEBA",
+      "meta": "Leer un par ordenado y comprobar una ecuación con dos incógnitas.",
+      "paraQue": "Entender qué representa cada letra y por qué una condición puede admitir varias respuestas.",
+      "bases": [
+        "Sustituir un número por una letra y resolver operaciones."
+      ],
+      "explicacion": [
+        "En una compra, $x$ puede ser el número de cuadernos y $y$ el de lápices. Si compras cinco artículos, $x+y=5$. Todavía no sabemos cuántos son de cada tipo: podrían ser 2 y 3, o 1 y 4.",
+        "Escribimos las cantidades como un par ordenado $(x,y)$. El primer número corresponde siempre a x y el segundo a y. El par $(2,3)$ significa $x=2$ y $y=3$; invertir el orden puede cambiar la respuesta.",
+        "Para comprobar un par, sustituye las dos letras. En $2x+y=7$, el par $(2,3)$ sirve porque $2(2)+3=7$. El par $(3,2)$ no sirve: $2(3)+2=8$.",
+        "Una ecuación lineal con dos incógnitas tiene la forma $ax+by=c$, donde a, b y c son números y a y b no son ambos cero. Las letras no están elevadas al cuadrado ni multiplicadas entre sí. En los reales, una sola ecuación así tiene infinitos pares solución. En una compra, además pedimos cantidades enteras no negativas."
+      ],
+      "ejemplo": "Encuentra tres pares para $x+y=5$.",
+      "pasos": [
+        "Despeja y restando x a ambos lados: $y=5-x$.",
+        "Si $x=0$, $y=5$; si $x=2$, $y=3$; si $x=5$, $y=0$.",
+        "Obtienes $(0,5)$, $(2,3)$ y $(5,0)$. Todos cumplen la misma condición."
+      ],
+      "preguntas": [
+        {
+          "pregunta": "¿Qué significa el par $(4,1)$?",
+          "opciones": [
+            "$x=1,\\ y=4$",
+            "$x=4,\\ y=1$",
+            "$x=4,\\ y=4$"
+          ],
+          "correcta": 1,
+          "pista": "El orden es (x,y).",
+          "explicacion": "El primer número es x y el segundo es y.",
+          "errores": [
+            "Invertiste el orden.",
+            "",
+            "La segunda coordenada es 1."
+          ]
+        },
+        {
+          "pregunta": "¿Qué par cumple $2x+y=8$?",
+          "opciones": [
+            "$(2,4)$",
+            "$(4,2)$",
+            "$(1,5)$"
+          ],
+          "correcta": 0,
+          "pista": "Multiplica la primera coordenada por 2 y suma la segunda.",
+          "explicacion": "$2(2)+4=8$. Los otros pares dan 10 y 7.",
+          "errores": [
+            "",
+            "2(4)+2=10, no 8.",
+            "2(1)+5=7, no 8."
+          ]
+        },
+        {
+          "pregunta": "¿Cuál es lineal?",
+          "opciones": [
+            "$x^2+y=5$",
+            "$xy=5$",
+            "$3x-2y=5$"
+          ],
+          "correcta": 2,
+          "pista": "Las letras aparecen solo a la primera potencia y no se multiplican entre sí.",
+          "explicacion": "$3x-2y=5$ tiene la forma ax+by=c.",
+          "errores": [
+            "x está al cuadrado.",
+            "Hay un producto de las incógnitas.",
+            ""
+          ]
+        }
+      ],
+      "ejemplosExtra": [],
+      "refuerzos": [
+        "igualdad"
+      ],
+      "repasos": [],
+      "actividad": {
+        "solucion": "Despeja $y=6-2x$. Los pares son $(0,6)$, $(1,4)$ y $(2,2)$. Comprueba cada uno.",
+        "consigna": "Para $2x+y=6$, completa la tabla en tu cuaderno: si x es 0, 1 y 2, ¿qué valores toma y? Escribe los tres pares en el orden correcto."
+      }
+    },
+    {
+      "id": "comun",
+      "titulo": "Dos condiciones al mismo tiempo",
+      "tituloRuta": "Dos condiciones al mismo tiempo",
+      "descripcionRuta": "Reconocer y verificar la solución de un sistema.",
+      "fase": "CONSTRUYE Y COMPRUEBA",
+      "meta": "Reconocer y verificar la solución de un sistema.",
+      "paraQue": "Pasar de varias posibilidades a un par que cumpla todas las condiciones.",
+      "bases": [
+        "Pares ordenados y sustitución en una ecuación."
+      ],
+      "explicacion": [
+        "Ahora sabemos que hay cinco artículos y que cada cuaderno cuesta 2 dólares y cada lápiz 1 dólar. El total pagado es 7 dólares. Las condiciones son $x+y=5$ y $2x+y=7$.",
+        "Un sistema reúne ecuaciones que deben cumplirse al mismo tiempo y con los mismos valores de las letras. No vale usar un par para la primera y otro para la segunda.",
+        "Prueba $(2,3)$: en la primera, $2+3=5$; en la segunda, $2(2)+3=7$. Cumple ambas: es una solución del sistema.",
+        "El par $(1,4)$ cumple la cantidad de artículos, pero cuesta 6 dólares. Cumplir una sola ecuación no basta. Antes de aprender métodos, aprende a comprobar candidatos."
+      ],
+      "ejemplo": "Comprueba $(3,2)$ en $x+y=5$ y $x-y=1$.",
+      "pasos": [
+        "Primera condición: $3+2=5$; se cumple.",
+        "Segunda condición: $3-2=1$; se cumple.",
+        "Por tanto, $(3,2)$ resuelve el sistema. Escribe ambas comprobaciones, no solo el resultado."
+      ],
+      "preguntas": [
+        {
+          "pregunta": "¿Qué par resuelve $x+y=6$ y $x-y=2$?",
+          "opciones": [
+            "$(3,3)$",
+            "$(2,4)$",
+            "$(4,2)$"
+          ],
+          "correcta": 2,
+          "pista": "Comprueba suma y diferencia.",
+          "explicacion": "$4+2=6$ y $4-2=2$.",
+          "errores": [
+            "3−3=0, no 2.",
+            "2−4=−2, no 2.",
+            ""
+          ]
+        },
+        {
+          "pregunta": "$(1,4)$ cumple $x+y=5$. ¿Resuelve también el sistema con $2x+y=7$?",
+          "opciones": [
+            "Sí, basta cumplir una ecuación.",
+            "No, la segunda da 6.",
+            "No, porque sus coordenadas son distintas."
+          ],
+          "correcta": 1,
+          "pista": "Sustituye el mismo par en la segunda.",
+          "explicacion": "$2(1)+4=6\\ne7$. Debe cumplir ambas.",
+          "errores": [
+            "Hace falta cumplir las dos.",
+            "",
+            "Las coordenadas pueden ser distintas; el problema es la segunda igualdad."
+          ]
+        },
+        {
+          "pregunta": "Si un sistema modela cantidades de objetos, una solución algebraica de $x=-2$ exige…",
+          "opciones": [
+            "revisar si el modelo tiene sentido en el contexto.",
+            "aceptar −2 objetos sin discutirlo.",
+            "cambiar −2 por 2."
+          ],
+          "correcta": 0,
+          "pista": "Distingue una solución real de una cantidad posible de objetos.",
+          "explicacion": "Las cantidades de objetos deben ser enteras no negativas; una solución negativa no es válida para ese contexto.",
+          "errores": [
+            "",
+            "Una cantidad negativa de objetos no cumple el contexto.",
+            "Cambiar el signo destruye las igualdades."
+          ]
+        }
+      ],
+      "ejemplosExtra": [],
+      "refuerzos": [
+        "pares"
+      ],
+      "repasos": [],
+      "actividad": {
+        "solucion": "$2+4=6$ y $2(2)+4=8$. El mismo par cumple ambas condiciones.",
+        "consigna": "Un compañero propone (2,4) para $x+y=6$ y $2x+y=8$. Escribe las dos comprobaciones antes de decidir."
+      }
+    }
+  ],
+  "diagnostico": [
+    {
+      "pregunta": "¿Qué operación deshace $x-3=5$?",
+      "opciones": [
+        "Restar 3.",
+        "Sumar 3 a ambos miembros.",
+        "Dividir entre 3."
+      ],
+      "correcta": 1,
+      "pista": "Piensa cómo deshacer una resta.",
+      "explicacion": "Sumar 3 conserva la igualdad y da x=8.",
+      "errores": [
+        "Restar otra vez aleja el despeje.",
+        "",
+        "La operación que afecta a x es una resta."
+      ],
+      "leccion": "igualdad"
+    },
+    {
+      "pregunta": "Si $x=2$ e $y=1$, ¿cuánto es $3x+y$?",
+      "opciones": [
+        "7",
+        "6",
+        "9"
+      ],
+      "correcta": 0,
+      "pista": "Sustituye ambas letras.",
+      "explicacion": "$3(2)+1=7$.",
+      "errores": [
+        "",
+        "Falta sumar y.",
+        "Se pide 3x+y, no 3(x+y)."
+      ],
+      "leccion": "pares"
+    },
+    {
+      "pregunta": "Un sistema exige…",
+      "opciones": [
+        "cumplir al menos una ecuación.",
+        "usar valores distintos en cada ecuación.",
+        "cumplir todas con los mismos valores."
+      ],
+      "correcta": 2,
+      "pista": "Las condiciones se cumplen al mismo tiempo.",
+      "explicacion": "El mismo par debe satisfacer todas las ecuaciones.",
+      "errores": [
+        "Una condición no basta.",
+        "Las letras mantienen sus valores.",
+        ""
+      ],
+      "leccion": "comun"
+    }
+  ],
+  "cierre": [
+    {
+      "pregunta": "Resuelve $4x+1=13$.",
+      "opciones": [
+        "x=3",
+        "x=4",
+        "x=12"
+      ],
+      "correcta": 0,
+      "pista": "Resta 1 y divide entre 4.",
+      "explicacion": "$4x=12$, así x=3; 4(3)+1=13.",
+      "errores": [
+        "",
+        "Falta restar 1 antes de dividir.",
+        "Falta dividir entre 4."
+      ],
+      "leccion": "igualdad"
+    },
+    {
+      "pregunta": "¿Qué par cumple $3x+y=10$?",
+      "opciones": [
+        "(1,3)",
+        "(2,4)",
+        "(4,2)"
+      ],
+      "correcta": 1,
+      "pista": "Evalúa cada par.",
+      "explicacion": "$3(2)+4=10$.",
+      "errores": [
+        "3(1)+3=6.",
+        "",
+        "3(4)+2=14."
+      ],
+      "leccion": "pares"
+    },
+    {
+      "pregunta": "¿Qué par satisface $x+y=7$ y $x-y=3$?",
+      "opciones": [
+        "(4,3)",
+        "(3,4)",
+        "(5,2)"
+      ],
+      "correcta": 2,
+      "pista": "Comprueba las dos condiciones.",
+      "explicacion": "$5+2=7$ y $5-2=3$.",
+      "errores": [
+        "4−3=1.",
+        "3−4=−1.",
+        ""
+      ],
+      "leccion": "comun"
+    }
+  ],
+  "cierreIntroduccion": "Resuelve primero en tu cuaderno. Comprueba cada par en las dos ecuaciones y explica el procedimiento antes de consultar la respuesta.",
+  "retosCierre": [
+    "Inventa una ecuación con dos incógnitas y escribe dos pares que la cumplan.",
+    "Explica por qué cumplir una sola ecuación no basta para resolver un sistema."
+  ]
+}

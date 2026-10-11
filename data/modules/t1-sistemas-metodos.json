@@ -1,0 +1,561 @@
+{
+  "id": "t1-sistemas-metodos",
+  "titulo": "Resolver con sustitución y eliminación",
+  "temaNumero": "2.3",
+  "unidadId": "t1-tema2",
+  "unidadTitulo": "Tema 2 · Sistemas de ecuaciones lineales",
+  "trimestre": 1,
+  "paginasLibro": "20-25",
+  "version": 1,
+  "introduccion": "Aprende por qué funciona cada transformación. Comienza con enteros y avanza hacia fracciones y casos especiales.",
+  "objetivo": "Al terminar podrás: Resolver un sistema reemplazando una letra por una expresión igual; Resolver un sistema sumando ecuaciones con términos opuestos; Multiplicar una ecuación completa para poder eliminar; Distinguir una contradicción de una identidad.",
+  "lecciones": [
+    {
+      "id": "sustitucion",
+      "titulo": "Sustituir una cantidad equivalente",
+      "tituloRuta": "Sustituir una cantidad equivalente",
+      "descripcionRuta": "Resolver un sistema reemplazando una letra por una expresión igual.",
+      "fase": "CONSTRUYE Y COMPRUEBA",
+      "meta": "Resolver un sistema reemplazando una letra por una expresión igual.",
+      "paraQue": "Obtener una solución exacta cuando una incógnita es fácil de despejar.",
+      "bases": [
+        "Despeje y comprobación en las dos ecuaciones."
+      ],
+      "explicacion": [
+        "Si dos expresiones valen lo mismo, puedes usar una en lugar de la otra. Si $x+y=5$, entonces $y=5-x$. La cantidad y de la otra ecuación puede reemplazarse por 5−x.",
+        "En $2x+y=7$, sustituye la expresión completa: $2x+(5-x)=7$. Los paréntesis ayudan a conservar los signos, especialmente cuando la expresión está multiplicada o restada.",
+        "Ahora solo hay una incógnita: reúne términos, resuelve y recupera la otra letra. Encontrar x es un paso intermedio; la respuesta es el par (x,y).",
+        "Elige primero una ecuación donde una letra tenga coeficiente 1 o −1. Esto suele evitar fracciones al inicio. El método funciona también con fracciones si mantienes operaciones equivalentes."
+      ],
+      "ejemplo": "Resuelve $x+y=5$ y $2x+y=7$ por sustitución.",
+      "pasos": [
+        "De la primera: $y=5-x$.",
+        "En la segunda: $2x+(5-x)=7$. Reúne: $x+5=7$, así $x=2$.",
+        "Recupera $y=5-2=3$. Solución: $(2,3)$.",
+        "Verifica: $2+3=5$ y $2(2)+3=7$."
+      ],
+      "preguntas": [
+        {
+          "pregunta": "Si $y=6-x$, ¿cómo queda $3x+y=10$ al sustituir?",
+          "opciones": [
+            "$3x+6-x=10$",
+            "$3x+6=10$",
+            "$3x+6+x=10$"
+          ],
+          "correcta": 0,
+          "pista": "Reemplaza y por toda la expresión 6−x.",
+          "explicacion": "$3x+(6-x)=10$; el + delante no cambia los signos.",
+          "errores": [
+            "",
+            "Falta el término −x.",
+            "El signo de x es negativo."
+          ]
+        },
+        {
+          "pregunta": "Resuelve $y=x+1$ y $x+y=7$.",
+          "opciones": [
+            "$(4,3)$",
+            "$(3,4)$",
+            "$(2,5)$"
+          ],
+          "correcta": 1,
+          "pista": "Sustituye y por x+1 en la segunda.",
+          "explicacion": "$x+(x+1)=7$, $2x=6$, $x=3$; $y=4$.",
+          "errores": [
+            "No cumple y=x+1.",
+            "",
+            "No cumple y=x+1."
+          ]
+        },
+        {
+          "pregunta": "Si $x=2-y$, entonces $3x$ equivale a…",
+          "opciones": [
+            "$6-y$",
+            "$6+3y$",
+            "$6-3y$"
+          ],
+          "correcta": 2,
+          "pista": "El 3 multiplica los dos términos.",
+          "explicacion": "$3(2-y)=6-3y$.",
+          "errores": [
+            "Falta multiplicar y por 3.",
+            "El producto con −y sigue siendo negativo.",
+            ""
+          ]
+        }
+      ],
+      "ejemplosExtra": [
+        {
+          "problema": "Resuelve $x+y=1$ y $x-y=2$.",
+          "pasos": [
+            "Despeja $y=1-x$ y sustituye en la segunda: $x-(1-x)=2$.",
+            "Distribuye el signo negativo: $x-1+x=2$, luego $2x=3$ y $x=3/2$.",
+            "$y=1-3/2=-1/2$. Comprueba: $3/2-1/2=1$ y $3/2-(-1/2)=2$."
+          ]
+        }
+      ],
+      "refuerzos": [],
+      "repasos": [
+        {
+          "tema": "t1-sistemas-bases",
+          "leccion": "igualdad",
+          "titulo": "Mantener la igualdad"
+        },
+        {
+          "tema": "t1-u1-tema1",
+          "leccion": "distributiva",
+          "titulo": "Distribuir y cuidar signos"
+        }
+      ],
+      "actividad": {
+        "solucion": "$2x+(x+2)=8$, $3x=6$, $x=2$, $y=4$. Comprueba $4=2+2$ y $2(2)+4=8$.",
+        "consigna": "En $y=x+2$ y $2x+y=8$, completa: $2x+(\\_\\_\\_)=8$, luego $3x=\\_\\_\\_$. Recupera y y verifica."
+      }
+    },
+    {
+      "id": "eliminacion",
+      "titulo": "Sumar para eliminar una incógnita",
+      "tituloRuta": "Sumar para eliminar una incógnita",
+      "descripcionRuta": "Resolver un sistema sumando ecuaciones con términos opuestos.",
+      "fase": "CONSTRUYE Y COMPRUEBA",
+      "meta": "Resolver un sistema sumando ecuaciones con términos opuestos.",
+      "paraQue": "Simplificar dos condiciones hasta obtener una ecuación con una sola letra.",
+      "bases": [
+        "Suma de términos semejantes y números opuestos."
+      ],
+      "explicacion": [
+        "Si dos igualdades son verdaderas, al sumar sus miembros izquierdos y sus miembros derechos obtienes otra igualdad verdadera. Por ejemplo, de $3+2=5$ y $3-2=1$ resulta $6=6$.",
+        "En $x+y=5$ y $x-y=1$, los términos +y y −y se anulan al sumar. Queda $2x=6$. Se llama eliminación porque una incógnita desaparece en esa nueva ecuación.",
+        "Suma por columnas: términos con x, términos con y y números del otro miembro. La ecuación sumada debe usarse junto con una de las originales para recuperar la incógnita eliminada.",
+        "Que desaparezca una letra no significa que su valor sea cero. Solo se cancelaron sus términos en una combinación de ecuaciones. Al final comprueba el par en las dos originales."
+      ],
+      "ejemplo": "Resuelve $x+y=5$ y $x-y=1$.",
+      "pasos": [
+        "Suma miembro a miembro: $(x+y)+(x-y)=5+1$.",
+        "Como $y-y=0$, queda $2x=6$; divide entre 2: $x=3$.",
+        "Sustituye en $x+y=5$: $3+y=5$, de donde $y=2$.",
+        "Comprueba: $3+2=5$ y $3-2=1$."
+      ],
+      "preguntas": [
+        {
+          "pregunta": "Al sumar $2x+y=9$ y $x-y=3$, queda…",
+          "opciones": [
+            "$3x+2y=12$",
+            "$3x=12$",
+            "$x=6$"
+          ],
+          "correcta": 1,
+          "pista": "Suma términos semejantes y los dos miembros derechos.",
+          "explicacion": "$2x+x=3x$; $y-y=0$; $9+3=12$.",
+          "errores": [
+            "y y −y se cancelan.",
+            "",
+            "Las x se suman; no se restan."
+          ]
+        },
+        {
+          "pregunta": "Resuelve $x+y=8$ y $x-y=2$.",
+          "opciones": [
+            "$(5,3)$",
+            "$(3,5)$",
+            "$(4,4)$"
+          ],
+          "correcta": 0,
+          "pista": "Al sumar queda 2x=10.",
+          "explicacion": "$x=5$ y $y=8-5=3$.",
+          "errores": [
+            "",
+            "3−5=−2, no 2.",
+            "4−4=0, no 2."
+          ]
+        },
+        {
+          "pregunta": "Al eliminar y, ¿se concluye que $y=0$?",
+          "opciones": [
+            "Sí, siempre.",
+            "Sí, si su coeficiente es 1.",
+            "No; hay que recuperarla en una ecuación original."
+          ],
+          "correcta": 2,
+          "pista": "Se cancelan términos en una suma, no el valor de la incógnita.",
+          "explicacion": "Por ejemplo, en x+y=8 y x−y=2 se elimina y, pero y=3.",
+          "errores": [
+            "La cancelación no fija y=0.",
+            "El coeficiente 1 no cambia esta idea.",
+            ""
+          ]
+        }
+      ],
+      "ejemplosExtra": [],
+      "refuerzos": [],
+      "repasos": [],
+      "actividad": {
+        "solucion": "$3x=9$, $x=3$. En la segunda: $3-y=1$, así $y=2$. Comprueba $6+2=8$ y $3-2=1$.",
+        "consigna": "Suma $2x+y=8$ y $x-y=1$. Completa: ___ x = ___. Recupera y usando una ecuación original."
+      }
+    },
+    {
+      "id": "multiplicar",
+      "titulo": "Preparar términos opuestos",
+      "tituloRuta": "Preparar términos opuestos",
+      "descripcionRuta": "Multiplicar una ecuación completa para poder eliminar.",
+      "fase": "CONSTRUYE Y COMPRUEBA",
+      "meta": "Multiplicar una ecuación completa para poder eliminar.",
+      "paraQue": "Resolver sistemas donde los coeficientes aún no son opuestos.",
+      "bases": [
+        "Distributiva y eliminación por suma."
+      ],
+      "explicacion": [
+        "En $2x+y=7$ y $3x+2y=12$, los coeficientes de y no son opuestos. Podemos transformar la primera ecuación multiplicando todos sus términos, incluido el otro miembro, por −2.",
+        "Así, $-2(2x+y)=-2(7)$ se convierte en $-4x-2y=-14$. Ahora −2y y +2y sí se cancelan al sumar. Multiplicar por un número distinto de cero conserva las soluciones de una ecuación.",
+        "El objetivo es crear coeficientes opuestos, no multiplicar por cualquier número. Si aparecen 2y y 3y, puedes usar −3 y 2 para obtener −6y y +6y.",
+        "Escribe una línea para cada transformación. El error más común es multiplicar las letras y olvidar el término independiente o cambiar solo algunos signos."
+      ],
+      "ejemplo": "Resuelve $2x+y=7$ y $3x+2y=12$.",
+      "pasos": [
+        "Multiplica toda la primera por −2: $-4x-2y=-14$.",
+        "Suma con la segunda: $-x=-2$, así $x=2$.",
+        "En la primera original: $4+y=7$, así $y=3$.",
+        "Verifica: $2(2)+3=7$ y $3(2)+2(3)=12$."
+      ],
+      "preguntas": [
+        {
+          "pregunta": "Multiplica $x+2y=5$ por −3.",
+          "opciones": [
+            "$-3x-6y=5$",
+            "$-3x+6y=-15$",
+            "$-3x-6y=-15$"
+          ],
+          "correcta": 2,
+          "pista": "Multiplica cada término y el miembro derecho.",
+          "explicacion": "$-3(x+2y)=-3(5)$ da $-3x-6y=-15$.",
+          "errores": [
+            "Falta multiplicar el 5.",
+            "El producto −3 por +2y es −6y.",
+            ""
+          ]
+        },
+        {
+          "pregunta": "Para eliminar y entre $x+2y=7$ y $3x+3y=12$, puedes multiplicar…",
+          "opciones": [
+            "la primera por −3 y la segunda por 2.",
+            "ambas por 2 y sumarlas.",
+            "solo los términos con y por −1."
+          ],
+          "correcta": 0,
+          "pista": "Busca coeficientes −6 y +6.",
+          "explicacion": "Al multiplicar, obtenemos $(-3)(2y)=-6y$ y $2(3y)=6y$. Al sumar las ecuaciones, $-6y+6y=0$: se elimina la incógnita $y$. Recuerda multiplicar cada ecuación completa, incluido el miembro derecho.",
+          "errores": [
+            "",
+            "Obtendrías 4y y 6y; no se cancelan al sumar.",
+            "Cambiar un solo término no conserva la igualdad."
+          ]
+        },
+        {
+          "pregunta": "Resuelve $x+2y=7$ y $3x+3y=12$.",
+          "opciones": [
+            "$(3,2)$",
+            "$(1,3)$",
+            "$(2,1)$"
+          ],
+          "correcta": 1,
+          "pista": "Usa los multiplicadores −3 y 2.",
+          "explicacion": "$-3x-6y=-21$ y $6x+6y=24$ dan $3x=3$; $x=1$, $y=3$.",
+          "errores": [
+            "3(3)+3(2)=15, no 12.",
+            "",
+            "2+2(1)=4, no 7."
+          ]
+        }
+      ],
+      "ejemplosExtra": [
+        {
+          "problema": "Resuelve $2x+3y=1$ y $3x-2y=8$.",
+          "pasos": [
+            "Multiplica la primera por 2: $4x+6y=2$. Multiplica la segunda por 3: $9x-6y=24$.",
+            "Suma: $13x=26$, así $x=2$.",
+            "En la primera: $4+3y=1$; $y=-1$. Comprueba: $3(2)-2(-1)=8$."
+          ]
+        }
+      ],
+      "refuerzos": [
+        "eliminacion"
+      ],
+      "repasos": [],
+      "actividad": {
+        "solucion": "$-3x-3y=-12$. Al sumar con la segunda: $-x=-1$, $x=1$; $y=3$. Comprueba $1+3=4$ y $2+9=11$.",
+        "consigna": "En $x+y=4$ y $2x+3y=11$, multiplica la primera por −3. Escribe todos los términos transformados, suma y recupera y."
+      }
+    },
+    {
+      "id": "casos",
+      "titulo": "Cuando quedan cero o infinitas soluciones",
+      "tituloRuta": "Cuando quedan cero o infinitas soluciones",
+      "descripcionRuta": "Distinguir una contradicción de una identidad.",
+      "fase": "CONSTRUYE Y COMPRUEBA",
+      "meta": "Distinguir una contradicción de una identidad.",
+      "paraQue": "Interpretar lo que sucede cuando se eliminan las dos incógnitas.",
+      "bases": [
+        "Ecuaciones equivalentes y rectas paralelas o coincidentes."
+      ],
+      "explicacion": [
+        "No todos los sistemas tienen un único par solución. Después de eliminar puedes obtener una igualdad imposible o una igualdad que siempre es cierta.",
+        "En $x+y=4$ y $2x+2y=10$, resta dos veces la primera a la segunda: queda $0=2$. Ningún par hace cierta esta afirmación: el sistema no tiene solución; sus rectas son paralelas distintas.",
+        "En $x+y=4$ y $2x+2y=8$, la misma operación da $0=0$. La segunda condición repite la primera: hay infinitas soluciones sobre una misma recta. No significa que cualquier par del plano sirva.",
+        "Puedes describirlas con $x=t$, $y=4-t$, para cualquier número real t. Por ejemplo (0,4), (1,3) y (4,0). Si el contexto exige objetos, se consideran solo los pares que sean cantidades permitidas.",
+        "En un sistema homogéneo los miembros derechos son cero. El par (0,0) siempre lo resuelve, pero puede no ser el único. Examina si las ecuaciones son independientes o repiten la misma condición."
+      ],
+      "ejemplo": "Clasifica $x+y=4$ con $2x+2y=8$.",
+      "pasos": [
+        "Multiplica la primera por −2: $-2x-2y=-8$.",
+        "Suma con la segunda: $0=0$.",
+        "La segunda es el doble de la primera: rectas coincidentes, infinitas soluciones.",
+        "El par (2,2) sirve; (2,3) no sirve. Infinitas no significa todas las parejas."
+      ],
+      "preguntas": [
+        {
+          "pregunta": "Tras eliminar obtienes $0=5$. El sistema tiene…",
+          "opciones": [
+            "una solución: (0,5).",
+            "ninguna solución.",
+            "infinitas soluciones."
+          ],
+          "correcta": 1,
+          "pista": "¿Puede cero ser igual a cinco?",
+          "explicacion": "Es una contradicción; ningún par satisface las dos condiciones.",
+          "errores": [
+            "No puedes leer coordenadas de 0=5.",
+            "",
+            "Una identidad como 0=0 indicaría ecuaciones dependientes."
+          ]
+        },
+        {
+          "pregunta": "En $x+y=3$ y $2x+2y=6$, ¿cuál afirmación es correcta?",
+          "opciones": [
+            "Tiene infinitas soluciones que cumplen x+y=3.",
+            "Solo sirve (0,0).",
+            "Todos los pares del plano sirven."
+          ],
+          "correcta": 0,
+          "pista": "La segunda ecuación es el doble de la primera.",
+          "explicacion": "Ambas representan la misma recta; por ejemplo, (0,3) y (1,2) sirven.",
+          "errores": [
+            "",
+            "0+0 no es 3.",
+            "Solo sirven los pares de la recta x+y=3."
+          ]
+        },
+        {
+          "pregunta": "Resuelve $x+y=0$ y $x-y=0$.",
+          "opciones": [
+            "Infinitas soluciones.",
+            "Ninguna solución.",
+            "Únicamente (0,0)."
+          ],
+          "correcta": 2,
+          "pista": "Suma las ecuaciones y recupera y.",
+          "explicacion": "$2x=0$ da x=0; luego y=0. Un sistema homogéneo no siempre tiene infinitas soluciones.",
+          "errores": [
+            "Las rectas son distintas y se cortan en el origen.",
+            "El origen cumple ambas.",
+            ""
+          ]
+        }
+      ],
+      "ejemplosExtra": [],
+      "refuerzos": [
+        "multiplicar"
+      ],
+      "repasos": [],
+      "actividad": {
+        "solucion": "A da $0=0$: misma condición e infinitas soluciones. B da $0=1$: contradicción y ninguna solución.",
+        "consigna": "Compara $x+y=2$ con (A) $2x+2y=4$ y (B) $2x+2y=5$. Elimina y explica la diferencia entre los resultados."
+      }
+    }
+  ],
+  "diagnostico": [
+    {
+      "pregunta": "De $x+y=7$, despejar y da…",
+      "opciones": [
+        "$y=7-x$",
+        "$y=7+x$",
+        "$y=x-7$"
+      ],
+      "correcta": 0,
+      "pista": "Resta x en ambos lados.",
+      "explicacion": "$y=7-x$.",
+      "errores": [
+        "",
+        "No debes sumar x.",
+        "El orden de la resta cambia el resultado."
+      ],
+      "leccion": "sustitucion"
+    },
+    {
+      "pregunta": "¿Cuánto es $y+(-y)$?",
+      "opciones": [
+        "2y",
+        "0",
+        "y²"
+      ],
+      "correcta": 1,
+      "pista": "Son cantidades opuestas.",
+      "explicacion": "Una cantidad más su opuesto da cero.",
+      "errores": [
+        "Eso sería y+y.",
+        "",
+        "Una suma no produce un cuadrado."
+      ],
+      "leccion": "eliminacion"
+    },
+    {
+      "pregunta": "Distribuye $-2(x+3)$.",
+      "opciones": [
+        "$-2x+6$",
+        "$-2x+3$",
+        "$-2x-6$"
+      ],
+      "correcta": 2,
+      "pista": "El −2 multiplica ambos términos.",
+      "explicacion": "$-2x-6$.",
+      "errores": [
+        "−2 por 3 es −6.",
+        "Falta multiplicar el 3.",
+        ""
+      ],
+      "leccion": "multiplicar"
+    },
+    {
+      "pregunta": "¿Es verdadera la igualdad $0=4$?",
+      "opciones": [
+        "No, es imposible.",
+        "Sí, si x=0.",
+        "Sí, si y=4."
+      ],
+      "correcta": 0,
+      "pista": "La igualdad ya no contiene letras.",
+      "explicacion": "Ningún valor de x o y cambia que 0 sea distinto de 4.",
+      "errores": [
+        "",
+        "No hay x en esa igualdad.",
+        "No hay y en esa igualdad."
+      ],
+      "leccion": "casos"
+    }
+  ],
+  "cierre": [
+    {
+      "pregunta": "Resuelve $y=x-2$ y $x+y=4$.",
+      "opciones": [
+        "(3,1)",
+        "(1,3)",
+        "(2,2)"
+      ],
+      "correcta": 0,
+      "pista": "Sustituye y por x−2.",
+      "explicacion": "$2x-2=4$, así x=3 e y=1.",
+      "errores": [
+        "",
+        "No cumple y=x−2.",
+        "No cumple y=x−2."
+      ],
+      "leccion": "sustitucion"
+    },
+    {
+      "pregunta": "Resuelve $2x+y=11$ y $x-y=1$.",
+      "opciones": [
+        "(3,5)",
+        "(4,3)",
+        "(5,1)"
+      ],
+      "correcta": 1,
+      "pista": "Suma: 3x=12.",
+      "explicacion": "x=4 e y=3; 8+3=11 y 4−3=1.",
+      "errores": [
+        "3−5=−2.",
+        "",
+        "5−1=4."
+      ],
+      "leccion": "eliminacion"
+    },
+    {
+      "pregunta": "Resuelve $x+2y=8$ y $3x+y=9$.",
+      "opciones": [
+        "(3,2)",
+        "(1,3)",
+        "(2,3)"
+      ],
+      "correcta": 2,
+      "pista": "Multiplica la segunda por −2 y suma.",
+      "explicacion": "$-5x=-10$ da x=2; y=3. Comprobación: 2+6=8 y 6+3=9.",
+      "errores": [
+        "3+4=7.",
+        "1+6=7.",
+        ""
+      ],
+      "leccion": "multiplicar"
+    },
+    {
+      "pregunta": "Clasifica $x-y=2$ y $2x-2y=7$.",
+      "opciones": [
+        "Sin solución.",
+        "Infinitas soluciones.",
+        "Solo (0,0)."
+      ],
+      "correcta": 0,
+      "pista": "Resta dos veces la primera de la segunda.",
+      "explicacion": "Se obtiene 0=3, una contradicción.",
+      "errores": [
+        "",
+        "El término derecho debería ser 4 para repetir la primera.",
+        "El origen no cumple ninguna."
+      ],
+      "leccion": "casos"
+    },
+    {
+      "pregunta": "Clasifica $x-2y=1$ y $3x-6y=3$.",
+      "opciones": [
+        "Sin solución.",
+        "Infinitas soluciones.",
+        "Solo (1,0)."
+      ],
+      "correcta": 1,
+      "pista": "La segunda es el triple de la primera.",
+      "explicacion": "Representan la misma recta; (1,0) y (3,1) son dos de sus infinitas soluciones.",
+      "errores": [
+        "No hay contradicción.",
+        "",
+        "(3,1) también cumple ambas."
+      ],
+      "leccion": "casos"
+    },
+    {
+      "pregunta": "En $x+y=0$ y $2x+2y=0$…",
+      "opciones": [
+        "no hay solución.",
+        "solo sirve (0,0).",
+        "hay infinitas soluciones con y=−x."
+      ],
+      "correcta": 2,
+      "pista": "La segunda repite la primera.",
+      "explicacion": "El origen y todos los pares (t,−t) cumplen ambas.",
+      "errores": [
+        "El origen sí sirve.",
+        "(1,−1) también sirve.",
+        ""
+      ],
+      "leccion": "casos"
+    }
+  ],
+  "cierreIntroduccion": "Resuelve primero en tu cuaderno. Comprueba cada par en las dos ecuaciones y explica el procedimiento antes de consultar la respuesta.",
+  "retosCierre": [
+    "Resuelve un sistema de dos maneras y compara los pasos.",
+    "Explica qué significan 0=3 y 0=0 al eliminar, con un ejemplo de cada caso."
+  ],
+  "puenteAnterior": {
+    "titulo": "Conecta con el subtema anterior",
+    "descripcion": "Repasa la base que necesitas. Las respuestas se conservan durante esta sesión.",
+    "tema": "t1-sistemas-grafico",
+    "leccion": "interseccion"
+  }
+}

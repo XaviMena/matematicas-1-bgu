@@ -2,11 +2,51 @@
 let curriculumData = null;
 let currentTrimesterId = 'trimestre-1';
 let currentTopicId = 't1-u1-tema1';
+const trimesterSelections = {};
+const groupSelections = {};
+let topicLoadVersion = 0;
+
+function topicContext(id) {
+  for (const trimester of curriculumData.trimestres) {
+    for (const group of trimester.unidades) {
+      const topic = group.temas.find(t => t.id === id);
+      if (topic) return {trimester, group, topic};
+    }
+  }
+}
+
+function escapeText(value) {
+  return String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
 
 document.addEventListener('DOMContentLoaded', async () => {
   initTheme();
+  const compactMenu = window.matchMedia('(max-width: 900px)');
+  const updateMenu = () => { document.getElementById('course-menu').open = !compactMenu.matches; };
+  updateMenu();
+  compactMenu.addEventListener('change', updateMenu);
   await loadCurriculum();
   setupSearch();
+  document.getElementById('topics-list').addEventListener('click', event => {
+    const groupSummary = event.target.closest('summary[data-open-topic]');
+    if (groupSummary?.dataset.openTopic && !groupSummary.parentElement.open) {
+      event.preventDefault();
+      loadTopic(groupSummary.dataset.openTopic);
+      if (compactMenu.matches) document.getElementById('course-menu').open = false;
+      return;
+    }
+    const link = event.target.closest('a[href^="#"]');
+    if (!link) return;
+    event.preventDefault();
+    loadTopic(link.getAttribute('href').slice(1));
+    if (compactMenu.matches) document.getElementById('course-menu').open = false;
+  });
+  window.addEventListener('hashchange', () => {
+    const id = location.hash.slice(1);
+    if (!id) loadTopic('t1-u1-tema1');
+    else if (topicContext(id) && id !== currentTopicId) loadTopic(id);
+    else if (curriculumData.trimestres.some(t => t.id === id) && id !== currentTrimesterId) selectTrimester(id);
+  });
 });
 
 // Inicialización de Modo Oscuro / Claro
@@ -41,15 +81,11 @@ async function loadCurriculum() {
       const res = await fetch('data/curriculum.json');
       curriculumData = await res.json();
     }
-    const requested=location.hash.slice(1);
-    for (const trimester of curriculumData.trimestres) {
-      if (trimester.unidades.some(u=>u.temas.some(t=>t.id===requested))) {
-        currentTrimesterId=trimester.id; currentTopicId=requested; break;
-      }
-    }
-    renderTrimesterTabs();
-    renderSidebarTopics();
-    loadTopic(currentTopicId);
+    const requested = location.hash.slice(1);
+    const context = topicContext(requested);
+    if (context) await loadTopic(requested);
+    else if (curriculumData.trimestres.some(t => t.id === requested)) selectTrimester(requested);
+    else await loadTopic(currentTopicId);
   } catch (e) {
     console.error("Error al cargar curriculum.json:", e);
   }
@@ -61,7 +97,7 @@ function renderTrimesterTabs() {
   if (!container || !curriculumData) return;
 
   container.innerHTML = curriculumData.trimestres.map(t => `
-    <button class="trim-tab ${t.id === currentTrimesterId ? 'active' : ''}" onclick="selectTrimester('${t.id}')">
+    <button aria-current="${t.id === currentTrimesterId ? 'page' : 'false'}" class="trim-tab ${t.id === currentTrimesterId ? 'active' : ''}" onclick="selectTrimester('${t.id}')">
       ${t.nombre}
       <span class="trim-badge">${t.activo ? 'Disponible' : 'Próximamente'}</span>
     </button>
@@ -69,16 +105,27 @@ function renderTrimesterTabs() {
 }
 
 function selectTrimester(trimId) {
-  currentTrimesterId = trimId;
-  renderTrimesterTabs();
   const trim = curriculumData.trimestres.find(t => t.id === trimId);
-  if (trim && trim.unidades.length > 0 && trim.unidades[0].temas.length > 0) {
-    currentTopicId = trim.unidades[0].temas[0].id;
-    renderSidebarTopics();
-    loadTopic(currentTopicId);
-  } else {
+  if (!trim) return;
+  const first = trim.unidades.flatMap(u => u.temas)[0];
+  currentTrimesterId = trimId;
+  if (first) loadTopic(trimesterSelections[trimId] || first.id);
+  else {
+    topicLoadVersion++;
+    currentTopicId = null;
+    history.pushState(null, '', '#' + trimId);
+    renderTrimesterTabs();
     renderEmptyTrimester(trim);
+    renderCourseLocation();
   }
+}
+
+function renderCourseLocation() {
+  const el = document.getElementById('course-location');
+  const context = topicContext(currentTopicId);
+  const trim = curriculumData.trimestres.find(t => t.id === currentTrimesterId);
+  if (!el) return;
+  el.innerHTML = context ? `<span>${context.trimester.nombre}</span><span aria-hidden="true"> / </span><span>Tema ${context.group.numero}</span><span aria-hidden="true"> / </span><strong>Subtema ${context.topic.numero} · ${context.topic.titulo}</strong>` : `<strong>${trim.nombre}</strong>`;
 }
 
 function renderEmptyTrimester(trim) {
@@ -94,7 +141,7 @@ function renderEmptyTrimester(trim) {
           ${trim.descripcion}
         </p>
         <p style="margin-top: 1.5rem; font-size: 0.9rem;">
-          Puedes adjuntar las páginas del libro oficial de este trimestre para incorporarlas de inmediato con nuestra estructura modular.
+          Los contenidos de este trimestre se habilitarán cuando estén preparados. Puedes continuar practicando en el primer trimestre.
         </p>
       </div>
     `;
@@ -109,49 +156,42 @@ function renderSidebarTopics() {
   const trim = curriculumData.trimestres.find(t => t.id === currentTrimesterId);
   if (!trim) return;
 
-  let html = '';
-  trim.unidades.forEach(u => {
-    html += `<li class="sidebar-title" style="margin-top: 0.75rem;">${u.titulo}</li>`;
-    u.temas.forEach(t => {
-      html += `
-        <li>
-          <a href="#${t.id}" class="topic-link ${t.id === currentTopicId ? 'active' : ''}" onclick="loadTopic('${t.id}')">
-            <span class="topic-link-num">Tema ${t.numero}</span>
-            <span class="topic-link-title">${t.titulo}</span>
-            <span class="topic-link-pages">📖 Pág. ${t.paginas}</span>
-          </a>
-        </li>
-      `;
-    });
-  });
-  list.innerHTML = html;
+  list.innerHTML = trim.unidades.map(u => `<li><details class="topic-group" ${u.temas.some(t=>t.id===currentTopicId)?'open':''}>
+    <summary data-open-topic="${groupSelections[u.id] || u.temas[0]?.id || ''}" title="Abrir tema y mostrar sus subtemas"><span class="group-number">Tema ${u.numero}</span><strong>${u.titulo}</strong><small>${u.temas.length} subtemas</small></summary>
+    <ul class="subtopics-list">${u.temas.map(t => `<li><a href="#${t.id}" class="topic-link ${t.id===currentTopicId?'active':''}" ${t.id===currentTopicId?'aria-current="page"':''}><span class="topic-link-num">Subtema ${t.numero}</span><span class="topic-link-title">${t.titulo}</span></a></li>`).join('') || '<li class="study-note">En preparación</li>'}</ul>
+  </details></li>`).join('');
 }
 
-// Cargar un Tema Específico
+// Cada subtema conserva su sesión y puede abrirse mediante un enlace directo.
 async function loadTopic(topicId) {
+  const context = topicContext(topicId);
+  if (!context) return;
+  const request = ++topicLoadVersion;
+  const search = document.getElementById('search-input');
+  if (search) search.value = '';
+  currentTrimesterId = context.trimester.id;
   currentTopicId = topicId;
+  trimesterSelections[currentTrimesterId] = topicId;
+  groupSelections[context.group.id] = topicId;
+  if (location.hash !== '#' + topicId) history.pushState(null, '', '#' + topicId);
+  renderTrimesterTabs();
   renderSidebarTopics();
-
-  const trim = curriculumData.trimestres.find(t => t.id === currentTrimesterId);
-  let targetTema = null;
-  trim?.unidades.forEach(u => {
-    const found = u.temas.find(t => t.id === topicId);
-    if (found) targetTema = found;
-  });
-
-  if (!targetTema) return;
-
+  renderCourseLocation();
   try {
-    let data = null;
-    if (window.MODULES_DATA && window.MODULES_DATA[targetTema.archivo]) {
-      data = window.MODULES_DATA[targetTema.archivo];
-    } else {
-      const res = await fetch(targetTema.archivo);
+    let data = window.MODULES_DATA?.[context.topic.archivo];
+    if (!data) {
+      const res = await fetch(context.topic.archivo);
+      if (!res.ok) throw new Error('No se pudo cargar el subtema.');
       data = await res.json();
     }
-    renderTopicContent(data, targetTema);
+    if (request !== topicLoadVersion) return;
+    renderTopicContent(data, context.topic);
+    // Las rutas se renderizan sin recargar: mostrar su comienzo al cambiar de subtema.
+    window.scrollTo({ top: 0, behavior: 'instant' });
   } catch (e) {
-    console.error("Error al cargar módulo de tema:", e);
+    if (request !== topicLoadVersion) return;
+    document.getElementById('main-content').innerHTML = '<div class="edu-card"><h2>No se pudo abrir este subtema</h2><p>Vuelve a seleccionarlo en el menú para intentarlo otra vez.</p></div>';
+    console.error('Error al cargar módulo:', e);
   }
 }
 
@@ -615,41 +655,20 @@ function toggleAccordion(id) {
   el?.classList.toggle('open');
 }
 
-// Búsqueda en vivo
+// Búsqueda por trimestre, tema, subtema y lección; todos los resultados son enlaces.
 function setupSearch() {
   const input = document.getElementById('search-input');
-  input?.addEventListener('input', (e) => {
-    const q = e.target.value.toLowerCase().trim();
-    if (!q) {
-      renderSidebarTopics();
-      return;
-    }
-    const list = document.getElementById('topics-list');
-    if (!list || !curriculumData) return;
-
-    let matches = [];
-    curriculumData.trimestres.forEach(t => {
-      t.unidades.forEach(u => {
-        u.temas.forEach(tema => {
-          if (tema.titulo.toLowerCase().includes(q) || tema.descripcion.toLowerCase().includes(q)) {
-            matches.push({ ...tema, trimId: t.id });
-          }
-        });
-      });
-    });
-
-    if (matches.length === 0) {
-      list.innerHTML = `<li style="padding: 0.5rem; color: var(--text-muted); font-size: 0.85rem;">No se encontraron resultados para "${q}".</li>`;
-    } else {
-      list.innerHTML = matches.map(m => `
-        <li>
-          <a class="topic-link" onclick="currentTrimesterId='${m.trimId}'; selectTrimester('${m.trimId}'); loadTopic('${m.id}')">
-            <span class="topic-link-num">Tema ${m.numero}</span>
-            <span class="topic-link-title">${m.titulo}</span>
-            <span class="topic-link-pages">📖 Pág. ${m.paginas}</span>
-          </a>
-        </li>
-      `).join('');
-    }
+  const normalize = text => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  input?.addEventListener('input', () => {
+    const q = normalize(input.value.trim());
+    if (!q) { renderSidebarTopics(); return; }
+    document.getElementById('course-menu').open = true;
+    const matches = [];
+    curriculumData.trimestres.forEach(trim => trim.unidades.forEach(group => group.temas.forEach(topic => {
+      const data = window.MODULES_DATA?.[topic.archivo];
+      const text = [trim.nombre, group.titulo, topic.numero, topic.titulo, topic.descripcion, ...(data?.lecciones || []).map(l => l.titulo)].join(' ');
+      if (normalize(text).includes(q)) matches.push({trim, group, topic});
+    })));
+    document.getElementById('topics-list').innerHTML = matches.length ? matches.map(({trim, group, topic}) => `<li><a href="#${topic.id}" class="topic-link"><span class="topic-link-num">${trim.nombre} · Tema ${group.numero} · ${topic.numero}</span><span class="topic-link-title">${topic.titulo}</span></a></li>`).join('') : `<li class="study-note">No se encontraron resultados para «${escapeText(input.value.trim())}».</li>`;
   });
 }

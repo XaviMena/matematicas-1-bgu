@@ -1,0 +1,303 @@
+{
+  "id": "t1-sistemas-aplicaciones",
+  "titulo": "Aplicar, elegir y comprobar",
+  "temaNumero": "2.4",
+  "unidadId": "t1-tema2",
+  "unidadTitulo": "Tema 2 · Sistemas de ecuaciones lineales",
+  "trimestre": 1,
+  "paginasLibro": "20-25",
+  "version": 1,
+  "introduccion": "Define las cantidades, elige un método, comprueba y explica tu respuesta en una situación.",
+  "objetivo": "Al terminar podrás: Definir incógnitas, traducir condiciones y responder con unidades; Comparar métodos y detectar errores de procedimiento.",
+  "lecciones": [
+    {
+      "id": "modelar",
+      "titulo": "Del enunciado a las dos ecuaciones",
+      "tituloRuta": "Del enunciado a las dos ecuaciones",
+      "descripcionRuta": "Definir incógnitas, traducir condiciones y responder con unidades.",
+      "fase": "CONSTRUYE Y COMPRUEBA",
+      "meta": "Definir incógnitas, traducir condiciones y responder con unidades.",
+      "paraQue": "Resolver compras y cantidades sin confundir lo que representa cada letra.",
+      "bases": [
+        "Sustitución, eliminación y lectura de condiciones."
+      ],
+      "explicacion": [
+        "Antes de operar, escribe qué representa cada letra y sus unidades. Si x es el precio de un cuaderno en dólares e y el precio de un lápiz en dólares, no cambies después a cantidades de objetos.",
+        "Cada dato aporta una condición. «Dos cuadernos y un lápiz cuestan 7 dólares» se escribe $2x+y=7$. «Un cuaderno y un lápiz cuestan 4 dólares» se escribe $x+y=4$.",
+        "Elige un método mirando los coeficientes. Aquí restar la segunda ecuación a la primera elimina y directamente. El cálculo da x=3 e y=1.",
+        "Comprueba con los datos del enunciado y responde con una frase: cada cuaderno cuesta 3 dólares y cada lápiz, 1 dólar. Verifica también que los valores sean posibles en la situación."
+      ],
+      "ejemplo": "Dos cuadernos y un lápiz cuestan 7 dólares; un cuaderno y un lápiz cuestan 4 dólares. ¿Cuánto cuesta cada uno?",
+      "pasos": [
+        "Define x: precio del cuaderno; y: precio del lápiz. Ambas cantidades están en dólares.",
+        "Plantea $2x+y=7$ y $x+y=4$. Resta miembro a miembro: $x=3$.",
+        "Recupera $y=4-3=1$.",
+        "Comprueba los pagos: $2(3)+1=7$ y $3+1=4$. Responde: cuaderno 3 dólares, lápiz 1 dólar."
+      ],
+      "preguntas": [
+        {
+          "pregunta": "x es el precio de una entrada adulta e y el de una infantil. Dos adultas y tres infantiles cuestan 18 dólares. ¿Qué ecuación corresponde?",
+          "opciones": [
+            "$3x+2y=18$",
+            "$x+y=18$",
+            "$2x+3y=18$"
+          ],
+          "correcta": 2,
+          "pista": "Multiplica cada precio por su cantidad.",
+          "explicacion": "Dos precios x más tres precios y dan el pago total: 2x+3y=18.",
+          "errores": [
+            "Intercambiaste las cantidades.",
+            "Faltan las cantidades de entradas.",
+            ""
+          ]
+        },
+        {
+          "pregunta": "Hay 10 entradas: x adultas e y infantiles. ¿Cómo expresas la cantidad total?",
+          "opciones": [
+            "$x+y=10$",
+            "$2x+y=10$",
+            "$xy=10$"
+          ],
+          "correcta": 0,
+          "pista": "Suma las cantidades de entradas.",
+          "explicacion": "Cada entrada cuenta una unidad: x+y=10.",
+          "errores": [
+            "",
+            "No hay motivo para contar dos veces las adultas.",
+            "Las cantidades se suman, no se multiplican."
+          ]
+        },
+        {
+          "pregunta": "Se venden 10 entradas: adultas a 3 dólares e infantiles a 1 dólar. Se recauda 18. ¿Cuántas son adultas e infantiles?",
+          "opciones": [
+            "6 adultas y 4 infantiles.",
+            "4 adultas y 6 infantiles.",
+            "5 adultas y 5 infantiles."
+          ],
+          "correcta": 1,
+          "pista": "Usa x+y=10 y 3x+y=18; resta la primera de la segunda.",
+          "explicacion": "$2x=8$, así x=4 e y=6. Se comprueba 4+6=10 y 3(4)+6=18.",
+          "errores": [
+            "Recaudarían 22 dólares.",
+            "",
+            "Recaudarían 20 dólares."
+          ]
+        }
+      ],
+      "ejemplosExtra": [],
+      "refuerzos": [],
+      "repasos": [
+        {
+          "tema": "t1-sistemas-metodos",
+          "leccion": "eliminacion",
+          "titulo": "Eliminar una incógnita"
+        }
+      ],
+      "actividad": {
+        "solucion": "$3x+y=5$ y $x+y=3$. Restando: $2x=2$, $x=1$; $y=2$. Lápiz: 1 dólar; borrador: 2 dólares. Comprueba $3(1)+2=5$ y $1+2=3$.",
+        "consigna": "Una compra de tres lápices y un borrador cuesta 5 dólares; un lápiz y un borrador cuestan 3. Define x e y como precios, escribe las ecuaciones y completa la respuesta con unidades."
+      }
+    },
+    {
+      "id": "elegir",
+      "titulo": "Elegir, explicar y revisar",
+      "tituloRuta": "Elegir, explicar y revisar",
+      "descripcionRuta": "Comparar métodos y detectar errores de procedimiento.",
+      "fase": "CONSTRUYE Y COMPRUEBA",
+      "meta": "Comparar métodos y detectar errores de procedimiento.",
+      "paraQue": "Resolver de manera autónoma y justificar por qué la respuesta tiene sentido.",
+      "bases": [
+        "Los tres métodos y los tipos de solución."
+      ],
+      "explicacion": [
+        "No hay un método obligatorio para todos los sistemas. El gráfico ayuda a interpretar y estimar. La sustitución resulta cómoda si una letra ya está despejada. La eliminación suele ahorrar pasos cuando hay coeficientes opuestos o fáciles de igualar.",
+        "Para $y=2x+1$ y $x+y=7$, sustituir evita una transformación inicial. Para $3x+2y=12$ y $x-2y=0$, sumar cancela y directamente. Ambos métodos deben dar el mismo par que el cruce de las rectas.",
+        "Revisar un error exige señalar el paso, no solo cambiar el resultado. Si alguien convierte $-(x-2)$ en $-x-2$, olvidó distribuir el signo negativo al segundo término. La expresión correcta es $-x+2$.",
+        "Cuando el resultado sea una fracción, consérvala para comprobar con exactitud. Usa un decimal aproximado solo si la situación lo requiere y señala que es aproximado. Un resultado no entero puede ser válido para longitudes o precios, aunque no para contar personas."
+      ],
+      "ejemplo": "Resuelve $y=2x+1$ y $x+y=7$ y explica tu elección.",
+      "pasos": [
+        "Elijo sustitución porque y ya está despejada.",
+        "Sustituye: $x+(2x+1)=7$; $3x=6$; $x=2$.",
+        "Recupera $y=2(2)+1=5$.",
+        "Comprueba: $5=2(2)+1$ y $2+5=7$. Respuesta: $(2,5)$."
+      ],
+      "preguntas": [
+        {
+          "pregunta": "En $y=3x-1$ y $x+y=7$, ¿qué método aprovecha inmediatamente la forma dada?",
+          "opciones": [
+            "Sustitución, porque y está despejada.",
+            "Eliminación sin transformar, porque +y y +y son opuestos.",
+            "Leer solo una recta."
+          ],
+          "correcta": 0,
+          "pista": "Observa qué letra ya está sola.",
+          "explicacion": "Puedes sustituir y por 3x−1 directamente. Otros métodos también pueden funcionar.",
+          "errores": [
+            "",
+            "+y y +y no son opuestos.",
+            "Una sola recta no reúne las dos condiciones."
+          ]
+        },
+        {
+          "pregunta": "¿Cuál es el error en $x-(1-x)=x-1-x$?",
+          "opciones": [
+            "Falta multiplicar x por 2.",
+            "El último término debe ser +x.",
+            "No hay error."
+          ],
+          "correcta": 1,
+          "pista": "El signo menos multiplica todo el paréntesis.",
+          "explicacion": "$-(1-x)=-1+x$, por eso $x-(1-x)=x-1+x$.",
+          "errores": [
+            "El problema está en distribuir el signo.",
+            "",
+            "Menos por menos da más."
+          ]
+        },
+        {
+          "pregunta": "Resuelve $x+y=2$ y $x-y=1$.",
+          "opciones": [
+            "$(1,1)$",
+            "$(2,0)$",
+            "$(3/2,1/2)$"
+          ],
+          "correcta": 2,
+          "pista": "Suma: 2x=3.",
+          "explicacion": "$x=3/2$ e $y=2-3/2=1/2$; suma 2, diferencia 1.",
+          "errores": [
+            "La diferencia sería 0.",
+            "La diferencia sería 2.",
+            ""
+          ]
+        }
+      ],
+      "ejemplosExtra": [],
+      "refuerzos": [
+        "modelar"
+      ],
+      "repasos": [],
+      "actividad": {
+        "solucion": "La eliminación es cómoda: +y y −y son opuestos. Suma: $3x=9$, $x=3$; $y=1$. Verifica $6+1=7$ y $3-1=2$.",
+        "consigna": "Para $2x+y=7$ y $x-y=2$, escribe qué método usarías y por qué. Resuelve y verifica sin mirar la comparación."
+      }
+    }
+  ],
+  "diagnostico": [
+    {
+      "pregunta": "Si x es el número de cuadernos a 2 dólares cada uno, el costo de los cuadernos es…",
+      "opciones": [
+        "x+2",
+        "2x",
+        "x/2"
+      ],
+      "correcta": 1,
+      "pista": "Precio por cantidad.",
+      "explicacion": "Multiplica 2 dólares por x cuadernos.",
+      "errores": [
+        "Sumar precio y cantidad no da el costo.",
+        "",
+        "Dividir no calcula el costo total."
+      ],
+      "leccion": "modelar"
+    },
+    {
+      "pregunta": "Para $x+y=9$ y $x-y=3$, al sumar se obtiene…",
+      "opciones": [
+        "2x=12",
+        "2y=12",
+        "2x=6"
+      ],
+      "correcta": 0,
+      "pista": "Suma miembros izquierdos y derechos.",
+      "explicacion": "y−y=0; x+x=2x; 9+3=12.",
+      "errores": [
+        "",
+        "Se elimina y, no x.",
+        "Aquí sumas, no restas."
+      ],
+      "leccion": "elegir"
+    },
+    {
+      "pregunta": "Para confirmar una respuesta debes…",
+      "opciones": [
+        "elegir el par más sencillo.",
+        "redondear todas las fracciones.",
+        "comprobar ecuaciones, unidades y contexto."
+      ],
+      "correcta": 2,
+      "pista": "Una respuesta debe cumplir los datos y la situación.",
+      "explicacion": "La comprobación algebraica y la interpretación completan la solución.",
+      "errores": [
+        "La sencillez no garantiza que cumpla el sistema.",
+        "Redondear puede alterar las igualdades.",
+        ""
+      ],
+      "leccion": "elegir"
+    }
+  ],
+  "cierre": [
+    {
+      "pregunta": "Dos jugos y un sándwich cuestan 8 dólares; un jugo y un sándwich cuestan 5. ¿Cuánto cuesta cada uno?",
+      "opciones": [
+        "Jugo 3; sándwich 2.",
+        "Jugo 2; sándwich 3.",
+        "Jugo 4; sándwich 1."
+      ],
+      "correcta": 0,
+      "pista": "Define x: precio del jugo, y: precio del sándwich; resta las ecuaciones.",
+      "explicacion": "$2x+y=8$ y $x+y=5$ dan x=3, y=2. Se comprueba 6+2=8 y 3+2=5.",
+      "errores": [
+        "",
+        "Dos jugos y un sándwich costarían 7.",
+        "Dos jugos y un sándwich costarían 9."
+      ],
+      "leccion": "modelar"
+    },
+    {
+      "pregunta": "Si $y=x+4$ y $2x+y=10$, la solución es…",
+      "opciones": [
+        "(6,2)",
+        "(2,6)",
+        "(3,7)"
+      ],
+      "correcta": 1,
+      "pista": "Sustituye la expresión de y.",
+      "explicacion": "$2x+x+4=10$ da x=2; y=6.",
+      "errores": [
+        "No cumple y=x+4.",
+        "",
+        "2(3)+7=13."
+      ],
+      "leccion": "elegir"
+    },
+    {
+      "pregunta": "Al contar personas, el sistema da x=2.5. ¿Qué haces?",
+      "opciones": [
+        "Redondear a 3 sin comprobar.",
+        "Decir que hay 2.5 personas.",
+        "Revisar datos y modelo; no es una cantidad posible de personas."
+      ],
+      "correcta": 2,
+      "pista": "El contexto impone cantidades enteras.",
+      "explicacion": "Una solución real puede ser incompatible con la cantidad que representa.",
+      "errores": [
+        "Redondear puede dejar de cumplir los datos.",
+        "Una cantidad de personas no puede ser fraccionaria.",
+        ""
+      ],
+      "leccion": "modelar"
+    }
+  ],
+  "cierreIntroduccion": "Resuelve primero en tu cuaderno. Comprueba cada par en las dos ecuaciones y explica el procedimiento antes de consultar la respuesta.",
+  "retosCierre": [
+    "Inventa un problema con dos condiciones, define las letras y comprueba su solución.",
+    "Resuelve x+y=5 y 2x+3y=12; justifica tu método y comprueba ambas condiciones."
+  ],
+  "puenteAnterior": {
+    "titulo": "Conecta con el subtema anterior",
+    "descripcion": "Repasa la base que necesitas. Las respuestas se conservan durante esta sesión.",
+    "tema": "t1-sistemas-metodos",
+    "leccion": "casos"
+  }
+}

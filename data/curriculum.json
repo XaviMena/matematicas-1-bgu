@@ -14,8 +14,8 @@
         {
           "id": "unidad-1",
           "numero": 1,
-          "titulo": "Propiedades de los números reales y medidas de tendencia central y dispersión",
-          "paginas": "10-35",
+          "titulo": "Números reales y expresiones algebraicas",
+          "paginas": "12-19",
           "objetivos": [
             "O.G.M.1: Proponer soluciones creativas a situaciones concretas de la realidad nacional y mundial mediante la aplicación de las operaciones básicas de los diferentes conjuntos numéricos.",
             "O.G.M.2: Producir, comunicar y generalizar información de manera escrita, verbal, simbólica, gráfica y/o tecnológica mediante la aplicación de conocimientos matemáticos.",
@@ -45,7 +45,56 @@
               "paginas": "18-19",
               "archivo": "data/modules/t1-u1-eval.json",
               "tipo": "evaluacion",
-              "descripcion": "Práctica por habilidades de los temas 1.1 y 1.2, con seis bloques, repaso dirigido, explicaciones y ocho ejercicios integradores."
+              "descripcion": "Práctica por habilidades de los subtemas 1.1 y 1.2, con seis bloques, repaso dirigido, explicaciones y ocho ejercicios integradores."
+            }
+          ]
+        },
+        {
+          "id": "t1-tema2",
+          "numero": 2,
+          "titulo": "Sistemas de ecuaciones lineales",
+          "paginas": "20-25",
+          "temas": [
+            {
+              "id": "t1-sistemas-bases",
+              "numero": "2.1",
+              "titulo": "Antes de resolver: ecuaciones y soluciones",
+              "paginas": "20-25",
+              "archivo": "data/modules/t1-sistemas-bases.json",
+              "descripcion": "Empieza con una igualdad, explora pares de números y descubre por qué necesitamos dos condiciones."
+            },
+            {
+              "id": "t1-sistemas-grafico",
+              "numero": "2.2",
+              "titulo": "Comprender con tablas y gráficos",
+              "paginas": "20-25",
+              "archivo": "data/modules/t1-sistemas-grafico.json",
+              "descripcion": "Conecta las ecuaciones con tablas, puntos y rectas. Comprende qué significa una solución antes de calcularla."
+            },
+            {
+              "id": "t1-sistemas-metodos",
+              "numero": "2.3",
+              "titulo": "Resolver con sustitución y eliminación",
+              "paginas": "20-25",
+              "archivo": "data/modules/t1-sistemas-metodos.json",
+              "descripcion": "Aprende por qué funciona cada transformación. Comienza con enteros y avanza hacia fracciones y casos especiales."
+            },
+            {
+              "id": "t1-sistemas-aplicaciones",
+              "numero": "2.4",
+              "titulo": "Aplicar, elegir y comprobar",
+              "paginas": "20-25",
+              "archivo": "data/modules/t1-sistemas-aplicaciones.json",
+              "descripcion": "Define las cantidades, elige un método, comprueba y explica tu respuesta en una situación."
+            },
+            {
+              "id": "t1-sistemas-eval",
+              "numero": "2.5",
+              "titulo": "Evaluación formativa: comprueba y refuerza",
+              "paginas": "24-25",
+              "archivo": "data/modules/t1-sistemas-eval.json",
+              "tipo": "evaluacion",
+              "descripcion": "Seis bloques de evaluación formativa: representación y comprobación, sustitución, eliminación, ninguna o infinitas soluciones y sistemas homogéneos. Incluye repaso dirigido y ocho ejercicios de cierre."
             }
           ]
         }

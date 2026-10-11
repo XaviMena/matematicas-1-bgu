@@ -16,9 +16,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
 
   <!-- Estilos del Proyecto -->
-  <link rel="stylesheet" href="css/main.css?v=74eae1ee08bc">
+  <link rel="stylesheet" href="css/main.css?v=ec800c73007d">
   <link rel="stylesheet" href="css/math-theme.css?v=374a8dffab76">
-  <link rel="stylesheet" href="css/learning-path.css?v=9a2704f7447e">
+  <link rel="stylesheet" href="css/learning-path.css?v=a24f20204d28">
 </head>
 <body>
 
@@ -38,7 +38,7 @@
           <svg class="search-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
-          <input type="text" id="search-input" class="search-input" placeholder="Buscar tema o fórmula...">
+          <input type="text" id="search-input" aria-label="Buscar contenidos del curso" class="search-input" placeholder="Buscar tema o lección...">
         </div>
         <button id="theme-toggle" class="theme-btn" title="Alternar tema claro/oscuro">🌙</button>
       </div>
@@ -57,10 +57,10 @@
     <!-- Barra Lateral de Temas y Navegación de Unidades -->
     <aside class="sidebar">
       <div class="sidebar-card">
-        <div class="sidebar-title">Contenido Curricular</div>
+        <details id="course-menu" class="course-menu" open><summary>Explorar temas y subtemas</summary><div class="sidebar-title">Trimestre → tema → subtema</div>
         <ul class="topics-list" id="topics-list">
           <!-- Inyectado dinámicamente -->
-        </ul>
+        </ul></details>
       </div>
 
       <div class="sidebar-card" style="background: var(--bg-subtle);">
@@ -72,9 +72,9 @@
     </aside>
 
     <!-- Contenedor Dinámico de Temas y Evaluaciones -->
-    <main class="content-area" id="main-content">
+    <div class="content-column"><nav id="course-location" class="course-location" aria-label="Ubicación en el curso"></nav><main class="content-area" id="main-content">
       <!-- El contenido se inyecta dinámicamente según el tema seleccionado -->
-    </main>
+    </main></div>
   </div>
 
   <!-- Pie de Página Institucional -->
@@ -90,11 +90,12 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
 
   <!-- Datos y Scripts del Proyecto -->
-  <script src="js/data-store.js?v=286425311c71"></script>
+  <script src="js/data-store.js?v=b5c2f3588fe9"></script>
   <script src="js/math-render.js?v=741f86f43ed2"></script>
   <script src="js/interactive-geometry.js?v=c20e64ce4f52"></script>
   <script src="js/quiz-engine.js?v=b05bac6f8e7f"></script>
-  <script src="js/learning-path.js?v=dfe31b4bce43"></script>
-  <script src="js/app.js?v=7c21df9d9f42"></script>
+  <script src="js/systems-explorer.js?v=60543eb40e65"></script>
+  <script src="js/learning-path.js?v=ec63e9ceede6"></script>
+  <script src="js/app.js?v=a2ab6caeebf2"></script>
 </body>
 </html>

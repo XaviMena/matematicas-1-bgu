@@ -1,0 +1,302 @@
+{
+  "id": "t1-sistemas-grafico",
+  "titulo": "Comprender con tablas y gráficos",
+  "temaNumero": "2.2",
+  "unidadId": "t1-tema2",
+  "unidadTitulo": "Tema 2 · Sistemas de ecuaciones lineales",
+  "trimestre": 1,
+  "paginasLibro": "20-25",
+  "version": 1,
+  "introduccion": "Conecta las ecuaciones con tablas, puntos y rectas. Comprende qué significa una solución antes de calcularla.",
+  "objetivo": "Al terminar podrás: Construir una tabla y ubicar pares en el plano; Interpretar el cruce de dos rectas y comprobarlo.",
+  "lecciones": [
+    {
+      "id": "tabla",
+      "titulo": "De los pares a una recta",
+      "tituloRuta": "De los pares a una recta",
+      "descripcionRuta": "Construir una tabla y ubicar pares en el plano.",
+      "fase": "CONSTRUYE Y COMPRUEBA",
+      "meta": "Construir una tabla y ubicar pares en el plano.",
+      "paraQue": "Representar visualmente todas las soluciones de una ecuación lineal.",
+      "bases": [
+        "Pares ordenados y despeje sencillo."
+      ],
+      "explicacion": [
+        "En el plano cartesiano, el eje horizontal corresponde a x y el vertical a y. Para ubicar $(2,3)$, parte de $(0,0)$, avanza 2 a la derecha y sube 3. Un valor negativo de x va a la izquierda; uno negativo de y, hacia abajo.",
+        "La ecuación $x+y=5$ equivale a $y=5-x$. Elige x, calcula y y registra el par. Para $x=0,2,5$, obtienes $y=5,3,0$.",
+        "Al ubicar los pares de una ecuación lineal aparecen puntos alineados. Dos puntos distintos determinan la recta; un tercero ayuda a detectar errores. La recta representa también los pares con coordenadas fraccionarias, no solo los de la tabla.",
+        "Usa una escala uniforme en cada eje y etiqueta los valores. No necesitas una fórmula de pendiente para empezar: basta una tabla y la ubicación correcta de los puntos."
+      ],
+      "ejemplo": "Construye una tabla para $x-y=1$.",
+      "pasos": [
+        "Suma y a ambos miembros y resta 1: $y=x-1$.",
+        "Elige $x=0,1,3$: obtienes los pares $(0,-1)$, $(1,0)$, $(3,2)$.",
+        "Ubica los tres pares y traza la recta. Comprueba $3-2=1$."
+      ],
+      "preguntas": [
+        {
+          "pregunta": "En $y=5-x$, si $x=2$, ¿cuánto vale y?",
+          "opciones": [
+            "7",
+            "3",
+            "−3"
+          ],
+          "correcta": 1,
+          "pista": "Sustituye x por 2.",
+          "explicacion": "$y=5-2=3$.",
+          "errores": [
+            "Debes restar x.",
+            "",
+            "5−2 es positivo."
+          ]
+        },
+        {
+          "pregunta": "¿Cómo ubicas $(-2,1)$?",
+          "opciones": [
+            "2 a la izquierda y 1 hacia arriba.",
+            "2 a la derecha y 1 hacia arriba.",
+            "1 a la izquierda y 2 hacia abajo."
+          ],
+          "correcta": 0,
+          "pista": "La primera coordenada es horizontal.",
+          "explicacion": "x=−2 indica izquierda; y=1 indica arriba.",
+          "errores": [
+            "",
+            "Una x negativa va a la izquierda.",
+            "Intercambiaste coordenadas y signos."
+          ]
+        },
+        {
+          "pregunta": "¿Qué puntos sirven para trazar $x+y=4$?",
+          "opciones": [
+            "$(0,0)$ y $(4,4)$",
+            "$(1,1)$ y $(2,2)$",
+            "$(0,4)$ y $(4,0)$"
+          ],
+          "correcta": 2,
+          "pista": "Comprueba los dos puntos de cada opción.",
+          "explicacion": "$0+4=4$ y $4+0=4$; son dos puntos distintos de la recta.",
+          "errores": [
+            "Ninguno cumple la ecuación.",
+            "(1,1) no cumple x+y=4.",
+            ""
+          ]
+        }
+      ],
+      "ejemplosExtra": [],
+      "refuerzos": [],
+      "repasos": [
+        {
+          "tema": "t1-sistemas-bases",
+          "leccion": "pares",
+          "titulo": "Pares ordenados"
+        }
+      ],
+      "actividad": {
+        "solucion": "Los pares son $(0,2)$, $(1,1)$ y $(2,0)$. Todos cumplen la misma ecuación lineal y están en su recta.",
+        "consigna": "Para $y=2-x$, completa los pares (0, ___), (1, ___) y (2, ___). Ubícalos y explica por qué están alineados."
+      }
+    },
+    {
+      "id": "interseccion",
+      "titulo": "El punto donde coinciden",
+      "tituloRuta": "El punto donde coinciden",
+      "descripcionRuta": "Interpretar el cruce de dos rectas y comprobarlo.",
+      "fase": "CONSTRUYE Y COMPRUEBA",
+      "meta": "Interpretar el cruce de dos rectas y comprobarlo.",
+      "paraQue": "Entender el método gráfico antes de usar operaciones algebraicas.",
+      "bases": [
+        "Tablas de valores y puntos en el plano."
+      ],
+      "explicacion": [
+        "Dibuja en el mismo plano la recta de cada ecuación. El punto donde se cruzan pertenece a las dos rectas: por eso sus coordenadas cumplen las dos ecuaciones.",
+        "Para $x+y=5$ usa $(0,5)$ y $(5,0)$. Para $2x+y=7$ usa $(0,7)$ y $(3,1)$. Al trazar ambas, el cruce se ve cerca de $(2,3)$.",
+        "La lectura del dibujo puede ser aproximada. Sustituye el par leído en ambas ecuaciones para comprobarlo. Si el cruce está entre marcas, no lo redondees y lo presentes como exacto.",
+        "Si dos rectas distintas son paralelas, no comparten puntos: el sistema no tiene solución. Si se superponen completamente, comparten todos sus puntos: tiene infinitas soluciones. Explora los tres casos y relaciona el dibujo con sus ecuaciones."
+      ],
+      "ejemplo": "Lee y verifica el cruce de $x+y=5$ y $2x+y=7$.",
+      "pasos": [
+        "En el dibujo, la primera recta baja de (0,5) a (5,0); la segunda baja más rápido.",
+        "Se cruzan en $(2,3)$.",
+        "Comprueba: $2+3=5$ y $2(2)+3=7$. La comprobación confirma el par exacto."
+      ],
+      "preguntas": [
+        {
+          "pregunta": "El cruce es $(1,3)$. ¿Qué representa?",
+          "opciones": [
+            "$x=3,\\ y=1$",
+            "$x=1,\\ y=3$",
+            "Solo el valor de x."
+          ],
+          "correcta": 1,
+          "pista": "Lee las coordenadas en el orden (x,y).",
+          "explicacion": "El cruce indica x=1, y=3 para ambas ecuaciones.",
+          "errores": [
+            "Invertiste las coordenadas.",
+            "",
+            "Una solución del sistema da ambos valores."
+          ]
+        },
+        {
+          "pregunta": "Dos rectas distintas y paralelas representan…",
+          "opciones": [
+            "ninguna solución.",
+            "una solución.",
+            "infinitas soluciones."
+          ],
+          "correcta": 0,
+          "pista": "¿Comparten algún punto?",
+          "explicacion": "No se cortan: ningún par cumple las dos ecuaciones.",
+          "errores": [
+            "",
+            "No existe un cruce.",
+            "Las infinitas soluciones corresponden a rectas coincidentes."
+          ]
+        },
+        {
+          "pregunta": "Un dibujo sugiere $(1.5,2)$. ¿Cómo confirmas que es solución?",
+          "opciones": [
+            "Redondeando a (2,2).",
+            "Comprobando solo la primera ecuación.",
+            "Sustituyendo en las dos ecuaciones originales."
+          ],
+          "correcta": 2,
+          "pista": "Debe pertenecer a ambas rectas.",
+          "explicacion": "La sustitución en ambas ecuaciones permite verificar si el par es exacto.",
+          "errores": [
+            "Redondear puede producir un par que no cumpla las ecuaciones.",
+            "Cumplir una sola condición no basta.",
+            ""
+          ]
+        }
+      ],
+      "ejemplosExtra": [],
+      "refuerzos": [
+        "tabla"
+      ],
+      "repasos": [],
+      "visual": "sistemas",
+      "actividad": {
+        "solucion": "Puedes usar (0,4) y (4,0) para la primera; (0,0) y (4,4) para la segunda. Se cruzan en (2,2): 2+2=4 y 2−2=0.",
+        "consigna": "Dibuja $x+y=4$ y $x-y=0$ con dos puntos por recta. Lee el cruce y comprueba las dos condiciones."
+      }
+    }
+  ],
+  "diagnostico": [
+    {
+      "pregunta": "¿Cuál es la coordenada horizontal en $(3,-2)$?",
+      "opciones": [
+        "−2",
+        "3",
+        "1"
+      ],
+      "correcta": 1,
+      "pista": "El orden es (x,y).",
+      "explicacion": "La primera coordenada, x=3, es horizontal.",
+      "errores": [
+        "−2 es la vertical.",
+        "",
+        "No debes sumar las coordenadas."
+      ],
+      "leccion": "tabla"
+    },
+    {
+      "pregunta": "Si $x+y=6$, entonces y es…",
+      "opciones": [
+        "$6-x$",
+        "$x-6$",
+        "$6+x$"
+      ],
+      "correcta": 0,
+      "pista": "Resta x a ambos miembros.",
+      "explicacion": "$y=6-x$.",
+      "errores": [
+        "",
+        "Invertiste el orden de la resta.",
+        "Debes restar x, no sumarlo."
+      ],
+      "leccion": "tabla"
+    },
+    {
+      "pregunta": "Un punto que está en las dos rectas…",
+      "opciones": [
+        "solo cumple una ecuación.",
+        "no representa una solución.",
+        "cumple las dos ecuaciones."
+      ],
+      "correcta": 2,
+      "pista": "Cada recta representa los pares de una ecuación.",
+      "explicacion": "Pertenecer a ambas significa satisfacer ambas condiciones.",
+      "errores": [
+        "Está en las dos.",
+        "Es precisamente una solución común.",
+        ""
+      ],
+      "leccion": "interseccion"
+    }
+  ],
+  "cierre": [
+    {
+      "pregunta": "Para $y=2x-1$, el punto correspondiente a $x=-1$ es…",
+      "opciones": [
+        "(-1,-3)",
+        "(-1,1)",
+        "(-3,-1)"
+      ],
+      "correcta": 0,
+      "pista": "Calcula 2(−1)−1.",
+      "explicacion": "y=−3; el par es (−1,−3).",
+      "errores": [
+        "",
+        "2(−1)−1=−3.",
+        "Invertiste el orden."
+      ],
+      "leccion": "tabla"
+    },
+    {
+      "pregunta": "Las rectas $y=x+2$ y $y=-x+4$ se cruzan en…",
+      "opciones": [
+        "(2,1)",
+        "(1,3)",
+        "(3,1)"
+      ],
+      "correcta": 1,
+      "pista": "Compara ambos valores de y para x=1.",
+      "explicacion": "$1+2=3$ y $-1+4=3$: (1,3) pertenece a ambas.",
+      "errores": [
+        "No cumple y=x+2.",
+        "",
+        "No cumple y=x+2."
+      ],
+      "leccion": "interseccion"
+    },
+    {
+      "pregunta": "Dos ecuaciones de la misma recta tienen…",
+      "opciones": [
+        "cero soluciones.",
+        "una solución.",
+        "infinitas soluciones comunes."
+      ],
+      "correcta": 2,
+      "pista": "Comparten todos los puntos de la recta.",
+      "explicacion": "Cada punto de esa recta cumple las dos ecuaciones.",
+      "errores": [
+        "Sí comparten puntos.",
+        "Comparten más de un punto.",
+        ""
+      ],
+      "leccion": "interseccion"
+    }
+  ],
+  "cierreIntroduccion": "Resuelve primero en tu cuaderno. Comprueba cada par en las dos ecuaciones y explica el procedimiento antes de consultar la respuesta.",
+  "retosCierre": [
+    "Traza dos rectas con una escala uniforme y explica qué significa su cruce.",
+    "Dibuja un ejemplo de rectas paralelas y otro de coincidentes; explica sus soluciones."
+  ],
+  "puenteAnterior": {
+    "titulo": "Conecta con el subtema anterior",
+    "descripcion": "Repasa la base que necesitas. Las respuestas se conservan durante esta sesión.",
+    "tema": "t1-sistemas-bases",
+    "leccion": "comun"
+  }
+}

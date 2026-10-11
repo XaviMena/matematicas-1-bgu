@@ -77,6 +77,8 @@
 [data-theme=dark] .practice-question[data-result=incorrect] .answer-feedback,
 [data-theme=dark] .practice-question[data-result=incorrect] .answer-options label:has(input:checked) { background:#38232b; color:#fecdd3; border-color:#78404e; }
 
+.base-check { display:grid; gap:1rem; margin-top:1.25rem; }
+.practice-question:has(input:disabled) .answer-options label { cursor:default; }
 .learning-block { margin:2rem 0; padding-top:1.5rem; border-top:2px solid var(--border-color); }
 .learning-block h4 { color:var(--secondary); font-size:1.15rem; }
 .learning-block .worked-example { margin-top:1rem; }
