@@ -110,7 +110,7 @@ async function main() {
       });
       const filename=`trimestre-${trimester.numero}-tema-${group.numero}.pdf`;
       const output=path.join(root,'assets/pdf',filename);
-      await page.pdf({path:output,format:'A4',printBackground:true,displayHeaderFooter:true,headerTemplate:'<span></span>',footerTemplate:`<div style="font:8px Arial;width:100%;padding:0 17mm;color:#54677a;display:flex;justify-content:space-between"><span>Matemáticas 1.º BGU · Tema ${group.numero}</span><span><span class="pageNumber"></span> / <span class="totalPages"></span></span></div>`});
+      await page.pdf({path:output,format:'A4',printBackground:true,displayHeaderFooter:true,headerTemplate:'<span></span>',footerTemplate:`<div style="font:8px Arial;width:100%;padding:0 17mm;color:#54677a;display:flex;justify-content:space-between;gap:12px"><span>Matemáticas 1.º BGU · Tema ${group.numero}</span><span>Docente: Xavier Mena Paredes</span><span><span class="pageNumber"></span> / <span class="totalPages"></span></span></div>`});
       const hash=crypto.createHash('sha256').update(fs.readFileSync(output)).digest('hex').slice(0,12);
       catalog[group.id]={url:`assets/pdf/${filename}?v=${hash}`,filename};
       console.log(`${filename}: ${solutions.length} soluciones, ${fs.statSync(output).size} bytes`);

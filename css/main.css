@@ -694,3 +694,4 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 .topic-actions:has([hidden]) { display: none; }
 #topic-download { text-decoration: none; min-height: 44px; white-space: normal; }
 #topic-download[hidden] { display: none; }
+.footer-credit { margin-top: 0.5rem; font-size: 0.75rem; font-weight: 400; }
