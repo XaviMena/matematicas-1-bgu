@@ -126,6 +126,18 @@ function renderCourseLocation() {
   const trim = curriculumData.trimestres.find(t => t.id === currentTrimesterId);
   if (!el) return;
   el.innerHTML = context ? `<span>${context.trimester.nombre}</span><span aria-hidden="true"> / </span><span>Tema ${context.group.numero}</span><span aria-hidden="true"> / </span><strong>Subtema ${context.topic.numero} · ${context.topic.titulo}</strong>` : `<strong>${trim.nombre}</strong>`;
+  const download = document.getElementById('topic-download');
+  const pdf = context && window.PDF_CATALOG?.[context.group.id];
+  download.hidden = !pdf;
+  if (pdf) {
+    download.href = pdf.url;
+    download.download = pdf.filename;
+    download.textContent = `↓ Descargar tema ${context.group.numero} en PDF`;
+    download.setAttribute('aria-label', `Descargar tema ${context.group.numero} completo en PDF: ${context.group.titulo}. Incluye todos sus subtemas y soluciones.`);
+  } else {
+    download.removeAttribute('href');
+    download.removeAttribute('download');
+  }
 }
 
 function renderEmptyTrimester(trim) {

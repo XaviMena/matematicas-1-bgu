@@ -11,6 +11,21 @@ En el primer trimestre:
 
 Las notas para el docente están en `docs/metodologia-docente.md`. El libro delimita contenidos de referencia; la secuencia, las explicaciones y los ejercicios se adaptan para construir las bases antes de avanzar. Los trimestres 2 y 3 se muestran como pendientes.
 
+## Descargar cada tema en PDF
+
+El botón **Descargar tema en PDF**, sobre el contenido, descarga el tema completo seleccionado: los tres subtemas del tema 1 o los cinco del tema 2, incluida su evaluación formativa. Las guías contienen diagnósticos, explicaciones, ejemplos, actividades de cuaderno, práctica y cierres, con respuestas y pistas al final. Los gráficos son versiones fijas de los exploradores de la página. La descarga no recoge respuestas ni progreso del estudiante y no necesita generar el documento en su dispositivo.
+
+Los archivos publicados están en `assets/pdf/`. Un único generador utiliza los JSON fuente y KaTeX para conservar la notación matemática. Después de modificar contenidos, regenerar **antes de publicar** (Node.js, Playwright y Google Chrome instalados):
+
+```sh
+node scripts/build-pdfs.cjs
+python3 scripts/sync-data.py
+```
+
+Playwright puede estar instalado en el proyecto o disponible mediante `NODE_PATH`. La generación necesita conexión para cargar la misma versión de KaTeX que la página. `js/pdf-catalog.js` se regenera con las rutas y versiones de los archivos; el botón se oculta en trimestres sin temas preparados.
+
+Revisión de coherencia del tema 2 con el tema 1 (11 de octubre de 2026): ambos usan la misma interfaz y la secuencia diagnóstico → bases → explicación y ejemplo → práctica con apoyo → cierre. Los métodos del tema 2 se apoyan en operaciones, fracciones y distributiva del tema 1; se comprobaron los destinos de los enlaces de repaso, las respuestas de los ejercicios y los ejemplos de sistemas. El tema 2 incorpora comprobación en ambas ecuaciones y actividades de cuaderno. Su primera lección añade dos preguntas obligatorias de base antes de mostrar la explicación; esa diferencia se conserva. Las guías impresas presentan esas preguntas antes del desarrollo y remiten al solucionario para el refuerzo.
+
 ## Vista local
 
 Desde esta carpeta:
